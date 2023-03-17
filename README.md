@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# PixiDreams Blog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
 
-## Available Scripts
+PixiDreams is a movie blog that provides news & reviews of the latest in animated movies.
 
-In the project directory, you can run:
+Our blog will also provide pportunities for interactivity where visitors can comment or like a blog post, possibly recommend updates for more content.
 
-### `npm start`
+## User Stories
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+As a user (blogger) I want to be able to register
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+As a user (blogger) I want to be able to login
 
-### `npm test`
+As a user (blogger) I want to be able to signout
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+As a user (blogger) I want to create a blog
 
-### `npm run build`
+As a user (blogger) I want to update a blog
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+As a user (blogger) I want to delete a blog
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+As a user (blogger) I want to upload an image
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+As a user (visitor) I want to comment on the blog
 
-### `npm run eject`
+As a user (visitor) I want to be able to “like” a blog
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+As a user (visitor) I want to like a comment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+As a user (visitor) I want to be able to see a history of blog posts
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+As a user (visitor) I want to sign up for newsletters
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## ERD
 
-## Learn More
+[<img src="https://i.imgur.com/gT4DDgg.jpg" />](https://lucid.app/lucidchart/03541913-63d1-478b-8f7b-f2cb409c6ab1/edit?invitationId=inv_df5359b9-daa5-458b-892e-673bad4e59b5&page=0_0#)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## PixiDreams Deck
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[<img src="https://i.imgur.com/4S4DRBk.png" />](https://docs.google.com/presentation/d/1IZUIAVTM1FLfjuf5lWfg2Vk0M2wfEd3aU0wBiySwook/edit#slide=id.p)
 
-### Code Splitting
+## Trello
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[<img src="https://i.imgur.com/RqG4k9T.png" />](https://trello.com/b/nCLcdmbK/pixidreams-p3)
 
-### Analyzing the Bundle Size
+## Figma
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[<img src="https://i.imgur.com/o7fPTuE.png"/>](https://www.figma.com/file/UlAZUewHI8CobzZqqQxpoY/PixiDreams---P3?node-id=0-1&t=8TzbLYFZGzQwX3V3-0)
