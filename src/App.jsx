@@ -5,10 +5,13 @@ import About from "./components/About";
 import Movies from "./components/Movies";
 import News from "./components/News";
 import Login from "./components/Auth/Login";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <div className="App">
+      <Navbar />
+      <Home />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
