@@ -15,6 +15,4 @@ Client.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Hi Steph!
-
 export default Client;
