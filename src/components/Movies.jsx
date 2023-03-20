@@ -30,7 +30,7 @@ const Movies = () => {
         <div id="body">
           {" "}
           {/* WHITE */}
-          <section id="historyContainer">
+          <section className="contentContainer">
             <h2>BLOG HISTORY</h2>
             <div id="blogHistory">{/* BLOG HISTORY LIST */}</div>
           </section>

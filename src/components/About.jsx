@@ -10,8 +10,8 @@ const About = () => {
         <div id="body">
           {" "}
           {/* WHITE */}
-          <section id="teamContainer">
-            <h2 id="teamTitle">Meet the PixiDreams Team!</h2>
+          <section className="contentContainer">
+            <h2 id="teamTitle">MEET THE PixiDreams TEAM!</h2>
 
             <div className="teamBlurb">
               <h2 className="memberName">Toni</h2>

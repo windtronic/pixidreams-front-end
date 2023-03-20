@@ -13,13 +13,15 @@ const Navbar = () => {
     <div id="navbar">
 
         <div id="centerLinks">
-             <Link to="/">Home</Link>
-             <Link to="/about">About</Link>
-             <Link to="/movies">Movies</Link>
-             <Link to="/news">News</Link>
+          {/* <Link to="/Learn" element={<Learn/>}><button className="navBtn" id="learnBtn">learn</button></Link> */}
+             <Link to="/" element={<Home/>}><button className='navBtn'>HOME</button></Link>
+             <Link to="/Movies" element={<Movies/>}><button className='navBtn'>MOVIES</button></Link>
+             <Link to="/News" element={<News/>}><button className='navBtn'>NEWS</button></Link>
+             <Link to="/About" element={<About/>}><button className='navBtn'>ABOUT</button></Link>
         </div>
-        <div id="rightLinks">
-             <Link to="/login">Login</Link>
+        <div id="rightLink">
+             <Link to="/LoginModal" element={<LoginModal/>}><button className='navBtn'>LOGIN</button></Link>
+
         </div>
 
     </div>

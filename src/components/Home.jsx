@@ -7,7 +7,7 @@ const Home = () => {
         <div id="body">
           {" "}
           {/* WHITE */}
-          <section id="introContainer">
+          <section className="contentContainer">
             <h2 id="introTitle">About PixiDreams</h2>
             <img></img>
             <h3 id="aboutBlurb">

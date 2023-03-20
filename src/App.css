@@ -1,4 +1,4 @@
-/* @import url('FONTURL'); */
+@import url("https://fonts.googleapis.com/css2?family=Boogaloo&family=Bubblegum+Sans&display=swap" rel="stylesheet");
 
 
 .App {
@@ -6,6 +6,7 @@
   font-family: 'Philosopher', sans-serif;
   font-style: bold;
   text-align: center;
+  font-family: 'Boogaloo';
 }
 
 
@@ -23,14 +24,7 @@
   justify-content: center;
 }
 
-#body{
-  max-width: 750px;
-  min-width: 350px;
-  background-color: #f5f5f5;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-}
+
 
 #header{
   background-color: #6edcc4;
@@ -38,9 +32,55 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: large;
+  font-size:80px;
+  }
 
+
+
+#navbar{
+  background-color: #2c2c2c;
+  color: #f5f5f5;
+  min-height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  }
+  
+#rightLink{
+  margin-right: 35px;
+  position: absolute;
+  right: 0;
+} 
+
+
+
+
+
+  .navBtn{
+    font-family: 'Boogaloo';
+    background-color: #2c2c2c;
+    border: none;
+    color: #f5f5f5;
+    font-size: 25px;
+    margin-left: 10px;
+  }
+
+
+#body{
+  width: 750px;
+  min-width: 350px;
+  background-color: #f5f5f5;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
+
+
+
 
 #footer{
   background-color: #982a0d;
@@ -53,13 +93,6 @@
 }
 
 
-#navbar{
-  background-color: #2c2c2c;
-  color: #f5f5f5;
-  min-height: 30px;
-  display: flex;
-  align-items: center;
-}
 
   /* #header,          
   #navBar, 
