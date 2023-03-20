@@ -6,9 +6,21 @@ const Movies = () => {
 
   useEffect(() => {
     const getContent = async (req, res) => {
-      const content = await Client.get("/");
+      const content = await Client.get(`/api/posts`);
+      console.log(content);
+      setContent(content);
     };
-  });
+    getContent();
+  }, []);
+
+  // useEffect(() => {
+  //   const createContent = async (req, res) => {
+  //     const content = await Client.post(`/api/posts/${req.id}`);
+  //     console.log(content);
+  //     setContent(content);
+  //   };
+  //   createContent();
+  // }, []);
 
   return <div>Movies</div>;
 };
