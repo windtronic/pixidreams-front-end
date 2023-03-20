@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Client from "../services/api";
-
 const BlogCreate = (props) => {
   const [createBlog, setCreateBlog] = useState([]);
   const [formData, setFormData] = useState({ title: "", content: "" });
@@ -12,7 +11,7 @@ const BlogCreate = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await Client.post(`/api/posts`, formData);
-    console.log(response.data);
+    console.log(response.data.title);
     setCreateBlog(response.data);
   };
 
