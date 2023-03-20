@@ -1,4 +1,32 @@
 const WritersPortal = () => {
+  const [movieContent, setMovieContent] = useState([]);
+
+  // useEffect(() => {
+  //   const getContent = async (req, res) => {
+  //     const content = await Client.get(`/api/posts`);
+  //     console.log(content);
+  //     setMovieContent(content.data);
+  //   };
+  //   getContent();
+  // }, []);
+
+  const getContent = () => {
+    Client.get(`/api/posts`).then((getContent) => {
+      setMovieContent(getContent.data);
+    });
+  };
+
+  // Call getContent() to reload page
+  useEffect(() => {
+    getContent();
+  }, []);
+
+  const handleDelete = (id) => {
+    Client.delete(`/api/posts/${id}`).then(() => {
+      getContent();
+    });
+  };
+
   return (
     <div>
       <div id="pageContainer">
