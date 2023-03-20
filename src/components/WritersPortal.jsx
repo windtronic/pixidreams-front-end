@@ -1,27 +1,33 @@
 import { useEffect, useState } from "react";
 import Client from "../services/api";
-import { useNavigate } from "react-router-dom";
-import BlogDelete from "./BlogDelete";
-import refresh from "./BlogDelete";
 
 const WritersPortal = () => {
   const [movieContent, setMovieContent] = useState([]);
 
-  let navigate = useNavigate();
+  // useEffect(() => {
+  //   const getContent = async (req, res) => {
+  //     const content = await Client.get(`/api/posts`);
+  //     console.log(content);
+  //     setMovieContent(content.data);
+  //   };
+  //   getContent();
+  // }, []);
 
+  const getContent = () => {
+    Client.get(`/api/posts`).then((getContent) => {
+      setMovieContent(getContent.data);
+    });
+  };
+
+  // Call getContent() to reload page
   useEffect(() => {
-    const getContent = async (req, res) => {
-      const content = await Client.get(`/api/posts`);
-      console.log(content);
-      setMovieContent(content.data);
-    };
     getContent();
   }, []);
 
   const handleDelete = (id) => {
-    Client.delete(`/api/posts/${id}`);
-    const content = Client.get(`/api/posts`);
-    setMovieContent(content.data);
+    Client.delete(`/api/posts/${id}`).then(() => {
+      getContent();
+    });
   };
 
   return (
@@ -36,10 +42,9 @@ const WritersPortal = () => {
             <div id="bloggerWelcomeMsg">Welcome BLOGGER NAME</div>
             <div id="bloggerPostList">
               <div>
-                {movieContent.map((movie) => {
-                  console.log(movie.id);
+                {movieContent.map((movie, index) => {
                   return (
-                    <div id="blogHistory">
+                    <div id="blogHistory" key={index}>
                       <div>
                         <span>
                           <img src={movie.image} alt="poster" />
