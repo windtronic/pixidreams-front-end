@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import Client from "../services/api";
+
 const WritersPortal = () => {
   const [movieContent, setMovieContent] = useState([]);
 
@@ -38,10 +41,34 @@ const WritersPortal = () => {
           <section id="portalContainer">
             <div id="bloggerWelcomeMsg">Welcome BLOGGER NAME</div>
             <div id="bloggerPostList">
-              <h2 className="bloggerPostTitle">BLOG POST TITLE HERE</h2>{" "}
-              {/* ONCLICK TO VIEW BLOG */} {/* SHOULD THESE BE LINKS??? */}
-              <button className="bloggerBtns">EDIT</button>
-              <button className="bloggerBtns">DELETE</button>
+              <div>
+                {movieContent.map((movie, index) => {
+                  return (
+                    <div id="blogHistory" key={index}>
+                      <div>
+                        <span>
+                          <img src={movie.image} alt="poster" />
+                        </span>
+                      </div>
+                      <div>
+                        <span>Title: {movie.title}</span>
+                      </div>
+                      <div>
+                        <span>Synopsis: {movie.synopsis}</span>
+                      </div>
+                      <div>
+                        <button className="bloggerBtns">EDIT</button>
+                        <button
+                          className="bloggerBtns"
+                          onClick={() => handleDelete(movie.id)}
+                        >
+                          DELETE
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </section>
         </div>
