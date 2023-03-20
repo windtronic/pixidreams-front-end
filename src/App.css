@@ -1,38 +1,75 @@
+/* @import url('FONTURL'); */
+
+
 .App {
+  background-color: #E3DDDD;
+  font-family: 'Philosopher', sans-serif;
+  font-style: bold;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* PAGE FORMATTING */
+
+#header,
+#navbar,
+#pageContainer,
+#footer {
+  margin: 0 auto;
+  max-width: 1100px;
+  min-width:550px;
+  background-color: #e4673f;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#body{
+  max-width: 700px;
+  min-width: 350px;
+  background-color: #f5f5f5 ;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#header{
+  background-color: #44e5c3;
+  min-height: 90px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: large;
+
 }
 
-.App-link {
-  color: #61dafb;
+#footer{
+  background-color: #982a0d;
+  min-height: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+#introContainer{
+  justify-self: center;
 }
+
+
+
+  /* #header,          
+  #navBar, 
+  #titleSpacer,        /**/
+  /* #titleContainer,     */
+  /* #footer, 
+  .pageContainer,     
+  #accPageContainer,  
+  .redirectContainer   */ 
+
+
+
+
+  /* COLOR PALETTE
+  e4673f = ORANGE
+  982a0d = RED
+  21997f = DARK GREEN
+  44e5c3 = LIGHT GREEN
+  d9d9d9 = GREEN
+  f5f5f5 = 'WHITE'
+  2c2c2c = 'BLACK'
+  */
