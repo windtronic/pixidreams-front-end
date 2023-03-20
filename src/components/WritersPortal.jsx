@@ -19,6 +19,7 @@ const WritersPortal = () => {
     });
   };
 
+  // Call getContent() to reload page
   useEffect(() => {
     getContent();
   }, []);
