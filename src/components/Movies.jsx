@@ -37,7 +37,7 @@ const Movies = () => {
                 return (
                   <div id="blogHistory">
                     <div>
-                      <span>{movie.image}</span>
+                      <img src={movie.image} />
                     </div>
                     <div>
                       <span>Title: {movie.title}</span>
