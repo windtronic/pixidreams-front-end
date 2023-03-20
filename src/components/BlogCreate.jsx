@@ -6,8 +6,7 @@ const BlogCreate = () => {
   const [formData, setFormData] = useState({ title: '', content: '' });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({ ...prevState, [name]: value }));
+    setFormData({ ...formData, [e.target.id]: e.target.value });
   }
 
   const handleSubmit = async (e) => {
