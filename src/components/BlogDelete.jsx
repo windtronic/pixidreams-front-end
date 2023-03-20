@@ -1,11 +1,9 @@
-// import Client from '../services/api'
-// import { useNavigate } from 'react-router-dom'
+import Client from '../services/api'
 
+const BlogDelete = (id) => {
+  Client.delete(`/api/posts/${id}`)
+  console.log(id)
+}
 
-
-// const BlogDelete = (id) => {
-//   Client.delete(`/api/posts/${id}`)
-// }
-
-// export default BlogDelete;
+export default BlogDelete;
 
