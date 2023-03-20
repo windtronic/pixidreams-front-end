@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Client from "../services/api";
+import BlogCreate from "./BlogCreate";
 
 const WritersPortal = () => {
   const [movieContent, setMovieContent] = useState([]);
@@ -32,6 +34,7 @@ const WritersPortal = () => {
 
   return (
     <div>
+    
       <div id="pageContainer">
         {" "}
         {/* ORANGE */}
@@ -57,6 +60,11 @@ const WritersPortal = () => {
                         <span>Synopsis: {movie.synopsis}</span>
                       </div>
                       <div>
+                        <button className="bloggerBtns">
+                          <Link to="/create" style={{ textDecoration: "none" }}>
+                            CREATE
+                          </Link>
+                        </button>
                         <button className="bloggerBtns">EDIT</button>
                         <button
                           className="bloggerBtns"
