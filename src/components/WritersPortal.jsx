@@ -1,8 +1,6 @@
-import BlogCreate from './BlogCreate'
 const WritersPortal = () => {
   return (
     <div>
-      <BlogCreate />
       <div id="pageContainer">
         {" "}
         {/* ORANGE */}
