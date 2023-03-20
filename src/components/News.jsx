@@ -4,17 +4,20 @@ import Client from "../services/api";
 
 const News = () => {
   const [movies, setMovies] = useState([]);
-  const [respPages, setRespPages] = useState(0);
+  const [totalPages, setTotalPages] = useState(1000);
+  const [totalResults, setTotalResults] = useState(20000);
+
+  let page = 1;
+  // const animationId = 16; TMDB genre id for animated movies
 
   useEffect(() => {
     const getMovies = async () => {
       const response = await Client.get(
-        `${BASE_URL}api_key=${process.env.REACT_APP_TMDB_KEY}`
+        `${BASE_URL}api_key=${process.env.REACT_APP_TMDB_KEY}&page=${page}`
       );
       //console.log(response.data.results);
       //console.log(response.data.total_pages);
       setMovies(response.data.results);
-      setRespPages(response.data.total_pages);
     };
     getMovies();
   }, []);
