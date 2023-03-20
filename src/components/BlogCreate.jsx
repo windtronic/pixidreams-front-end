@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Client from "../services/api";
 
-const BlogCreate = () => {
+const BlogCreate = (props) => {
   const [createBlog, setCreateBlog] = useState([]);
-  const [formData, setFormData] = useState({ title: '', content: '' });
+  const [formData, setFormData] = useState({ title: "", content: "" });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,9 +20,20 @@ const BlogCreate = () => {
     <div className="BlogCreate">
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
-        <input type="text" id="title" name="title" value={formData.title} onChange={handleChange} />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+        />
         <label htmlFor="content">Content:</label>
-        <textarea id="content" name="content" value={formData.content} onChange={handleChange} />
+        <textarea
+          id="content"
+          name="content"
+          value={formData.content}
+          onChange={handleChange}
+        />
         <button type="submit">Create Blog Post</button>
       </form>
       {createBlog && (
@@ -36,4 +47,3 @@ const BlogCreate = () => {
 };
 
 export default BlogCreate;
-
