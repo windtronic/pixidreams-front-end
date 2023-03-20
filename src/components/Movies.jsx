@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import Client from "../services/api";
 
 const Movies = () => {
-  const [getContent, setContent] = useState([]);
+  const [moveieContent, setMovieContent] = useState([]);
 
   useEffect(() => {
     const getContent = async (req, res) => {
       const content = await Client.get(`/api/posts`);
       console.log(content);
-      setContent(content);
+      setMovieContent(content.data);
     };
     getContent();
   }, []);
@@ -32,7 +32,25 @@ const Movies = () => {
           {/* WHITE */}
           <section id="historyContainer">
             <h2>BLOG HISTORY</h2>
-            <div id="blogHistory">{/* BLOG HISTORY LIST */}</div>
+            <div>
+              {moveieContent.map((movie) => {
+                return (
+                  <div id="blogHistory">
+                    <div>
+                      <span>
+                        <img src={movie.image} alt="poster" />
+                      </span>
+                    </div>
+                    <div>
+                      <span>Title: {movie.title}</span>
+                    </div>
+                    <div>
+                      <span>Synopsis: {movie.synopsis}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </section>
         </div>
       </div>
