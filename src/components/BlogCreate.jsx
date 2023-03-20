@@ -45,8 +45,11 @@ const BlogCreate = (props) => {
           onChange={handleChange}
         />
         <label htmlFor="image">Image Address</label>
-        <input type="text" value={formData.image}
-        onChange={handleChange} className="filetype" />
+        <textarea
+        id="image"
+        name="image"
+        value={formData.image}
+        onChange={handleChange} />
         {/* <img alt="preview image" src={image}/>  */}
         
         
