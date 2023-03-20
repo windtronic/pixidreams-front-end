@@ -19,19 +19,21 @@
   max-width: 1100px;
   min-width:550px;
   background-color: #e4673f;
+  display: flex;
+  justify-content: center;
 }
 
 #body{
-  max-width: 700px;
+  max-width: 750px;
   min-width: 350px;
-  background-color: #f5f5f5 ;
-  display: flex;
+  background-color: #f5f5f5;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 #header{
-  background-color: #44e5c3;
+  background-color: #6edcc4;
   min-height: 90px;
   display: flex;
   align-items: center;
@@ -51,6 +53,13 @@
 }
 
 
+#navbar{
+  background-color: #2c2c2c;
+  color: #f5f5f5;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+}
 
   /* #header,          
   #navBar, 
@@ -69,6 +78,7 @@
   982a0d = RED
   21997f = DARK GREEN
   44e5c3 = LIGHT GREEN
+  6edcc4
   d9d9d9 = GREEN
   f5f5f5 = 'WHITE'
   2c2c2c = 'BLACK'
