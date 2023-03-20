@@ -19,28 +19,57 @@ const News = () => {
     getMovies();
   }, []);
 
+
   return (
     <div>
-      <section>
-        <div>NEWS</div>
-      </section>
-      <section>
-        <div>
-          {movies.map((movie, index) => {
-            return (
-              <div key={index}>
-                <section>{movie.title}</section>
-                <section>
-                  <img src={POSTER_URL + movie.poster_path} alt="poster" />
-                </section>
-                <section>{movie.overview}</section>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-    </div>
-  );
-};
+      <div id='pageContainer'> {/* ORANGE */}
+        <div id='body'> {/* WHITE */}
 
-export default News;
+
+
+          <section id='newsContainer'>
+            <h2>Check out what's new in animationland!</h2>
+            <div id='newsFeed'>
+              {movies.map((movie, index) => {
+                return (
+                  <div key={index}>
+                    <section>{movie.title}</section>
+                    <section> <img src={POSTER_URL + movie.poster_path} alt="poster" /></section>
+                    <section>{movie.overview}</section>
+                  </div>
+                  );
+                })}
+            </div>
+          </section>
+
+
+
+        </div>
+      </div>
+    </div>
+)}
+
+    export default News;
+    
+//     <div>
+//       <section>
+//         <div>NEWS</div>
+//       </section>
+//       <section>
+//         <div>
+//           {movies.map((movie, index) => {
+//             return (
+//               <div key={index}>
+//                 <section>{movie.title}</section>
+//                 <section>
+//                   <img src={POSTER_URL + movie.poster_path} alt="poster" />
+//                 </section>
+//                 <section>{movie.overview}</section>
+//               </div>
+//             );
+//           })}
+//         </div>
+//       </section>
+//     </div>
+//   );
+// };
