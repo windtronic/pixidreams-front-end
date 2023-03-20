@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Client from "../services/api";
+import { useNavigate } from 'react-router-dom'
 
 const Movies = () => {
-  const [moveieContent, setMovieContent] = useState([]);
+  const [movieContent, setMovieContent] = useState([]);
 
   useEffect(() => {
     const getContent = async (req, res) => {
@@ -33,7 +34,7 @@ const Movies = () => {
           <section id="historyContainer">
             <h2>BLOG HISTORY</h2>
             <div>
-              {moveieContent.map((movie) => {
+              {movieContent.map((movie) => {
                 return (
                   <div id="blogHistory">
                     <div>
