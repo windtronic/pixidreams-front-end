@@ -18,6 +18,10 @@ export default function LoginModal() {
     setMessage("");
   }, [user, password]);
 
+  const closeModal = () => {
+    setModalState("none");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setUser("");
@@ -29,10 +33,8 @@ export default function LoginModal() {
     <section>
       <div className="modal" style={{ display: [modalState] }}>
         <div className="modal-content">
-          <span className="close-button">
-            <Link to="/" style={{ textDecoration: "none" }}>
-              &times;
-            </Link>
+          <span className="close-button" onClick={closeModal}>
+            &times;
           </span>
           <h1 className="login-greeting">Welcome! Please login!</h1>
 
@@ -59,8 +61,9 @@ export default function LoginModal() {
               // value={password}
               required
             />
+
             <button type="submit" className="btn-login">
-              <Link to="/WritersPortal">SignIn</Link>
+              <Link to="/WritersPortal">Sign</Link>
             </button>
           </form>
         </div>
