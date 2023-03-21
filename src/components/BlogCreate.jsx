@@ -14,12 +14,12 @@ const BlogCreate = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await Client.post(`/api/posts/${id}`, formData);
-    console.log(response.data.title);
+    console.log(response.data);
     setCreateBlog(response.data);
   };
 
   return (
-    <div className="BlogCreate">
+    <div cassName="BlogCreate">
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
         <input
