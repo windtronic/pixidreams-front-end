@@ -1,40 +1,17 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Client from "../services/api";
-import BlogCreate from "./BlogCreate";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 
-const WritersPortal = () => {
-  const [movieContent, setMovieContent] = useState([]);
+const WritersPortal = (props) => {
 
-  // useEffect(() => {
-  //   const getContent = async (req, res) => {
-  //     const content = await Client.get(`/api/posts`);
-  //     console.log(content);
-  //     setMovieContent(content.data);
-  //   };
-  //   getContent();
-  // }, []);
+  let navigate = useNavigate()
 
-  const getContent = () => {
-    Client.get(`/api/posts`).then((getContent) => {
-      setMovieContent(getContent.data);
-    });
-  };
-
-  // Call getContent() to reload page
-  useEffect(() => {
-    getContent();
-  }, []);
-
-  const handleDelete = (id) => {
-    Client.delete(`/api/posts/${id}`).then(() => {
-      getContent();
-    });
-  };
+  const showMovie = (index) => {
+    navigate(`${index}`)
+  }
 
   return (
     <div>
-    
       <div id="pageContainer">
         {" "}
         {/* ORANGE */}
@@ -45,7 +22,7 @@ const WritersPortal = () => {
             <div id="bloggerWelcomeMsg">Welcome BLOGGER NAME</div>
             <div id="bloggerPostList">
               <div>
-                {movieContent.map((movie, index) => {
+                {props.movieContent.map((movie, index) => {
                   return (
                     <div id="blogHistory" key={index}>
                       <div>
@@ -65,10 +42,10 @@ const WritersPortal = () => {
                             CREATE
                           </Link>
                         </button>
-                        <button className="bloggerBtns">EDIT</button>
+                        <button className="bloggerBtns" key={index} onClick={() => showMovie(index)}>EDIT</button>
                         <button
                           className="bloggerBtns"
-                          onClick={() => handleDelete(movie.id)}
+                          onClick={() => props.handleDelete(movie.id)}
                         >
                           DELETE
                         </button>
