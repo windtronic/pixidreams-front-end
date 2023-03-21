@@ -19,7 +19,7 @@ const BlogCreate = (props) => {
   };
 
   return (
-    <div cassName="BlogCreate">
+    <div className="BlogCreate">
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
         <input
