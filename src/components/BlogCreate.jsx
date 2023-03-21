@@ -3,9 +3,14 @@ import Client from "../services/api";
 
 const BlogCreate = (props) => {
   const [createBlog, setCreateBlog] = useState([]);
-  const [formData, setFormData] = useState({ title: "", synopsis: "", review: "", image: ""});
-  
-  let id = 5
+  const [formData, setFormData] = useState({
+    title: "",
+    synopsis: "",
+    review: "",
+    image: "",
+  });
+
+  let id = 5;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -46,14 +51,13 @@ const BlogCreate = (props) => {
 
         <label htmlFor="image">Image Address</label>
         <textarea
-        id="image"
-        name="image"
-        value={formData.image}
-        onChange={handleChange} />
+          id="image"
+          name="image"
+          value={formData.image}
+          onChange={handleChange}
+        />
         {/* <img alt="preview image" src={image}/>  */}
-        
-        
-        
+
         <button type="submit">Create Blog Post</button>
       </form>
       {createBlog && (

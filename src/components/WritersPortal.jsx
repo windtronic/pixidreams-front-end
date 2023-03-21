@@ -1,20 +1,19 @@
 import Client from "../services/api";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const WritersPortal = (props) => {
-
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const showMovie = (index) => {
-    navigate(`${index}`)
-  }
-  
+    navigate(`${index}`);
+  };
+
   return (
     <div>
       <div className="pageContainer">
         <div className="body">
-          <div className='pageTitle'>Welcome BLOGGER NAME</div>
+          <div className="pageTitle">Welcome BLOGGER NAME</div>
           <section className="contentContainer">
             <div id="bloggerPostList">
               <div>
@@ -38,7 +37,13 @@ const WritersPortal = (props) => {
                             CREATE
                           </Link>
                         </button>
-                        <button className="bloggerBtns" key={index} onClick={() => showMovie(index)}>EDIT</button>
+                        <button
+                          className="bloggerBtns"
+                          key={index}
+                          onClick={() => showMovie(index)}
+                        >
+                          EDIT
+                        </button>
                         <button
                           className="bloggerBtns"
                           onClick={() => props.handleDelete(movie.id)}
