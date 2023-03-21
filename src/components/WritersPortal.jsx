@@ -10,9 +10,6 @@ const WritersPortal = (props) => {
     navigate(`${index}`)
   }
 
-  const showMovie = (index) => {
-    navigate(`${index}`)
-  }
   
   return (
     <div>
