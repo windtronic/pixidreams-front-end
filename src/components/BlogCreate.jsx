@@ -3,9 +3,7 @@ import Client from "../services/api";
 
 const BlogCreate = (props) => {
   const [createBlog, setCreateBlog] = useState([]);
-  const [formData, setFormData] = useState({ title: "", synopsis: "", review: "", image: ""});
-  
-  let id = 5
+  const [formData, setFormData] = useState({ title: "", content: "" });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -13,8 +11,8 @@ const BlogCreate = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await Client.post(`/api/posts/${id}`, formData);
-    console.log(response.data.title);
+    const response = await Client.post(`/api/posts`, formData);
+    console.log(response.data);
     setCreateBlog(response.data);
   };
 
@@ -29,39 +27,19 @@ const BlogCreate = (props) => {
           value={formData.title}
           onChange={handleChange}
         />
-        <label htmlFor="synopsis">Synopsis:</label>
+        <label htmlFor="content">Content:</label>
         <textarea
-          id="synopsis"
-          name="synopsis"
-          value={formData.synopsis}
+          id="content"
+          name="content"
+          value={formData.content}
           onChange={handleChange}
         />
-        <label htmlFor="review">Review:</label>
-        <textarea
-          id="review"
-          name="review"
-          value={formData.review}
-          onChange={handleChange}
-        />
-
-        <label htmlFor="image">Image Address</label>
-        <textarea
-        id="image"
-        name="image"
-        value={formData.image}
-        onChange={handleChange} />
-        {/* <img alt="preview image" src={image}/>  */}
-        
-        
-        
         <button type="submit">Create Blog Post</button>
       </form>
       {createBlog && (
         <div>
           <h2>{createBlog.title}</h2>
-          <p>{createBlog.synopsis}</p>
-          <p>{createBlog.review}</p>
-          <p>{createBlog.image}</p>
+          <p>{createBlog.content}</p>
         </div>
       )}
     </div>

@@ -19,6 +19,10 @@ import BlogCreate from "./components/BlogCreate";
 const App = () => {
 
   const [movieContent, setMovieContent] = useState([]);
+  const [updateBlog, setUpdateBlog] = useState([]);
+  const [formData, setFormData] = useState({ title: "", image: "", synopsis: "", review: "" });
+
+
 
   const getContent = () => {
     Client.get(`/api/posts`).then((getContent) => {
@@ -36,6 +40,17 @@ const App = () => {
     });
   };
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (id) => {
+    id.preventDefault();
+    const response = await Client.put(`/api/posts/${id}`, formData);
+    console.log(id);
+    setUpdateBlog(response.data);
+  };
+
   return (
     <div className="App">
       <Header />
@@ -47,7 +62,7 @@ const App = () => {
         <Route path="/News" element={<News />}></Route>
         {/* <Route path ="/LoginModal" element={<LoginModal/>}></Route> */}
         <Route path="/WritersPortal" element={<WritersPortal movieContent={movieContent} handleDelete={handleDelete}/>}></Route>
-        <Route path="/WritersPortal/:index" element={<BlogUpdate movieContent={movieContent}/>}></Route>
+        <Route path="/WritersPortal/:index" element={<BlogUpdate movieContent={movieContent} updateBlog={updateBlog} handleSubmit={handleSubmit} handleChange={handleChange} formData={formData}/>}></Route>
         <Route path="/Create" element={<BlogCreate />}></Route>
         <Route path="/Login" element={<LoginModal />}></Route>
       </Routes>

@@ -6,10 +6,10 @@ const WritersPortal = (props) => {
 
   let navigate = useNavigate()
 
-  const showMovie = (index) => {
-    navigate(`${index}`)
+  const showMovie = (movie) => {
+    navigate(`${movie.id}`)
   }
-  
+
   return (
     <div>
       <div className="pageContainer">
@@ -18,9 +18,9 @@ const WritersPortal = (props) => {
           <section className="contentContainer">
             <div id="bloggerPostList">
               <div>
-                {props.movieContent.map((movie, index) => {
+                {props.movieContent.map((movie) => {
                   return (
-                    <div id="blogHistory" key={index}>
+                    <div id="blogHistory" key={movie.id}>
                       <div>
                         <span>
                           <img src={movie.image} alt="poster" />
@@ -33,12 +33,15 @@ const WritersPortal = (props) => {
                         <span>Synopsis: {movie.synopsis}</span>
                       </div>
                       <div>
+                        <span>Review: {movie.review}</span>
+                      </div>
+                      <div>
                         <button className="bloggerBtns">
                           <Link to="/create" style={{ textDecoration: "none" }}>
                             CREATE
                           </Link>
                         </button>
-                        <button className="bloggerBtns" key={index} onClick={() => showMovie(index)}>EDIT</button>
+                        <button className="bloggerBtns" key={movie.id} onClick={() => showMovie(movie)}>EDIT</button>
                         <button
                           className="bloggerBtns"
                           onClick={() => props.handleDelete(movie.id)}
