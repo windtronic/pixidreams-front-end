@@ -30,12 +30,12 @@ export default function LoginModal() {
       <div className="modal" style={{ display: [modalState] }}>
         <div className="modal-content">
           <span className="close-button">
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/" style={{ textDecoration: "none", color: 'black'}}>
               &times;
             </Link>
           </span>
-          <h1 className="login-greeting">Welcome! Please login!</h1>
-
+          <span className="login-greeting" style={{fontSize:'60px'}}>Welcome!</span><br></br>
+          <span style={{fontSize:'30px'}}>please sign in</span>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username"></label>
             <input
@@ -47,6 +47,7 @@ export default function LoginModal() {
               onChange={(e) => setUser(e.target.value)}
               // value={user}
               required
+              style={{marginTop: '20px'}}
             ></input>
 
             <label htmlFor="password"></label>
@@ -59,9 +60,8 @@ export default function LoginModal() {
               // value={password}
               required
             />
-            <button type="submit" className="btn-login">
-              <Link to="/WritersPortal">SignIn</Link>
-            </button>
+            <Link to="/WritersPortal"><button type="submit" className="btn-login">LOGIN</button></Link><br></br>
+            <span id='toRegister'>Don't have an account? Sign up<button className="btn-register" ><Link to='/Registration'>here!</Link></button></span>
           </form>
         </div>
       </div>
