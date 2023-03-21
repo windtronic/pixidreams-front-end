@@ -15,15 +15,7 @@ const WritersPortal = () => {
   //   getContent();
   // }, []);
 
-  const getContent = () => {
-    Client.get(`/api/posts`).then((getContent) => {
-      setMovieContent(getContent.data);
-    });
-  };
-
-  useEffect(() => {
-    getContent();
-  }, []);
+  let navigate = useNavigate();
 
   const handleDelete = (id) => {
     Client.delete(`/api/posts/${id}`).then(() => {
@@ -35,20 +27,19 @@ const WritersPortal = () => {
     <div>
       <div className="pageContainer">
         <div className="body">
-          <div className='pageTitle'>Welcome BLOGGER NAME</div>
+          <div className="pageTitle">Welcome BLOGGER NAME</div>
 
           <section className="contentContainer">
             <div id="bloggerPostList">
-
-              <div className='contentContainer'>
+              <div className="contentContainer">
                 {movieContent.map((movie, index) => {
                   return (
                     <div id="blogHistory" key={index}>
-                        <span>
-                          <img src={movie.image} alt="poster" />
-                        </span>
-                        <span>Title: {movie.title}</span>
-                        <span>Synopsis: {movie.synopsis}</span>
+                      <span>
+                        <img src={movie.image} alt="poster" />
+                      </span>
+                      <span>Title: {movie.title}</span>
+                      <span>Synopsis: {movie.synopsis}</span>
                       <div>
                         <button className="bloggerBtns">
                           <Link to="/create" style={{ textDecoration: "none" }}>
