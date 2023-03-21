@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-
 import About from "./components/About";
 import Movies from "./components/Movies";
 import News from "./components/News";
@@ -12,6 +11,7 @@ import Login from "./components/Auth/Login";
 import WritersPortal from "./components/WritersPortal";
 import LoginModal from "./components/LoginModal";
 import Footer from "./components/Footer";
+import BlogCreate from "./components/BlogCreate";
 
 const App = () => {
   return (
@@ -25,6 +25,7 @@ const App = () => {
         <Route path="/News" element={<News />}></Route>
         {/* <Route path ="/LoginModal" element={<LoginModal/>}></Route> */}
         <Route path="/WritersPortal" element={<WritersPortal />}></Route>
+        <Route path="/Create" element={<BlogCreate />}></Route>
         <Route path="/Login" element={<LoginModal />}></Route>
       </Routes>
       <Footer />
