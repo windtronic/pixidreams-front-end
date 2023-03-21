@@ -10,16 +10,16 @@ const WritersPortal = (props) => {
     navigate(`${index}`)
   }
 
+  const showMovie = (index) => {
+    navigate(`${index}`)
+  }
+  
   return (
     <div>
-      <div id="pageContainer">
-        {" "}
-        {/* ORANGE */}
-        <div id="body">
-          {" "}
-          {/* WHITE */}
-          <section id="portalContainer">
-            <div id="bloggerWelcomeMsg">Welcome BLOGGER NAME</div>
+      <div className="pageContainer">
+        <div className="body">
+          <div className='pageTitle'>Welcome BLOGGER NAME</div>
+          <section className="contentContainer">
             <div id="bloggerPostList">
               <div>
                 {props.movieContent.map((movie, index) => {

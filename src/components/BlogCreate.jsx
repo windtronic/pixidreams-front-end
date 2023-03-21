@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Client from "../services/api";
 
-
 const BlogCreate = (props) => {
   const [createBlog, setCreateBlog] = useState([]);
   const [formData, setFormData] = useState({ title: "", synopsis: "", review: "", image: ""});
@@ -44,6 +43,7 @@ const BlogCreate = (props) => {
           value={formData.review}
           onChange={handleChange}
         />
+
         <label htmlFor="image">Image Address</label>
         <textarea
         id="image"
