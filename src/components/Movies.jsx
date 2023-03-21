@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Client from "../services/api";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const Movies = () => {
   const [movieContent, setMovieContent] = useState([]);
@@ -32,11 +32,13 @@ const Movies = () => {
             <div>
               {movieContent.map((movie) => {
                 return (
-                  <div id="blogHistory">
+                  <div id="blogHistory" key={movie.id}>
                     <div>
-                      <span>
+                        <div>
+                      <Link to={`/MovieDetails/${movie.id}`}>
                         <img src={movie.image} alt="poster" />
-                      </span>
+                      </Link>
+                    </div>  
                     </div>
                     <div>
                       <span>Title: {movie.title}</span>

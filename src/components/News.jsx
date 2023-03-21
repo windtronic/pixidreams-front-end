@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BASE_URL, POSTER_URL } from "../globals";
 import Client from "../services/api";
 
+
 const News = () => {
   const [movies, setMovies] = useState([]);
   const [totalPages, setTotalPages] = useState(1000);
@@ -51,4 +52,4 @@ const News = () => {
 )}
 
     export default News;
-    
+   

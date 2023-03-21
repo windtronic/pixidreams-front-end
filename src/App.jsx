@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Movies from "./components/Movies";
+import MovieDetails from "./components/MovieDetails";
 import News from "./components/News";
 import Login from "./components/Auth/Login";
 import WritersPortal from "./components/WritersPortal";
@@ -44,6 +45,7 @@ const App = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/About" element={<About />}></Route>
         <Route path="/Movies" element={<Movies />}></Route>
+        <Route path="/MovieDetails/:id" element={<MovieDetails />} />
         <Route path="/News" element={<News />}></Route>
         {/* <Route path ="/LoginModal" element={<LoginModal/>}></Route> */}
         <Route path="/WritersPortal" element={<WritersPortal movieContent={movieContent} handleDelete={handleDelete}/>}></Route>
