@@ -25,13 +25,11 @@ const News = () => {
 
   return (
     <div>
-      <div id='pageContainer'> {/* ORANGE */}
-        <div id='body'> {/* WHITE */}
+      <div className='pageContainer'> 
+        <div className='body'> 
+        <span className="pageTitle">CHECK OUT THE LATEST IN ANIMATIONLAND!</span>
 
-
-
-          <section id='newsContainer'>
-            <h2>Check out what's new in animationland!</h2>
+          <section id='contentContainer'>
             <div id='newsFeed'>
               {movies.map((movie, index) => {
                 return (
@@ -54,25 +52,3 @@ const News = () => {
 
     export default News;
     
-//     <div>
-//       <section>
-//         <div>NEWS</div>
-//       </section>
-//       <section>
-//         <div>
-//           {movies.map((movie, index) => {
-//             return (
-//               <div key={index}>
-//                 <section>{movie.title}</section>
-//                 <section>
-//                   <img src={POSTER_URL + movie.poster_path} alt="poster" />
-//                 </section>
-//                 <section>{movie.overview}</section>
-//               </div>
-//             );
-//           })}
-//         </div>
-//       </section>
-//     </div>
-//   );
-// };
