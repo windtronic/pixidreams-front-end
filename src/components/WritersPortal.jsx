@@ -6,8 +6,8 @@ const WritersPortal = (props) => {
 
   let navigate = useNavigate()
 
-  const showMovie = (index) => {
-    navigate(`${index}`)
+  const showMovie = (movie) => {
+    navigate(`${movie.id}`)
   }
 
   return (

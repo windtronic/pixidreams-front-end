@@ -35,6 +35,7 @@ const App = () => {
   }, []);
 
   const handleDelete = (id) => {
+    console.log(id)
     Client.delete(`/api/posts/${id}`).then(() => {
       getContent();
     });
@@ -44,10 +45,11 @@ const App = () => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = async (id) => {
-    id.preventDefault();
-    const response = await Client.put(`/api/posts/${id}`, formData);
+  const handleSubmit = async (e, id) => {
+    e.preventDefault();
     console.log(id);
+    const response = await Client.put(`/api/posts/${id}`, formData);
+    
     setUpdateBlog(response.data);
   };
 
@@ -62,7 +64,7 @@ const App = () => {
         <Route path="/News" element={<News />}></Route>
         {/* <Route path ="/LoginModal" element={<LoginModal/>}></Route> */}
         <Route path="/WritersPortal" element={<WritersPortal movieContent={movieContent} handleDelete={handleDelete}/>}></Route>
-        <Route path="/WritersPortal/:index" element={<BlogUpdate movieContent={movieContent} updateBlog={updateBlog} handleSubmit={handleSubmit} handleChange={handleChange} formData={formData}/>}></Route>
+        <Route path="/WritersPortal/:id" element={<BlogUpdate movieContent={movieContent} updateBlog={updateBlog} handleSubmit={handleSubmit} handleChange={handleChange} formData={formData}/>}></Route>
         <Route path="/Create" element={<BlogCreate />}></Route>
         <Route path="/Login" element={<LoginModal />}></Route>
       </Routes>
