@@ -1,6 +1,6 @@
 import "./App.css";
-import { Routes, Route, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Routes, Route, useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState, } from "react";
 import Client from "./services/api";
 
 import Home from "./components/Home";
@@ -23,6 +23,7 @@ const App = () => {
   const [formData, setFormData] = useState({ title: "", image: "", synopsis: "", review: "" });
 
   const { id } = useParams()
+  let navigate = useNavigate()
 
   const getContent = () => {
     Client.get(`/api/posts`).then((getContent) => {
@@ -46,13 +47,11 @@ const App = () => {
   };
 
   const handleSubmit = async (e, id) => {
-    console.log(id)
     e.preventDefault();
-    console.log(id);
-    const response = await Client.put(`/api/posts/${id}`, formData);
-    console.log(id)
-    
-    setUpdateBlog(response.data);
+    Client.put(`/api/posts/${id}`, formData).then(() => {
+      navigate('/WritersPortal')
+      getContent()
+    })
   };
 
   return (
