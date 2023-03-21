@@ -43,6 +43,7 @@ const BlogCreate = (props) => {
           value={formData.review}
           onChange={handleChange}
         />
+
         <label htmlFor="image">Image Address</label>
         <textarea
         id="image"
@@ -68,4 +69,3 @@ const BlogCreate = (props) => {
 };
 
 export default BlogCreate;
-//test//
