@@ -7,9 +7,6 @@ const News = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1000);
 
-  const animationId = 16; // TMDB genre id for animated movies
-  const familyId = 10751; // TMDB genre id for family movies
-
   useEffect(() => {
     const getMovies = async () => {
       const response = await Client.get(
@@ -22,13 +19,9 @@ const News = () => {
   }, [page]);
 
   // filter for id's
-
   const filterGenreId = movies
     .filter((x) => x.genre_ids.includes(16))
     .filter((y) => y.genre_ids.includes(10751));
-  console.log(filterGenreId);
-  // const filterFamilyId = movies.filter((x) => x.genre_ids.includes(10751));
-  // console.log(filterFamilyId);
 
   return (
     <div>
