@@ -24,6 +24,7 @@ const Movies = () => {
 
   return (
     <div>
+<<<<<<< Updated upstream
       <div id="pageContainer">
         {" "}
         {/* ORANGE */}
@@ -33,6 +34,32 @@ const Movies = () => {
           <section className="contentContainer">
             <h2>BLOG HISTORY</h2>
             <div id="blogHistory">{/* BLOG HISTORY LIST */}</div>
+=======
+      <div className="pageContainer">
+        <div className="body">
+          <span className="pageTitle">BLOG HISTORY</span>
+
+          <section id="contentContainer">
+            <div>
+              {moveieContent.map((movie) => {
+                return (
+                  <div id="blogHistory">
+                    <div>
+                      <span>
+                        <img src={movie.image} alt="poster" />
+                      </span>
+                    </div>
+                    <div>
+                      <span>Title: {movie.title}</span>
+                    </div>
+                    <div>
+                      <span>Synopsis: {movie.synopsis}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+>>>>>>> Stashed changes
           </section>
         </div>
       </div>

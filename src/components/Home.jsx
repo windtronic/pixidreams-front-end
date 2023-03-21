@@ -1,6 +1,7 @@
 const Home = () => {
   return (
     <div>
+<<<<<<< Updated upstream
       <div id="pageContainer">
         {" "}
         {/* ORANGE */}
@@ -37,6 +38,31 @@ const Home = () => {
             <img className="latestPoster" alt=""></img>
             <img className="latestPoster" alt=""></img>
           </section>
+=======
+      <div className="pageContainer">
+        <div className="body">
+        <div className="homeTitle"><span>ABOUT</span></div>
+
+          <div className='contentContainer'>
+            <div>
+              <img></img>
+            </div>
+            <div id="homeBlurb">
+              <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum, dui nec elementum auctor, elit sem sodales tortor, at bibendum ante nunc a quam. Pellentesque pharetra turpis ac nibh molestie, id semper tellus suscipit. Praesent in accumsan mauris. Duis vel dignissim neque. Proin iaculis luctus commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent volutpat semper scelerisque. </h3>
+            </div>
+          </div>
+
+          <div className="homeTitle"><span>LATEST</span></div>
+
+          <div id="latestContainer">         {/* ONCLICK FUNCTION NEEDED */}
+            <div id='posterCard'><img className="latestPoster" alt="poster"></img></div> 
+            <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
+            <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
+            <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
+            <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
+            <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
+          </div>
+>>>>>>> Stashed changes
         </div>
       </div>
     </div>
