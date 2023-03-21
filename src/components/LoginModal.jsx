@@ -1,10 +1,9 @@
-export default function LoginModal(){
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
+export default function LoginModal() {
+  const userRef = useRef();
 
-<<<<<<< Updated upstream
-    
-}
-=======
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -71,4 +70,3 @@ export default function LoginModal(){
     </section>
   );
 }
->>>>>>> Stashed changes

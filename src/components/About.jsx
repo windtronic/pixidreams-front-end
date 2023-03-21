@@ -4,20 +4,9 @@ import Client from "../services/api";
 const About = () => {
   return (
     <div>
-<<<<<<< Updated upstream
-      <div id="pageContainer">
-        {" "}
-        {/* ORANGE */}
-        <div id="body">
-          {" "}
-          {/* WHITE */}
-          <section className="contentContainer">
-            <h2 id="teamTitle">MEET THE PixiDreams TEAM!</h2>
-=======
       <div className="pageContainer">
         <div className="body">
           <span className="pageTitle">MEET THE PIXIDREAMS TEAM!</span>
->>>>>>> Stashed changes
 
           <section className="contentContainer">
 

@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import Client from "../services/api";
 
 const Movies = () => {
-  const [getContent, setContent] = useState([]);
+  const [moveieContent, setMovieContent] = useState([]);
 
   useEffect(() => {
     const getContent = async (req, res) => {
       const content = await Client.get(`/api/posts`);
       console.log(content);
-      setContent(content);
+      setMovieContent(content.data);
     };
     getContent();
   }, []);
@@ -24,17 +24,6 @@ const Movies = () => {
 
   return (
     <div>
-<<<<<<< Updated upstream
-      <div id="pageContainer">
-        {" "}
-        {/* ORANGE */}
-        <div id="body">
-          {" "}
-          {/* WHITE */}
-          <section className="contentContainer">
-            <h2>BLOG HISTORY</h2>
-            <div id="blogHistory">{/* BLOG HISTORY LIST */}</div>
-=======
       <div className="pageContainer">
         <div className="body">
           <span className="pageTitle">BLOG HISTORY</span>
@@ -59,7 +48,6 @@ const Movies = () => {
                 );
               })}
             </div>
->>>>>>> Stashed changes
           </section>
         </div>
       </div>
