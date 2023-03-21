@@ -1,26 +1,12 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Client from "../services/api";
-import BlogCreate from "./BlogCreate";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const WritersPortal = () => {
-  const [movieContent, setMovieContent] = useState([]);
-
-  // useEffect(() => {
-  //   const getContent = async (req, res) => {
-  //     const content = await Client.get(`/api/posts`);
-  //     console.log(content);
-  //     setMovieContent(content.data);
-  //   };
-  //   getContent();
-  // }, []);
-
+const WritersPortal = (props) => {
   let navigate = useNavigate();
 
-  const handleDelete = (id) => {
-    Client.delete(`/api/posts/${id}`).then(() => {
-      getContent();
-    });
+  const showMovie = (index) => {
+    navigate(`${index}`);
   };
 
   return (
@@ -28,28 +14,39 @@ const WritersPortal = () => {
       <div className="pageContainer">
         <div className="body">
           <div className="pageTitle">Welcome BLOGGER NAME</div>
-
           <section className="contentContainer">
             <div id="bloggerPostList">
-              <div className="contentContainer">
-                {movieContent.map((movie, index) => {
+              <div>
+                {props.movieContent.map((movie, index) => {
                   return (
                     <div id="blogHistory" key={index}>
-                      <span>
-                        <img src={movie.image} alt="poster" />
-                      </span>
-                      <span>Title: {movie.title}</span>
-                      <span>Synopsis: {movie.synopsis}</span>
+                      <div>
+                        <span>
+                          <img src={movie.image} alt="poster" />
+                        </span>
+                      </div>
+                      <div>
+                        <span>Title: {movie.title}</span>
+                      </div>
+                      <div>
+                        <span>Synopsis: {movie.synopsis}</span>
+                      </div>
                       <div>
                         <button className="bloggerBtns">
                           <Link to="/create" style={{ textDecoration: "none" }}>
                             CREATE
                           </Link>
                         </button>
-                        <button className="bloggerBtns">EDIT</button>
                         <button
                           className="bloggerBtns"
-                          onClick={() => handleDelete(movie.id)}
+                          key={index}
+                          onClick={() => showMovie(index)}
+                        >
+                          EDIT
+                        </button>
+                        <button
+                          className="bloggerBtns"
+                          onClick={() => props.handleDelete(movie.id)}
                         >
                           DELETE
                         </button>
