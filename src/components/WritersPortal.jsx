@@ -1,5 +1,3 @@
-
-import Client from "../services/api";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 
@@ -38,6 +36,11 @@ const WritersPortal = (props) => {
                         <span>Synopsis: {movie.synopsis}</span>
                       </div>
                       <div>
+                        <button className="bloggerBtns">
+                          <Link to="/create" style={{ textDecoration: "none" }}>
+                            CREATE
+                          </Link>
+                        </button>
                         <button className="bloggerBtns" key={index} onClick={() => showMovie(index)}>EDIT</button>
                         <button
                           className="bloggerBtns"

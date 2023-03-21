@@ -14,6 +14,7 @@ import WritersPortal from "./components/WritersPortal";
 import LoginModal from "./components/LoginModal";
 import Footer from "./components/Footer";
 import BlogUpdate from "./components/BlogUpdate";
+import BlogCreate from "./components/BlogCreate";
 
 const App = () => {
 
@@ -47,6 +48,7 @@ const App = () => {
         {/* <Route path ="/LoginModal" element={<LoginModal/>}></Route> */}
         <Route path="/WritersPortal" element={<WritersPortal movieContent={movieContent} handleDelete={handleDelete}/>}></Route>
         <Route path="/WritersPortal/:index" element={<BlogUpdate movieContent={movieContent}/>}></Route>
+        <Route path="/Create" element={<BlogCreate />}></Route>
         <Route path="/Login" element={<LoginModal />}></Route>
       </Routes>
       <Footer />
