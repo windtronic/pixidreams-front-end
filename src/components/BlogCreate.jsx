@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Client from "../services/api";
 
-
 const BlogCreate = (props) => {
   const [createBlog, setCreateBlog] = useState([]);
   const [formData, setFormData] = useState({ title: "", synopsis: "", review: "", image: ""});
@@ -69,3 +68,4 @@ const BlogCreate = (props) => {
 };
 
 export default BlogCreate;
+//test//

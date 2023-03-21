@@ -25,14 +25,10 @@ const Movies = () => {
 
   return (
     <div>
-      <div id="pageContainer">
-        {" "}
-        {/* ORANGE */}
-        <div id="body">
-          {" "}
-          {/* WHITE */}
-          <section id="historyContainer">
-            <h2>BLOG HISTORY</h2>
+      <div className="pageContainer">
+        <div className="body">
+          <span className="pageTitle">BLOG HISTORY</span>
+          <section id="contentContainer">
             <div>
               {movieContent.map((movie) => {
                 return (

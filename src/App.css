@@ -1,10 +1,11 @@
-/* @import url('FONTURL'); */
+@import url("https://fonts.googleapis.com/css2?family=Boogaloo&family=Comfortaa:wght@300;400;500;600;700&display=swap");
 
+/* APP  ********************************************************/
 .App {
-  background-color: #e3dddd;
-  font-family: "Philosopher", sans-serif;
+  background-color: #f5f5f5;
   font-style: bold;
   text-align: center;
+  font-family: 'Boogaloo';
 }
 
 form {
@@ -82,27 +83,17 @@ button {
   cursor: pointer;
 }
 
-/* PAGE FORMATTING */
-
+/* PAGE  ******************************************************/
 #header,
 #navbar,
-#pageContainer,
+.pageContainer,
 #footer {
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 80vw;
   min-width: 550px;
   background-color: #e4673f;
   display: flex;
   justify-content: center;
-}
-
-#body {
-  max-width: 750px;
-  min-width: 350px;
-  background-color: #f5f5f5;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 #header {
@@ -111,24 +102,196 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: large;
+  font-size:80px;
+  color:#2c2c2c;
 }
 
-#footer {
-  background-color: #982a0d;
-  min-height: 25px;
-}
-
-#introContainer {
-  justify-self: center;
-}
 
 #navbar {
   background-color: #2c2c2c;
   color: #f5f5f5;
   min-height: 30px;
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+    .navBtn{
+      font-family: 'Boogaloo';
+      background-color: #2c2c2c;
+      border: none;
+      color: #f5f5f5;
+      font-size: 25px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    #rightLink{
+      margin-right: 40px;
+      position: absolute;
+      right: 0;
+    } 
+
+    
+.pageContainer{
+  min-height: 85vh;
+}
+
+.body {
+  width: 60vw;
+  min-width: 400px;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pageTitle{
+  font-size: 40px;
+  width: 60vw;
+  min-width: 400px;
+  margin-top: 30px;
+}
+
+.contentContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;  
+}
+
+
+
+
+/* LOGIN FORM **************************************************/
+input {
+  height: 2.3rem;
+  width: 20rem;
+  font-family: "Boogaloo";
+  font-style: italic;
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: #d9d9d9;
+  border: none;
+  margin-bottom: 20px;
+}
+
+
+.btn-login {
+  background-color: rgb(0, 0, 0);
+  width: 50%;
+  height: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: #982a0d;
+  border: none;
+  font-family: Boogaloo;
+  font-size: 30px;
+  color:#f5f5f5;
+  cursor: pointer;
+}
+
+.btn-register{
+  background-color: #f5f5f5;
+  border: none;
+  font-family: Boogaloo;
+  font-size: 25px;
+  text-decoration: underline;
+}
+.login-greeting {
+  margin-left: 2rem;
+}
+
+#toRegister{
+  font-size: 25px;
+
+}
+
+
+
+/* MODAL  *****************************************************/
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #f4f4f4;
+  margin: 20% auto;
+  padding: 20px;
+  width: 400px;
+  height: 350px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  border-radius: 10%;
+  
+}
+
+.close-button {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+}
+
+
+
+
+/* HOME PAGE ********************************************************/
+.homeTitle{
+  background-color: #21997f;
+  font-size: 30px;
+  margin-top: 50px;
+}
+
+#homeBlurb{
+  width: 70vh;
+  font-family: 'Comfortaa';
+}
+
+
+#latestContainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+#posterCard{
+  background-color: #d9d9d9;
+  height: 340px;
+  width: 250px;
+  margin:15px;
+
+}
+
+
+/* ABOUT PAGE *********************************************************/
+#memberImg{
+  height: 240px;
+  width: 240px;
+}
+
+.memberCard{
+  max-width:350px;
+  margin: 1vw;
+}
+#footer {
+  background-color: #982a0d;
+  min-height: 25px;
+}
+
+.memberBlurb{
+  font-family: 'Comfortaa';
+  font-weight: bold;
 }
 
 #blogHistory {
@@ -155,9 +318,8 @@ button {
   e4673f = ORANGE
   982a0d = RED
   21997f = DARK GREEN
-  44e5c3 = LIGHT GREEN
-  6edcc4
-  d9d9d9 = GREEN
+  6edcc4 = LIGHT GREEN
+  d9d9d9 = GREY
   f5f5f5 = 'WHITE'
   2c2c2c = 'BLACK'
   */

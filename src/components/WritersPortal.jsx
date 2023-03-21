@@ -8,33 +8,23 @@ const WritersPortal = (props) => {
   const showMovie = (index) => {
     navigate(`${index}`)
   }
-
+  
   return (
     <div>
-      <div id="pageContainer">
-        {" "}
-        {/* ORANGE */}
-        <div id="body">
-          {" "}
-          {/* WHITE */}
-          <section id="portalContainer">
-            <div id="bloggerWelcomeMsg">Welcome BLOGGER NAME</div>
+      <div className="pageContainer">
+        <div className="body">
+          <div className='pageTitle'>Welcome BLOGGER NAME</div>
+          <section className="contentContainer">
             <div id="bloggerPostList">
               <div>
                 {props.movieContent.map((movie, index) => {
                   return (
                     <div id="blogHistory" key={index}>
-                      <div>
                         <span>
                           <img src={movie.image} alt="poster" />
                         </span>
-                      </div>
-                      <div>
                         <span>Title: {movie.title}</span>
-                      </div>
-                      <div>
                         <span>Synopsis: {movie.synopsis}</span>
-                      </div>
                       <div>
                         <button className="bloggerBtns">
                           <Link to="/create" style={{ textDecoration: "none" }}>
