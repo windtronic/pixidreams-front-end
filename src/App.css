@@ -42,6 +42,10 @@ button {
   margin-left: 3rem;
 }
 
+.bloggerBtns {
+  cursor: pointer;
+}
+
 .login-greeting {
   margin-left: 3rem;
 }
@@ -290,6 +294,25 @@ input {
   font-weight: bold;
 }
 
+#blogHistory {
+  border: 2px solid;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#blogHistory:hover {
+  /* transform: scale(1.008); */
+  box-shadow: 0px 0px 5px 2px;
+}
+
+/* #header,          
+  #navBar, 
+  #titleSpacer,        /**/
+/* #titleContainer,     */
+/* #footer, 
+  .pageContainer,     
+  #accPageContainer,  
+  .redirectContainer   */
 
 /* COLOR PALETTE
   e4673f = ORANGE
