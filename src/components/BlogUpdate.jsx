@@ -39,7 +39,7 @@ const BlogUpdate = (props) => {
 
   return (
   <div>
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={(e) => props.handleSubmit(e, id)}>
     <label htmlFor="title">Title:</label>
         <input
           type="text"
@@ -54,7 +54,7 @@ const BlogUpdate = (props) => {
           type="text"
           id="synopsis"
           name="synopsis"
-          placeholder={movie.title}
+          placeholder={movie.synopsis}
           value={props.formData.synopsis}
           onChange={props.handleChange}
         />
