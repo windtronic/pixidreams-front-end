@@ -27,7 +27,6 @@ const Movies = () => {
       <div className="pageContainer">
         <div className="body">
           <span className="pageTitle">BLOG HISTORY</span>
-
           <section id="contentContainer">
             <div>
               {moveieContent.map((movie) => {

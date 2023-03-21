@@ -36,7 +36,6 @@ export default function LoginModal() {
           </span>
           <span className="login-greeting" style={{fontSize:'60px'}}>Welcome!</span><br></br>
           <span style={{fontSize:'30px'}}>please sign in</span>
-
           <form onSubmit={handleSubmit}>
             <label htmlFor="username"></label>
             <input
@@ -61,7 +60,6 @@ export default function LoginModal() {
               // value={password}
               required
             />
-
             <Link to="/WritersPortal"><button type="submit" className="btn-login">LOGIN</button></Link><br></br>
             <span id='toRegister'>Don't have an account? Sign up<button className="btn-register" ><Link to='/Registration'>here!</Link></button></span>
           </form>

@@ -1,5 +1,8 @@
-const BlogDelete = () => {
-  return <div></div>;
-};
+// import Client from '../services/api'
 
-export default BlogDelete;
+// const BlogDelete = (id) => {
+//   Client.delete(`/api/posts/${id}`)
+//   console.log(id)
+// }
+
+// export default BlogDelete;
