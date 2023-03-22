@@ -54,15 +54,13 @@ const BlogCreate = (props) => {
                   value={formData.review}
                   onChange={handleChange}
                 /><br></br>
-
                 <label htmlFor="image">Image Address</label>
                 <textarea
                 id="image"
                 name="image"
                 value={formData.image}
                 onChange={handleChange} /><br></br>
-                {/* <img alt="preview image" src={image}/>  */}
-
+                {/* <img alt="preview image" src={image}/>  */}        
                 <button type="submit">PUBLISH</button>
               </form>
               {createBlog && (
