@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MovieDetails from "./MovieDetails";
 
 const Home = ({ movieContent }) => {
   const [movies, setMovies] = useState([]);
@@ -18,7 +19,7 @@ const Home = ({ movieContent }) => {
   }, [movieContent]);
 
   const showDetails = (index) => {
-    navigate(`${index}`);
+    navigate(`/Movies/${index}`);
   };
 
   return (
