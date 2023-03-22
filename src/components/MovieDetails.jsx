@@ -69,7 +69,8 @@ const handleSubmit = (event) => {
                   <div>
                     <span>Likes: {movie.likes}</span>
                     <button onClick={handleLikeClick}>
-                      {likes} {likes === 1 ? "like" : "like"}
+                      {comment.likes} 
+                      {comment.likes === 1 ? "likes" : "like"}
                     </button>
                   </div>
                   <div>
