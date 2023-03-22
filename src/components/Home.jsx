@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home = ({ movieContent }) => {
   const [movies, setMovies] = useState([]);
+  const [count, setCount] = useState(0);
 
   let navigate = useNavigate();
 
@@ -14,13 +15,7 @@ const Home = ({ movieContent }) => {
       }
     };
     getSelectedMovie();
-  }, [movieContent, movies]);
-
-  // for (let i = 0; i < 6; i++) {
-  //   moviesArray.push(movies[i]);
-  // }
-
-  console.log(movies);
+  }, [movieContent]);
 
   const showDetails = (index) => {
     navigate(`${index}`);
@@ -75,24 +70,17 @@ const Home = ({ movieContent }) => {
           <div id="latestContainer" style={{ marginBottom: "50px" }}>
             {" "}
             {/* ONCLICK FUNCTION NEEDED */}
-            <div id="posterCard">
-              <img className="latestPoster" alt="poster"></img>
-            </div>
-            <div id="posterCard">
-              <img className="latestPoster" alt="poster"></img>
-            </div>
-            <div id="posterCard">
-              <img className="latestPoster" alt="poster"></img>
-            </div>
-            <div id="posterCard">
-              <img className="latestPoster" alt="poster"></img>
-            </div>
-            <div id="posterCard">
-              <img className="latestPoster" alt="poster"></img>
-            </div>
-            <div id="posterCard">
-              <img className="latestPoster" alt="poster"></img>
-            </div>
+            {movies
+              .map((movie, index) => (
+                <div id="posterCard" key={index} onClick={showDetails}>
+                  <img
+                    src={movie.image}
+                    className="latestPoster"
+                    alt="poster"
+                  ></img>
+                </div>
+              ))
+              .slice(0, 6)}
           </div>
         </div>
       </div>
