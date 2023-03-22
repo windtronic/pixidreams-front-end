@@ -1,6 +1,6 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Routes, Route, useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState, } from "react";
 import Client from "./services/api";
 
 import Home from "./components/Home";
@@ -18,6 +18,11 @@ import BlogCreate from "./components/BlogCreate";
 
 const App = () => {
   const [movieContent, setMovieContent] = useState([]);
+  const [updateBlog, setUpdateBlog] = useState([]);
+  const [formData, setFormData] = useState({ title: "", image: "", synopsis: "", review: "" });
+
+  const { id } = useParams()
+  let navigate = useNavigate()
 
   const getContent = () => {
     Client.get(`/api/posts`).then((getContent) => {
@@ -30,9 +35,22 @@ const App = () => {
   }, []);
 
   const handleDelete = (id) => {
+    console.log(id)
     Client.delete(`/api/posts/${id}`).then(() => {
       getContent();
     });
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e, id) => {
+    e.preventDefault();
+    Client.put(`/api/posts/${id}`, formData).then(() => {
+      navigate('/WritersPortal')
+      getContent()
+    })
   };
 
   return (
@@ -45,19 +63,8 @@ const App = () => {
         <Route path="/Movies" element={<Movies />}></Route>
         <Route path="/News" element={<News />}></Route>
         {/* <Route path ="/LoginModal" element={<LoginModal/>}></Route> */}
-        <Route
-          path="/WritersPortal"
-          element={
-            <WritersPortal
-              movieContent={movieContent}
-              handleDelete={handleDelete}
-            />
-          }
-        ></Route>
-        <Route
-          path="/WritersPortal/:index"
-          element={<BlogUpdate movieContent={movieContent} />}
-        ></Route>
+        <Route path="/WritersPortal" element={<WritersPortal movieContent={movieContent} handleDelete={handleDelete}/>}></Route>
+        <Route path="/WritersPortal/:id" element={<BlogUpdate movieContent={movieContent} updateBlog={updateBlog} handleSubmit={handleSubmit} handleChange={handleChange} formData={formData}/>}></Route>
         <Route path="/Create" element={<BlogCreate />}></Route>
         <Route path="/Login" element={<LoginModal />}></Route>
       </Routes>
