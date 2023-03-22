@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Client from "../services/api";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const Movies = () => {
   const [movieContent, setMovieContent] = useState([]);
@@ -14,26 +14,17 @@ const Movies = () => {
     getContent();
   }, []);
 
-  // useEffect(() => {
-  //   const createContent = async (req, res) => {
-  //     const content = await Client.post(`/api/posts/${req.id}`);
-  //     console.log(content);
-  //     setContent(content);
-  //   };
-  //   createContent();
-  // }, []);
-
   return (
     <div>
       <div className="pageContainer">
         <div className="body">
           <span className="pageTitle">BLOG HISTORY</span>
-          
+
           <section id="contentContainer">
             <div>
-              {movieContent.map((movie) => {
+              {movieContent.map((movie, index) => {
                 return (
-                  <div id="blogHistory">
+                  <div id="blogHistory" key={index}>
                     <div>
                       <span>
                         <img src={movie.image} alt="poster" />
