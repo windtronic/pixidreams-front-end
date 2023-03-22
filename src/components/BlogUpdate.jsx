@@ -1,15 +1,13 @@
-import { useEffect, useState } from "react"
-import { useParams } from 'react-router-dom'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Client from "../services/api";
 
 const BlogUpdate = (props) => {
- 
-
   // const [updateBlog, setUpdateBlog] = useState([]);
   // const [formData, setFormData] = useState({ title: "", image: "", synopsis: "", review: "" });
-  const [movie, setMovie] = useState('')
+  const [movie, setMovie] = useState("");
 
-  let { id } = useParams()
+  let { id } = useParams();
   // let id = 4
 
   useEffect(() => {
@@ -17,12 +15,12 @@ const BlogUpdate = (props) => {
       if (props.movieContent && props.movieContent[id]) {
         let selectedMovie = props.movieContent.find(
           (movie) => movie.id === parseInt(id)
-        )
-        setMovie(selectedMovie)
+        );
+        setMovie(selectedMovie);
       }
-    }
-    getSelectedMovie()
-  }, [props.movieContent])
+    };
+    getSelectedMovie();
+  }, [props.movieContent]);
 
   // const handleChange = (e) => {
   //   setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -36,9 +34,9 @@ const BlogUpdate = (props) => {
   // };
 
   return (
-  <div>
-    <form onSubmit={(e) => props.handleSubmit(e, id)}>
-    <label htmlFor="title">Title:</label>
+    <div>
+      <form onSubmit={(e) => props.handleSubmit(e, id)}>
+        <label htmlFor="title">Title:</label>
         <input
           type="text"
           id="title"
@@ -47,7 +45,7 @@ const BlogUpdate = (props) => {
           value={props.formData.title}
           onChange={props.handleChange}
         />
-    <label htmlFor="synopsis">Synopsis:</label>
+        <label htmlFor="synopsis">Synopsis:</label>
         <input
           type="text"
           id="synopsis"
@@ -56,7 +54,7 @@ const BlogUpdate = (props) => {
           value={props.formData.synopsis}
           onChange={props.handleChange}
         />
-    <label htmlFor="review">Review:</label>
+        <label htmlFor="review">Review:</label>
         <input
           type="text"
           id="review"
@@ -65,15 +63,15 @@ const BlogUpdate = (props) => {
           value={props.formData.review}
           onChange={props.handleChange}
         />
-      <button type="submit">Update</button>
-    </form>
-    <div>
-          <h2>{props.updateBlog.title}</h2>
-          <p>{props.updateBlog.synopsis}</p>
-          <p>{props.updateBlog.review}</p>
-        </div>
-  </div>
-  )
+        <button type="submit">Update</button>
+      </form>
+      <div>
+        <h2>{props.updateBlog.title}</h2>
+        <p>{props.updateBlog.synopsis}</p>
+        <p>{props.updateBlog.review}</p>
+      </div>
+    </div>
+  );
 };
 
 export default BlogUpdate;

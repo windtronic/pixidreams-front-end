@@ -19,32 +19,19 @@ const Movies = () => {
     getContent();
   }, []);
 
-  // useEffect(() => {
-  //   const createContent = async (req, res) => {
-  //     const content = await Client.post(`/api/posts/${req.id}`);
-  //     console.log(content);
-  //     setContent(content);
-  //   };
-  //   createContent();
-  // }, []);
-
   return (
     <div>
       <div className="pageContainer">
         <div className="body">
           <span className="pageTitle">BLOG HISTORY</span>
-          
+
           <section id="contentContainer">
             <div>
-              {movieContent.map((movie) => {
+              {movieContent.map((movie, index) => {
                 return (
                   <div id="blogHistory" key={movie.id} onClick={() => showMovie(movie)}>
                     <div>
-                        
-                      
                         <img src={movie.image} alt="poster" />
-                      
-                   
                     </div>
                     <div>
                       <span>Title: {movie.title}</span>
