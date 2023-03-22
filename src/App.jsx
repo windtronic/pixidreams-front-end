@@ -66,10 +66,7 @@ const App = () => {
         <Route path="/" element={<Home movieContent={movieContent} />}></Route>
         <Route path="/About" element={<About />}></Route>
         <Route path="/Movies" element={<Movies />}></Route>
-        <Route
-          path="/Movies/:id"
-          element={<MovieDetails movieContent={movieContent} />}
-        />
+        <Route path="/Movies/:id" element={<MovieDetails movieContent={movieContent} />} />
         <Route path="/News" element={<News />}></Route>
         {/* <Route path ="/LoginModal" element={<LoginModal/>}></Route> */}
         <Route
@@ -102,3 +99,4 @@ const App = () => {
 };
 
 export default App;
+

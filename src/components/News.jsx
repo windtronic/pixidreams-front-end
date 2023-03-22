@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BASE_URL, POSTER_URL } from "../globals";
 import Client from "../services/api";
 
+
 const News = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
@@ -58,4 +59,5 @@ const News = () => {
   );
 };
 
-export default News;
+    export default News;
+    
