@@ -15,9 +15,11 @@ const MovieDetails = (props) => {
           (movie) => movie.id === parseInt(id)
         )
         setMovie(selectedMovie)
+        console.log(selectedMovie)
       }
     }
     getSelectedMovie()
+     
   }, [props.movieContent])
 
 
@@ -26,7 +28,7 @@ const MovieDetails = (props) => {
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    // Do something with the comment, like sending it to a server or updating state
+  
     console.log('Submitted comment:', singleComment);
   };
 
@@ -45,20 +47,17 @@ const handleSubmit = (event) => {
 
 
 
-
-    const displayComments = () => {
-      Client.get(`/api/comments/view/${id}`).then((displayComments) => {
-        setSingleComment(displayComments.data)
-      })
-      
-    } 
-    displayComments()
-    console.log(singleComment)
+const displayComments = () => {
+  Client.get(`/api/comments/view/${id}`).then((response) => {
+    setSingleComment(response.data)
+  })
   
-    useEffect(() => {
-      displayComments()
-    }, [])
+} 
 
+
+useEffect(() => {
+  displayComments()
+}, [id])
   
 
   
@@ -75,16 +74,18 @@ const handleSubmit = (event) => {
           <span className="pageTitle">Movie Details</span>
           <section id="contentContainer">
           <div>
-
-          {singleComment.map((singleComment) => {
-        
-        
-                <div key={singleComment.id}>
-                  <div>
-                    <span>Review: {movie.review}</span>
+             <span>Review: {movie.review}</span>
                   </div>
                   <div>
                     <span>Likes: {movie.likes}</span>
+          
+          
+          {singleComment.map((singleComment) => {
+             return (
+        
+                <div key={singleComment.id}>
+                  <div>
+                  
                     {/* <button onClick={handleLikeClick}>
                       {comment.likes} 
                       {comment.likes === 1 ? "likes" : "like"}
@@ -99,16 +100,16 @@ const handleSubmit = (event) => {
                       Add Comment:
                       <input
                         type="text"
-                        value={singleComment}
+                        value={singleComment.comment}
                         onChange={handleChange}
                       />
                     </label>
                     <button type="submit">Submit</button>
-                    <p>Comment: {singleComment}</p>
+                    <p>Comment: {singleComment.comment}</p>
                   </form>
                 </div>
-             
-              })}   
+             )
+               })}    
             </div>
           </section>
         </div>
