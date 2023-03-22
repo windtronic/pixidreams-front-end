@@ -6,10 +6,15 @@ const MovieDetails = (props) => {
   const { id } = useParams();
   const [movie, setMovie] = useState([]);
   const [singleComment, setSingleComment] = useState([]);
-  const [createComment, setCreateComment] = useState([])
+  const [createComment, setCreateComment] = useState([]);
   const [likes, setLikes] = useState(0);
 
- 
+  const [formData, setFormData] = useState({
+    comment: "",
+    likes: 0,
+    userId: props.movieContent.userId,
+    contentId: id,
+  });
 
   useEffect(() => {
     const getSelectedMovie = async () => {
@@ -24,28 +29,30 @@ const MovieDetails = (props) => {
     getSelectedMovie();
   }, [props.movieContent]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    console.log("Submitted comment:", singleComment);
-  };
-
   const handleChange = (event) => {
     event.preventDefault();
-    setSingleComment(event.target.value);
+    setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
   function handleLikeClick() {
     setLikes((prevLikes) => prevLikes + 1);
   }
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const response = await Client.post(`/api/comments/${id}`, formData);
+    setSingleComment(response.data);
+
+    console.log("Submitted comment:", singleComment);
+  };
+
   //  const singleComment = Client.get(`/api/comments/`)
   //  console.log(singleComment)
 
   const displayComments = () => {
     Client.get(`/api/comments/view/${id}`).then((response) => {
-      setSingleComment(response.data)
-      setCreateComment(response.data)
+      setSingleComment(response.data);
+      setCreateComment(response.data);
     });
   };
 
@@ -70,13 +77,11 @@ const MovieDetails = (props) => {
             </div>
             <div>
               <form onSubmit={handleSubmit}>
-                <label htmlFor="comment">
-                  Add Comment: 
-                </label>
+                <label htmlFor="comment">Add Comment:</label>
                 <input
                   type="text"
                   id="comment"
-                  value={singleComment.comment}
+                  value={formData.comment}
                   onChange={handleChange}
                 />
                 <br />
@@ -91,7 +96,9 @@ const MovieDetails = (props) => {
                   </div>
                   <div>
                     <button onClick={() => handleLikeClick(comment)}>
-                      {comment.likes === 1 ? "1 like" : `${comment.likes} likes`}
+                      {comment.likes === 1
+                        ? "1 like"
+                        : `${comment.likes} likes`}
                     </button>
                   </div>
                 </div>
@@ -107,8 +114,6 @@ const MovieDetails = (props) => {
       </div>
     </div>
   );
-  
-  
-              } 
+};
 
 export default MovieDetails;
