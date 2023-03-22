@@ -6,6 +6,7 @@ const MovieDetails = (props) => {
   const { id } = useParams();
   const [movie, setMovie] = useState([]);
   const [singleComment, setSingleComment] = useState([]);
+  const [createComment, setCreateComment] = useState([])
   const [likes, setLikes] = useState(0);
 
  
@@ -43,7 +44,8 @@ const MovieDetails = (props) => {
 
   const displayComments = () => {
     Client.get(`/api/comments/view/${id}`).then((response) => {
-      setSingleComment(response.data);
+      setSingleComment(response.data)
+      setCreateComment(response.data)
     });
   };
 
@@ -59,49 +61,54 @@ const MovieDetails = (props) => {
           <section id="contentContainer">
             <div>
               <span>Review: {movie.review}</span>
-              </div>
+            </div>
             <div>
               <span>Likes: {movie.likes}</span>
-                <button onClick={handleLikeClick}>
-                     {movie.likes === 1 ? "likes" : "like"}
-                    </button>
-              </div>  
-            <div>
-              {singleComment.map((singleComment) => {
-                return (
-                  <div key={singleComment.id}>
-                   
-                    <div>
-                      <span>Comments:{singleComment.comment}</span>
-                    </div>
-                    <form onSubmit={handleSubmit}>
-                      <label htmlFor="comment">
-                        Add Comment: </label>
-                        <input
-                          type="text"
-                          id="comment"
-                          value={singleComment.comment}
-                          onChange={handleChange}
-                        /><br></br>
-                     
-                      <button type="submit">Submit</button>
-                      <p>Comment: {singleComment.comment}</p>
-                       <div>
-                      <button onClick={handleLikeClick}>
-                      {/* {singleComment.comment.likes}  */}
-                      {singleComment.likes === 1 ? "likes" : "like comment"}
-                    </button>
-                    </div>
-                    </form>
-                  </div>
-                );
-              })}
+              <button onClick={handleLikeClick}>
+                {movie.likes === 1 ? "likes" : "like"}
+              </button>
             </div>
+            <div>
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="comment">
+                  Add Comment: 
+                </label>
+                <input
+                  type="text"
+                  id="comment"
+                  value={singleComment.comment}
+                  onChange={handleChange}
+                />
+                <br />
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+            <div>
+              {singleComment.map((comment) => (
+                <div key={comment.id}>
+                  <div>
+                    <span>Comments: {comment.comment}</span>
+                  </div>
+                  <div>
+                    <button onClick={() => handleLikeClick(comment)}>
+                      {comment.likes === 1 ? "1 like" : `${comment.likes} likes`}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {createComment && (
+              <div>
+                <p>{createComment.comment}</p>
+              </div>
+            )}
           </section>
         </div>
       </div>
     </div>
   );
-};
+  
+  
+              } 
 
 export default MovieDetails;
