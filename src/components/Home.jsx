@@ -70,7 +70,6 @@ const Home = ({ movieContent }) => {
 
           <div id="latestContainer" style={{ marginBottom: "50px" }}>
             {" "}
-            {/* ONCLICK FUNCTION NEEDED */}
             {movies
               .map((movie, index) => (
                 <div

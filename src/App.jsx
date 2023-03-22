@@ -2,7 +2,6 @@ import "./App.css";
 import { Routes, Route, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Client from "./services/api";
-
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
