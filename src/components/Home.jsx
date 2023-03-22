@@ -72,7 +72,11 @@ const Home = ({ movieContent }) => {
             {/* ONCLICK FUNCTION NEEDED */}
             {movies
               .map((movie, index) => (
-                <div id="posterCard" key={index} onClick={showDetails}>
+                <div
+                  id="posterCard"
+                  key={index}
+                  onClick={() => showDetails(index)}
+                >
                   <img
                     src={movie.image}
                     className="latestPoster"
