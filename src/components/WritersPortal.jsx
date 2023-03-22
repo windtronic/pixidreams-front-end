@@ -1,21 +1,25 @@
 import Client from "../services/api";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const WritersPortal = (props) => {
-
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const showMovie = (index) => {
-    navigate(`${index}`)
-  }
-  
+    navigate(`${index}`);
+  };
+
   return (
     <div>
       <div className="pageContainer">
         <div className="body">
-          <div className='pageTitle'>Welcome BLOGGER NAME</div>
+          <div className='pageTitle'>WELCOME, USERNAME</div>
           <section className="contentContainer">
+          <button className="bloggerBtns">
+            <Link to="/create" style={{ textDecoration: "none" }}>
+              CREATE
+            </Link>
+          </button>
             <div id="bloggerPostList">
               <div>
                 {props.movieContent.map((movie, index) => {
@@ -33,11 +37,6 @@ const WritersPortal = (props) => {
                         <span>Synopsis: {movie.synopsis}</span>
                       </div>
                       <div>
-                        <button className="bloggerBtns">
-                          <Link to="/create" style={{ textDecoration: "none" }}>
-                            CREATE
-                          </Link>
-                        </button>
                         <button className="bloggerBtns" key={index} onClick={() => showMovie(index)}>EDIT</button>
                         <button
                           className="bloggerBtns"

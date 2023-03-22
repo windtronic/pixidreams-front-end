@@ -18,7 +18,6 @@ import BlogUpdate from "./components/BlogUpdate";
 import BlogCreate from "./components/BlogCreate";
 
 const App = () => {
-
   const [movieContent, setMovieContent] = useState([]);
 
   const getContent = () => {
@@ -48,8 +47,19 @@ const App = () => {
         <Route path="/MovieDetails/:id" element={<MovieDetails />} />
         <Route path="/News" element={<News />}></Route>
         {/* <Route path ="/LoginModal" element={<LoginModal/>}></Route> */}
-        <Route path="/WritersPortal" element={<WritersPortal movieContent={movieContent} handleDelete={handleDelete}/>}></Route>
-        <Route path="/WritersPortal/:index" element={<BlogUpdate movieContent={movieContent}/>}></Route>
+        <Route
+          path="/WritersPortal"
+          element={
+            <WritersPortal
+              movieContent={movieContent}
+              handleDelete={handleDelete}
+            />
+          }
+        ></Route>
+        <Route
+          path="/WritersPortal/:index"
+          element={<BlogUpdate movieContent={movieContent} />}
+        ></Route>
         <Route path="/Create" element={<BlogCreate />}></Route>
         <Route path="/Login" element={<LoginModal />}></Route>
       </Routes>
