@@ -34,7 +34,7 @@ const Movies = () => {
                 return (
                   <div id="blogHistory" key={movie.id}>
                     <div>
-                        <div>
+                        <div key={movie.id}>
                       <Link to={`/MovieDetails/${movie.id}`}>
                         <img src={movie.image} alt="poster" />
                       </Link>
