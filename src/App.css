@@ -20,14 +20,12 @@
   background-color: #e4673f;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 #header {
   background-color: #6edcc4;
   min-height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size:80px;
   color:#2c2c2c;
 }
@@ -37,11 +35,7 @@
   background-color: #2c2c2c;
   color: #f5f5f5;
   min-height: 30px;
-  display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  align-items: center;
   position: relative;
 }
 
@@ -62,17 +56,21 @@
     } 
 
     
-.pageContainer{
-  min-height: 85vh;
+.titleContainer{
+  width: 100px;
+
 }
 
 .body {
   width: 60vw;
   min-width: 400px;
+  max-width: 1100px;
   background-color: #f5f5f5;
   display: flex;
   align-items: center;
   flex-direction: column;
+  min-height: 85vh;
+
 }
 
 .pageTitle{
@@ -130,7 +128,7 @@ input {
 }
 
 .login-greeting {
-  margin-left: 3rem;
+  margin-left: 1.5rem;
 }
 
 #toRegister{
@@ -179,15 +177,23 @@ input {
 
 
 /* HOME PAGE ********************************************************/
+.titleContainer{
+  position: relative;
+
+}
+
 .homeTitle{
   background-color: #21997f;
   font-size: 30px;
   margin-top: 50px;
+  
+
 }
 
 #homeBlurb{
-  width: 70vh;
+  width: 37vw;
   font-family: 'Comfortaa';
+  justify-self: right;
 }
 
 

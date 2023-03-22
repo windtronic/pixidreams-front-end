@@ -17,7 +17,6 @@ import BlogUpdate from "./components/BlogUpdate";
 import BlogCreate from "./components/BlogCreate";
 
 const App = () => {
-
   const [movieContent, setMovieContent] = useState([]);
   const [updateBlog, setUpdateBlog] = useState([]);
   const [formData, setFormData] = useState({ title: "", image: "", synopsis: "", review: "" });
