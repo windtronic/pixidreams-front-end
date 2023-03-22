@@ -3,6 +3,11 @@ import Client from "../services/api";
 import { useNavigate, Link } from 'react-router-dom'
 
 const Movies = () => {
+  let navigate = useNavigate();
+
+  const showMovie = (movie) => {
+    navigate(`${movie.id}`)
+  }
   const [movieContent, setMovieContent] = useState([]);
 
   useEffect(() => {
@@ -33,13 +38,13 @@ const Movies = () => {
             <div>
               {movieContent.map((movie) => {
                 return (
-                  <div id="blogHistory" key={movie.id}>
+                  <div id="blogHistory" key={movie.id} onClick={() => showMovie(movie)}>
                     <div>
-                        <div key={movie.id}>
-                      <Link to={`/MovieDetails/${movie.id}`}>
+                        
+                      
                         <img src={movie.image} alt="poster" />
-                      </Link>
-                    </div>  
+                      
+                   
                     </div>
                     <div>
                       <span>Title: {movie.title}</span>

@@ -4,77 +4,94 @@ import Client from '../services/api';
 
 const MovieDetails = (props) => {
   const { id } = useParams();
-  const [movieDetails, setMovieDetails] = useState([]);
-  const [comment, setComment] = useState('');
+  const [movie, setMovie] = useState([])
+  const [singleComment, setSingleComment] = useState([]);
   const [likes, setLikes] = useState(0);
+
+  useEffect(() => {
+    const getSelectedMovie = async () => {
+      if (props.movieContent && props.movieContent[id]) {
+        let selectedMovie = props.movieContent.find(
+          (movie) => movie.id === parseInt(id)
+        )
+        setMovie(selectedMovie)
+      }
+    }
+    getSelectedMovie()
+  }, [props.movieContent])
+
+
+
+
 
 const handleSubmit = (event) => {
     event.preventDefault();
     // Do something with the comment, like sending it to a server or updating state
-    console.log('Submitted comment:', comment);
+    console.log('Submitted comment:', singleComment);
   };
 
    const handleChange = (event) => {
     event.preventDefault()
-    setComment(event.target.value);
+    setSingleComment(event.target.value);
   };
 
   
-  function handleLikeClick() {
-    setLikes((prevLikes) => prevLikes + 1);
-  }
+  // function handleLikeClick() {
+  //   setLikes((prevLikes) => prevLikes + 1);
+  // }
 
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await Client.get(`/api/posts/`);
-      setMovieDetails(data);
-      setLikes(data.likes);
+//  const singleComment = Client.get(`/api/comments/`)
+//  console.log(singleComment)
+
+
+
+
+    const displayComments = () => {
+      Client.get(`/api/comments/view/${id}`).then((displayComments) => {
+        setSingleComment(displayComments.data)
+      })
       
-    };
-    getData();
-  }, [id]);
-
-//   useEffect(() => {
-//     const displayComments = async () => {
-//       const comment = await Client.get(`/api/comments/`);
-//       console.log(comment)
-//       setComment(comment);
-//     };
+    } 
+    displayComments()
+    console.log(singleComment)
   
-//     displayComments();
-//   }, []);
+    useEffect(() => {
+      displayComments()
+    }, [])
 
-// const displayComments = async () => {
-//   try {
-//     const comment = await Client.get(`/api/comments/`);
-//     console.log(comment)
-//     setComment(comment);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
   
+
+  
+
+
+
+  
+
+ 
   return (
     <div>
       <div className="pageContainer">
         <div className="body">
           <span className="pageTitle">Movie Details</span>
           <section id="contentContainer">
-            {movieDetails.map((movie) => {
-              return (
-                <div key={movie.id}>
+          <div>
+
+          {singleComment.map((singleComment) => {
+        
+        
+                <div key={singleComment.id}>
                   <div>
                     <span>Review: {movie.review}</span>
                   </div>
                   <div>
                     <span>Likes: {movie.likes}</span>
-                    <button onClick={handleLikeClick}>
+                    {/* <button onClick={handleLikeClick}>
                       {comment.likes} 
                       {comment.likes === 1 ? "likes" : "like"}
-                    </button>
+                    </button> */}
                   </div>
                   <div>
-                    <span>Comments:{movie.comments}</span>
+                    <span>Comments:{singleComment.comment}</span>
                    
                   </div>
                   <form onSubmit={handleSubmit}>
@@ -82,21 +99,23 @@ const handleSubmit = (event) => {
                       Add Comment:
                       <input
                         type="text"
-                        value={comment}
+                        value={singleComment}
                         onChange={handleChange}
                       />
                     </label>
                     <button type="submit">Submit</button>
-                    <p>Comment: {comment}</p>
+                    <p>Comment: {singleComment}</p>
                   </form>
                 </div>
-              );
-            })}
+             
+              })}   
+            </div>
           </section>
         </div>
       </div>
     </div>
   );
+                  
 };
 
 export default MovieDetails;
