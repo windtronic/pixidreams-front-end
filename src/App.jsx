@@ -40,7 +40,7 @@ const App = () => {
       <Header />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home movieContent={movieContent} />}></Route>
         <Route path="/About" element={<About />}></Route>
         <Route path="/Movies" element={<Movies />}></Route>
         <Route path="/News" element={<News />}></Route>
