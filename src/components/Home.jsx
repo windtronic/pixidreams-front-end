@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Home = ({ movieContent }) => {
   const [movies, setMovies] = useState([]);
 
+  let moviesArray = [];
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -14,7 +15,13 @@ const Home = ({ movieContent }) => {
       }
     };
     getSelectedMovie();
-  }, [movieContent]);
+  }, [moviesArray, movieContent, movies]);
+
+  // for (let i = 0; i < 6; i++) {
+  //   moviesArray.push(movies[i]);
+  // }
+
+  console.log(moviesArray);
 
   const showDetails = (index) => {
     navigate(`${index}`);
@@ -50,7 +57,7 @@ const Home = ({ movieContent }) => {
             <span>LATEST</span>
           </div>
           <div className="latestContainer">
-            {movies.map((movie, index) => {
+            {moviesArray.map((movie, index) => {
               return (
                 <div
                   id="posterCard"
