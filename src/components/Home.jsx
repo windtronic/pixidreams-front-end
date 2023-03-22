@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 const Home = ({ movieContent }) => {
   const [movies, setMovies] = useState([]);
 
-  let moviesArray = [];
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -15,13 +14,13 @@ const Home = ({ movieContent }) => {
       }
     };
     getSelectedMovie();
-  }, [moviesArray, movieContent, movies]);
+  }, [movieContent, movies]);
 
   // for (let i = 0; i < 6; i++) {
   //   moviesArray.push(movies[i]);
   // }
 
-  console.log(moviesArray);
+  console.log(movies);
 
   const showDetails = (index) => {
     navigate(`${index}`);
@@ -64,6 +63,7 @@ const Home = ({ movieContent }) => {
               <img
                 src="https://wallpaper-house.com/data/out/8/wallpaper2you_278011.jpg"
                 style={{ width: "50vw" }}
+                alt="imagealttag"
               ></img>
             </div>
           </div>
