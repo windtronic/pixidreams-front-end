@@ -14,8 +14,13 @@ const WritersPortal = (props) => {
     <div>
       <div className="pageContainer">
         <div className="body">
-          <div className='pageTitle'>Welcome BLOGGER NAME</div>
+          <div className='pageTitle'>WELCOME, USERNAME</div>
           <section className="contentContainer">
+          <button className="bloggerBtns">
+            <Link to="/create" style={{ textDecoration: "none" }}>
+              CREATE
+            </Link>
+          </button>
             <div id="bloggerPostList">
               <div>
                 {props.movieContent.map((movie, index) => {
@@ -33,11 +38,7 @@ const WritersPortal = (props) => {
                         <span>Synopsis: {movie.synopsis}</span>
                       </div>
                       <div>
-                        <button className="bloggerBtns">
-                          <Link to="/create" style={{ textDecoration: "none" }}>
-                            CREATE
-                          </Link>
-                        </button>
+
                         <button className="bloggerBtns" key={index} onClick={() => showMovie(index)}>EDIT</button>
                         <button
                           className="bloggerBtns"

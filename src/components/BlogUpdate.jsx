@@ -1,24 +1,23 @@
-import { useEffect, useState } from "react"
-import { useParams } from 'react-router-dom'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Client from "../services/api";
 
 const BlogUpdate = (props) => {
+  const [movie, setMovie] = useState({ title: "" });
 
-  const [movie, setMovie] = useState('')
-
-  let { index } = useParams()
+  let { index } = useParams();
 
   useEffect(() => {
-    let selectedMovie = props.movieContent[index]
-    setMovie(selectedMovie)
-  }, [])
+    const getSelectedMovie = async () => {
+      if (props.movieContent && props.movieContent[index]) {
+        let selectedMovie = props.movieContent[index];
+        setMovie(selectedMovie);
+      }
+    };
+    getSelectedMovie();
+  }, [props.movieContent, index]);
 
-  console.log(movie.title)
-
-  return (
-  <div>
-    <h1>{movie.title}</h1>
-  </div>
-  )
+  return <div>{movie && <h1>{movie.title}</h1>}</div>;
 };
 
 export default BlogUpdate;
