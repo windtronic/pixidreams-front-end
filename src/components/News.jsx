@@ -31,22 +31,29 @@ const News = () => {
           CHECK OUT THE LATEST IN ANIMATIONLAND!
         </span>
 
-        <section id="contentContainer">
+        <section id="latestContainer" style={{ marginBottom: "50px" }}>
           <div id="newsResult">
             {filterGenreId.map((movie, index) => {
               return (
                 <div key={index}>
-                  <section>{movie.title}</section>
+                  <section>
+                    <h2>{movie.title}</h2>
+                  </section>
                   <section>
                     {" "}
                     <img
                       id="posterCard"
                       src={POSTER_URL + movie.poster_path}
                       alt="poster"
-                      style={{ width: "15vw" }}
+                      style={{ width: "20vw" }}
                     />
                   </section>
-                  <section id="newsBlurb">{movie.overview}</section>
+                  <section
+                    id="newsBlurb"
+                    style={{ textAlign: "left", marginRight: "1vw" }}
+                  >
+                    {movie.overview}
+                  </section>
                 </div>
               );
             })}
