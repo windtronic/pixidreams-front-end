@@ -25,7 +25,7 @@ const Home = ({ movieContent }) => {
     <div className="pageContainer">
       <div className="body">
         <div className="titleContainer">
-          <div className="homeTitle">
+          <div className="homeTitle" style={{marginTop: '50px'}}>
             <span>ABOUT</span>
           </div>
         </div>
@@ -56,7 +56,7 @@ const Home = ({ movieContent }) => {
         </div>
 
         <div className="titleContainer">
-          <div className="homeTitle" style={{ marginBottom: "30px" }}>
+          <div className="homeTitle" style={{marginTop: '50px'}}>
             <span>LATEST</span>
           </div>
         </div>

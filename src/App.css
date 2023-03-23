@@ -62,6 +62,7 @@
   align-items: center;
   flex-direction: column;
   min-height: 85vh;
+  padding-bottom: 50px;
 }
 
 .pageTitle {
@@ -69,7 +70,6 @@
   width: 60vw;
   min-width: 400px;
   margin-top: 30px;
-  margin-bottom: 20px;
 
 }
 
@@ -201,7 +201,7 @@ textarea {
 .homeTitle {
   background-color: #21997f;
   font-size: 30px;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   padding: 3px;
   padding-left: 20px;
   padding-right: 20px;
@@ -240,7 +240,7 @@ textarea {
 /* MOVIES  ******************************************************/
 
 #blogHistory {
-  border-bottom: 2px solid;
+  border-top: 2px solid;
   margin: 18px;
   display: flex;
 }
@@ -270,6 +270,9 @@ textarea {
   width: 240px;
 }
 
+.memberName{
+  background-color: #21997f;
+}
 .memberCard {
   max-width: 350px;
   margin: 1vw;
@@ -282,6 +285,8 @@ textarea {
 .memberBlurb {
   font-family: "Comfortaa";
   font-weight: bold;
+  background-color: #d9d9d9;
+  padding:15px;
 }
 
 /* COLOR PALETTE
