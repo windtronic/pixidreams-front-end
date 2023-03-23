@@ -69,7 +69,7 @@
   font-size: 40px;
   width:35vw;
   min-width: 400px;
-  margin-top: 30px;
+  margin-top: 40px;
 
 }
 
@@ -214,22 +214,22 @@ textarea {
   padding: 3px;
   padding-left: 20px;
   padding-right: 20px;
+
 }
 
 #homeBlurb {
-  width: 47vw;
+  width: 51vw;
   font-family: "Comfortaa";
   font-size: clamp(12px, 1.2vw, 16px);
+  text-align: right;
 }
 
-.welcomeBlurbContainer {
-  width: 50vw;
-
+.welcomeContainer {
+  width: 51vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: right;
-  /* margin-right: 4.7vw; */
+  justify-content: center;
 }
 
 #latestContainer {
@@ -237,6 +237,7 @@ textarea {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+
 }
 
 #latestPoster {
@@ -280,7 +281,26 @@ textarea {
   color: #f5f5f5;
   cursor: pointer;
 }
+.homeTitle{
+  background-color: #21997f;
+  padding:2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 28px;
+  /* margin-right: 10px;
+  margin-left: 10px; */
 
+
+  
+}
+.titleContainer{
+  justify-self: right;
+}
+#homeBody{
+  display: grid;
+  flex-direction: column;
+  justify-content: right;
+}
 /* NEWS PAGE **********************************************************/
 .newsTitle {
   background-color: #21997f;
