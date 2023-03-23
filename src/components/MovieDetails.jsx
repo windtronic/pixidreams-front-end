@@ -94,14 +94,15 @@ const MovieDetails = (props) => {
     <div>
       <div className="pageContainer">
         <div className="body">
-          <span className="pageTitle">Movie Details</span>
+          <span className="pageTitle">{movie.title}</span> <br></br>
           <section id="contentContainer">
             <div>
-              <span>Review: {movie.review}</span>
+              <span>Review: {movie.review}</span><br></br>
             </div>
             <div>
               <span>Likes: {reviewLike}</span>
               <button onClick={() => handleReviewLike()}>Like</button>
+
             </div>
             <div>
               <form onSubmit={handleSubmit}>

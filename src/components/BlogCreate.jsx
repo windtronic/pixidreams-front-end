@@ -24,67 +24,87 @@ const BlogCreate = (props) => {
   };
 
   return (
-<div className="pageContainer">
-        <div className="body">
-          
-          <div className='titleContainer'>
-            <div className="homeTitle" style={{fontSize: '35px', marginBottom:'30px'}}><span>CREATE NEW BLOG</span></div>
-          </div>
-
-
-          <div className="blogCreate">
-            
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="title" className='formTitles'>TITLE</label> <br></br><br></br>
-                <input 
-                  type="text"
-                  id="title"
-                  name="title"
-                  value={formData.title}
-                  onChange={handleChange}
-                  className='formInput'
-                /><br></br>
-
-                <label htmlFor="synopsis" className='formTitles'>SYNOPSIS</label> <br></br><br></br>
-                <textarea
-                  id="synopsis"
-                  name="synopsis"
-                  value={formData.synopsis}
-                  onChange={handleChange}
-                  className='formTextArea'
-                /><br></br>
-
-                <label htmlFor="review" className='formTitles'>REVIEW</label> <br></br><br></br>
-                <textarea
-                  id="review"
-                  name="review"
-                  value={formData.review}
-                  onChange={handleChange}
-                  className='formTextArea'
-                /><br></br>
-
-                <label htmlFor="image" className='formTitles'>IMAGE URL</label> <br></br><br></br>
-                <textarea
-                id="image"
-                name="image"
-                value={formData.image}
-                onChange={handleChange}
-                className='formTextArea'
-                /><br></br>
-
-                <button className="btn-login" id='btn-create' type="submit">PUBLISH</button>
-              </form>
-              {createBlog && (
-                <div>
-                  <h2>{createBlog.title}</h2>
-                  <p>{createBlog.synopsis}</p>
-                  <p>{createBlog.review}</p>
-                  <p>{createBlog.image}</p>
-                </div>
-              )}
+    <div className="pageContainer">
+      <div className="body">
+        <div className="titleContainer">
+          <div
+            className="homeTitle"
+            style={{ fontSize: "35px", marginBottom: "30px" }}
+          >
+            <span>CREATE NEW BLOG</span>
           </div>
         </div>
+
+        <div className="blogCreate">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="title" className="formTitles">
+              TITLE
+            </label>{" "}
+            <br></br>
+            <br></br>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+              className="formInput"
+            />
+            <br></br>
+            <label htmlFor="synopsis" className="formTitles">
+              SYNOPSIS
+            </label>{" "}
+            <br></br>
+            <br></br>
+            <textarea
+              id="synopsis"
+              name="synopsis"
+              value={formData.synopsis}
+              onChange={handleChange}
+              className="formTextArea"
+            />
+            <br></br>
+            <label htmlFor="review" className="formTitles">
+              REVIEW
+            </label>{" "}
+            <br></br>
+            <br></br>
+            <textarea
+              id="review"
+              name="review"
+              value={formData.review}
+              onChange={handleChange}
+              className="formTextArea"
+            />
+            <br></br>
+            <label htmlFor="image" className="formTitles">
+              IMAGE URL
+            </label>{" "}
+            <br></br>
+            <br></br>
+            <textarea
+              id="image"
+              name="image"
+              value={formData.image}
+              onChange={handleChange}
+              className="formTextArea"
+            />
+            <br></br>
+            <button className="btn-login" id="btn-create" type="submit">
+              PUBLISH
+            </button>
+          </form>
+          {createBlog && (
+            <div>
+              <h2>{createBlog.title}</h2>
+              <p>{createBlog.synopsis}</p>
+              <p>{createBlog.review}</p>
+              <p>{createBlog.image}</p>
+            </div>
+          )}
+        </div>
       </div>
+    </div>
   );
 };
 

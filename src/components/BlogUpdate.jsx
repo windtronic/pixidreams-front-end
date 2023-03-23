@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import Client from "../services/api";
 
 const BlogUpdate = (props) => {
-
   const [movie, setMovie] = useState('')
 
   let { id } = useParams()
@@ -21,41 +20,72 @@ const BlogUpdate = (props) => {
   }, [props.movieContent]);
 
   return (
-    <div>
-      <form onSubmit={(e) => props.handleSubmit(e, id)}>
-        <label htmlFor="title">Title:</label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          placeholder={movie.title}
-          value={props.formData.title}
-          onChange={props.handleChange}
-        />
-        <label htmlFor="synopsis">Synopsis:</label>
-        <input
-          type="text"
-          id="synopsis"
-          name="synopsis"
-          placeholder={movie.synopsis}
-          value={props.formData.synopsis}
-          onChange={props.handleChange}
-        />
-        <label htmlFor="review">Review:</label>
-        <input
-          type="text"
-          id="review"
-          name="review"
-          placeholder={movie.review}
-          value={props.formData.review}
-          onChange={props.handleChange}
-        />
-        <button type="submit">Update</button>
-      </form>
-      <div>
-        <h2>{props.updateBlog.title}</h2>
-        <p>{props.updateBlog.synopsis}</p>
-        <p>{props.updateBlog.review}</p>
+    <div className="pageContainer">
+      <div className="body">
+        <div className="titleContainer">
+          <div
+            className="homeTitle"
+            style={{ fontSize: "35px", marginBottom: "30px" }}
+          >
+            <span>EDIT BLOG</span>
+          </div>
+        </div>
+
+        <div className="blogCreate">
+          <form onSubmit={(e) => props.handleSubmit(e, id)}>
+            <label htmlFor="title" className="formTitles">
+              TITLE
+            </label>{" "}
+            <br></br>
+            <br></br>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder={movie.title}
+              value={props.formData.title}
+              onChange={props.handleChange}
+              className="formInput"
+            />
+            <br></br>
+            <label htmlFor="synopsis" className="formTitles">
+              SYNOPSIS
+            </label>{" "}
+            <br></br>
+            <br></br>
+            <textarea
+              id="synopsis"
+              name="synopsis"
+              placeholder={movie.synopsis}
+              value={props.formData.synopsis}
+              onChange={props.handleChange}
+              className="formTextArea"
+            />
+            <br></br>
+            <label htmlFor="review" className="formTitles">
+              REVIEW
+            </label>{" "}
+            <br></br>
+            <br></br>
+            <textarea
+              id="review"
+              name="review"
+              placeholder={movie.review}
+              value={props.formData.review}
+              onChange={props.handleChange}
+              className="formTextArea"
+            />
+            <br></br>
+            <button type="submit" className="btn-login" id="btn-create">
+              UPDATE
+            </button>
+          </form>
+          <div>
+            <h2>{props.updateBlog.title}</h2>
+            <p>{props.updateBlog.synopsis}</p>
+            <p>{props.updateBlog.review}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
