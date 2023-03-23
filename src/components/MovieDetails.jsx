@@ -12,7 +12,7 @@ const MovieDetails = (props) => {
   const [formData, setFormData] = useState({
     comment: "",
     likes: 0,
-    userId: props.movieContent.userId,
+    userId: props.movieContent[id].userId,
     contentId: id,
   });
   useEffect(() => {
@@ -27,7 +27,6 @@ const MovieDetails = (props) => {
     };
     getSelectedMovie();
   }, [id, props.movieContent]);
-  
   const handleChange = (event) => {
     event.preventDefault();
     setFormData({ ...formData, [event.target.id]: event.target.value });
