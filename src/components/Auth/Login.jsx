@@ -9,7 +9,7 @@ const Login = () => {
       <div className="pageContainer">
         <div className="body">
         <div className='titleContainer'>
-          <div className="homeTitle"><span>ABOUT</span></div></div>
+          <div className="sectionTitle"><span>ABOUT</span></div></div>
 
           <div className='contentContainer'>
             <div id="homeBlurb" style={{textAlign: 'right'}}><br></br>
@@ -24,7 +24,7 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="homeTitle"><span>LATEST</span></div>
+          <div className="sectionTitle"><span>LATEST</span></div>
 
           <div id="latestContainer" style={{marginBottom: '50px'}}>         {/* ONCLICK FUNCTION NEEDED */}
               <div id='posterCard'><img className="latestPoster" alt="poster"></img></div> 

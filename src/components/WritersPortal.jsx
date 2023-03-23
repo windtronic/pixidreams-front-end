@@ -29,7 +29,7 @@ const WritersPortal = (props) => {
             <section id="bloggerPostList">
               {props.movieContent.map((movie) => {
                 return (
-                  <div id="blogHistory" key={movie.id}>
+                  <div id="resultsContainer" key={movie.id}>
                     <div style={{ marginRight: "20px", marginBottom: "20px" }}>
                       <img
                         src={movie.image}

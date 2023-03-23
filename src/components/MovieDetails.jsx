@@ -79,19 +79,47 @@ const MovieDetails = (props) => {
     displayComments();
   }, [id]);
   return (
-    <div>
       <div className="pageContainer">
         <div className="body">
-          <span className="pageTitle">{movie.title}</span> <br></br>
-          <section id="contentContainer">
-            <div>
-              <span>Review: {movie.review}</span>
-              <br></br>
+
+          <div className="blogWindow" id="blogPost">
+            <div className="blogTitle">
+              <span style={{ fontSize: "40px" }}>{movie.title}</span>
             </div>
-            <div>
-              <span>Likes: {reviewLike}</span>
-              <button onClick={() => handleReviewLike()}>Like</button>
+
+            <div className="contentContainer" id="movieInfo" style={{ marginRight: "20px" }}>
+              <div className="resultsContainer">
+                <div>
+                  <img
+                    src={movie.image}
+                    alt="poster"
+                    // style={{ width: "14vw", minWidth: "200px" }}
+                    className="blogPostImg"
+                    />
+                </div>
+                <div>
+                  <span>SYNOPSIS</span>
+                  <span>{movie.synopsis}</span>
+                </div>
+              </div>
+
+
+
+            <div className="contentContainer" id="movieReview">
+              <span>REVIEW</span><br></br>
+              <span>{movie.review}</span><br></br>
             </div>
+              </div>
+
+
+          
+            <div>
+              <span>LIKES</span><br></br>
+              <span style={{ marginRight: "8px" }}>{reviewLike}</span>
+              <button className="likeBtn" onClick={() => handleReviewLike()}>🖤</button>
+            </div>
+
+          <section>
             <div>
               <form onSubmit={handleSubmit}>
                 <label htmlFor="comment">Add Comment:</label>
@@ -100,8 +128,7 @@ const MovieDetails = (props) => {
                   id="comment"
                   value={formData.comment}
                   onChange={handleChange}
-                />
-                <br />
+                  /><br/>
                 <button type="submit">Submit</button>
               </form>
             </div>
@@ -111,18 +138,18 @@ const MovieDetails = (props) => {
                 singleComment.map((comment) => {
                   const commentLikes = likes.find(
                     (like) => like.commentId === comment.id
-                  );
-                  return (
-                    <div key={comment.id}>
+                    );
+                    return (
+                      <div key={comment.id}>
                       <div>
-                        <span>Comments: {comment.comment}</span>
+                        <span>{comment.comment}</span>
                       </div>
                       <div>
-                        <span>
-                          Likes: {commentLikes ? commentLikes.count : 0}
+                        <span style={{ marginRight: "8px" }}>
+                           {commentLikes ? commentLikes.count : 0}
                         </span>
-                        <button onClick={() => handleLikeClick(comment.id)}>
-                          Like
+                        <button className="likeBtn" onClick={() => handleLikeClick(comment.id)}>
+                        🖤
                         </button>
                       </div>
                     </div>
@@ -135,9 +162,9 @@ const MovieDetails = (props) => {
               </div>
             )}
           </section>
+            </div>
         </div>
       </div>
-    </div>
   );
 };
 

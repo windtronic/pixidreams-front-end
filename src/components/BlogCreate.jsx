@@ -34,7 +34,7 @@ const BlogCreate = (props) => {
           <span>CREATE NEW BLOG</span>
         </div>
 
-        <div className="blogCreate">
+        <div className="blogWindow">
           <form onSubmit={handleSubmit}>
             <label htmlFor="title" className="homeTitle">
               TITLE
