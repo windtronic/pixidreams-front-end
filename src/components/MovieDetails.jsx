@@ -8,9 +8,7 @@ const MovieDetails = (props) => {
   const [singleComment, setSingleComment] = useState([]);
   const [createComment, setCreateComment] = useState([]);
   const [likes, setLikes] = useState([]);
-  const [reviewLike, setReviewLike] = useState(0)
-
-  
+  const [reviewLike, setReviewLike] = useState(0);
 
   const [formData, setFormData] = useState({
     comment: "",
@@ -47,7 +45,9 @@ const MovieDetails = (props) => {
   function handleLikeClick(commentId) {
     setLikes((prevLikes) => {
       const likesCopy = [...prevLikes];
-      const commentLikesIndex = likesCopy.findIndex((like) => like.commentId === commentId);
+      const commentLikesIndex = likesCopy.findIndex(
+        (like) => like.commentId === commentId
+      );
       if (commentLikesIndex === -1) {
         likesCopy.push({ commentId, count: 1 });
       } else {
@@ -59,16 +59,16 @@ const MovieDetails = (props) => {
   }
 
   useEffect(() => {
-    const storedLike = localStorage.getItem('reviewLike');
+    const storedLike = localStorage.getItem("reviewLike");
     if (storedLike) {
       setReviewLike(parseInt(storedLike));
     }
   }, []);
 
   function handleReviewLike() {
-    let like = reviewLike + 1
-    setReviewLike(like)
-    localStorage.setItem('reviewLike', like);
+    let like = reviewLike + 1;
+    setReviewLike(like);
+    localStorage.setItem("reviewLike", like);
   }
 
   const handleSubmit = async (event) => {
@@ -97,12 +97,12 @@ const MovieDetails = (props) => {
           <span className="pageTitle">{movie.title}</span> <br></br>
           <section id="contentContainer">
             <div>
-              <span>Review: {movie.review}</span><br></br>
+              <span>Review: {movie.review}</span>
+              <br></br>
             </div>
             <div>
               <span>Likes: {reviewLike}</span>
               <button onClick={() => handleReviewLike()}>Like</button>
-
             </div>
             <div>
               <form onSubmit={handleSubmit}>
@@ -118,22 +118,28 @@ const MovieDetails = (props) => {
               </form>
             </div>
             <div>
-            {singleComment &&
-              Array.isArray(singleComment) &&
-              singleComment.map((comment) => {
-                const commentLikes = likes.find((like) => like.commentId === comment.id);
-                return (
-                  <div key={comment.id}>
-                    <div>
-                      <span>Comments: {comment.comment}</span>
+              {singleComment &&
+                Array.isArray(singleComment) &&
+                singleComment.map((comment) => {
+                  const commentLikes = likes.find(
+                    (like) => like.commentId === comment.id
+                  );
+                  return (
+                    <div key={comment.id}>
+                      <div>
+                        <span>Comments: {comment.comment}</span>
+                      </div>
+                      <div>
+                        <span>
+                          Likes: {commentLikes ? commentLikes.count : 0}
+                        </span>
+                        <button onClick={() => handleLikeClick(comment.id)}>
+                          Like
+                        </button>
+                      </div>
                     </div>
-                    <div>
-                      <span>Likes: {commentLikes ? commentLikes.count : 0}</span>
-                      <button onClick={() => handleLikeClick(comment.id)}>Like</button>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
             {createComment && (
               <div>
