@@ -1,75 +1,72 @@
-import { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import MovieDetails from "./MovieDetails";
+import { useEffect, useState } from "react";
+import Client from "../services/api";
+import { useNavigate, Link } from "react-router-dom";
 
-const Home = ({ movieContent }) => {
-  const [movies, setMovies] = useState([]);
-  const [count, setCount] = useState(0);
-
+const Movies = () => {
   let navigate = useNavigate();
 
-  useEffect(() => {
-    const getSelectedMovie = async () => {
-      if (movieContent) {
-        let selectedMovie = movieContent;
-        setMovies(selectedMovie);
-      }
-    };
-    getSelectedMovie();
-  }, [movieContent]);
-
-  const showDetails = (index) => {
-    navigate(`/Movies/${index}`);
+  const showMovie = (movie) => {
+    navigate(`${movie.id}`);
   };
+  const [movieContent, setMovieContent] = useState([]);
+
+  useEffect(() => {
+    const getContent = async (req, res) => {
+      const content = await Client.get(`/api/posts`);
+      console.log(content);
+      setMovieContent(content.data);
+    };
+    getContent();
+  }, []);
+
   return (
     <div>
       <div className="pageContainer">
         <div className="body">
-          
-        <div className='titleContainer'>
-          <div className="homeTitle"><span>ABOUT</span></div>
-        </div>
+          <span className="pageTitle">BLOG HISTORY</span>
+          <section className="contentContainer">
+            {movieContent.map((movie) => {
+              return (
+                <div id="blogHistory">
+                  <div style={{ marginRight: "20px" }}>
+                    <img
+                      src={movie.image}
+                      alt="poster"
+                      style={{ width: "14vw", minWidth: "200px" }}
+                    />
+                  </div>
 
-          <div className='welcomeBlurbContainer'>
-            <div id="homeBlurb" style={{textAlign: 'right', marginRight: '1vw'}}><br></br>
-              <h3>Welcome to PixiDreams, the go-to movie blog for all things animated! 
-                  <br></br><br></br>
-                  From timeless classics to the latest box office hits, PixiDreams offers thoughtful and insightful reviews that delve into the storytelling, animation techniques, and themes that make each movie unique. 
-                  <br></br><br></br>
-                  We believe that animation is more than just entertainment - it's an art form that has the power to inspire and captivate audiences of all ages. That's why we're dedicated to sharing our passion for animated movies with our readers, and keeping them up-to-date on the latest news and trends in the world of animation.</h3><br></br>
-            </div>
-            <div>
-              <img src='https://i.imgur.com/5gvUh78.jpg' style={{width: '50vw'}}></img>
-            </div>
-          </div>
+                  <div>
+                    <div style={{ backgroundColor: "#21997f" }}>
+                      <span style={{ fontSize: "28px" }}>
+                        Title: {movie.title}
+                      </span>
+                    </div>
 
-          <div className='titleContainer'>
-            <div className="homeTitle"><span>LATEST</span></div>
+                    <div>
+                      <div style={{ margin: "20px", fontSize: "20px" }}>
+                        <span>Synopsis: {movie.synopsis}</span>
+                      </div>
+                    </div>
 
-          </div>
-
-          <div id="latestContainer" style={{ marginBottom: "50px" }}>
-            {" "}
-            {movies
-              .map((movie, index) => (
-                <div
-                  id="posterCard"
-                  key={index}
-                  onClick={() => showDetails(index)}
-                >
-                  <img
-                    src={movie.image}
-                    className="latestPoster"
-                    alt="poster"
-                  ></img>
+                    <div>
+                      <button
+                        className="moreBtn"
+                        style={{ justifyContent: "right" }}
+                        onClick={() => showMovie(movie)}
+                      >
+                        READ MORE!
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              ))
-              .slice(0, 6)}
-          </div>
+              );
+            })}
+          </section>
         </div>
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Movies;
