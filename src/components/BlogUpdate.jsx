@@ -3,12 +3,9 @@ import { useParams } from "react-router-dom";
 import Client from "../services/api";
 
 const BlogUpdate = (props) => {
-  // const [updateBlog, setUpdateBlog] = useState([]);
-  // const [formData, setFormData] = useState({ title: "", image: "", synopsis: "", review: "" });
-  const [movie, setMovie] = useState("");
+  const [movie, setMovie] = useState('')
 
-  let { id } = useParams();
-  // let id = 4
+  let { id } = useParams()
 
   useEffect(() => {
     const getSelectedMovie = async () => {
@@ -21,17 +18,6 @@ const BlogUpdate = (props) => {
     };
     getSelectedMovie();
   }, [props.movieContent]);
-
-  // const handleChange = (e) => {
-  //   setFormData({ ...formData, [e.target.id]: e.target.value });
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const response = await Client.put(`/api/posts/${id}`, formData);
-  //   console.log(response.data);
-  //   setUpdateBlog(response.data);
-  // };
 
   return (
     <div className="pageContainer">
