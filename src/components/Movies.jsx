@@ -36,16 +36,14 @@ const Movies = () => {
                     />
                   </div>
 
-                  <div>
-                    <div style={{ backgroundColor: "#21997f" }}>
-                      <span style={{ fontSize: "28px" }}>
-                        Title: {movie.title}
-                      </span>
+                  <div>                                               {/* CONTAINS TITLE, SYNOPSIS & READMORE */}
+                    <div style={{ backgroundColor: "#21997f", }}>
+                      <span style={{ fontSize: "28px" }}>{movie.title}</span>
                     </div>
 
                     <div>
-                      <div style={{ margin: "20px", fontSize: "20px" }}>
-                        <span>Synopsis: {movie.synopsis}</span>
+                      <div style={{ margin: "12px", fontSize: "20px" }}>
+                        <span>{movie.synopsis}</span>
                       </div>
                     </div>
 
