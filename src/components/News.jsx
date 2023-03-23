@@ -3,7 +3,6 @@ import { BASE_URL, POSTER_URL } from "../globals";
 import Client from "../services/api";
 import LoginModal from "./LoginModal";
 
-
 const News = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
@@ -26,41 +25,49 @@ const News = () => {
     .filter((y) => y.genre_ids.includes(10751));
 
   return (
-    <div>
-      {/* <div>
-        <LoginModal/>
-      </div> */}
-      <div className="pageContainer">
-        <div className="body">
-          <span className="pageTitle">CHECK OUT THE LATEST IN ANIMATIONLAND!</span>
-          
-            <section id="contentContainer">
-              <div id="newsResult">
-                {filterGenreId.map((movie, index) => {
-                  return (
-                    <div key={index}>
-                      <section>{movie.title}</section>
-                      <section>
-                        {" "}
-                        <img src={POSTER_URL + movie.poster_path} alt="poster" style={{width: '15vw'}}/>
-                      </section>
-                      <section>{movie.overview}</section>
-                    </div>
-                  );
-                })}
-                {page > 1 && (
-                  <div>
-                    <button onClick={() => setPage(page - 1)}>Previous</button>
-                    <button onClick={() => setPage(page + 1)}>Next</button>
-                  </div>
-                )}
+    <div className="pageContainer">
+      <div className="body">
+        <span className="newsTitle">
+          CHECK OUT THE LATEST IN ANIMATIONLAND!
+        </span>
+
+        <section id="latestContainer" style={{ marginBottom: "50px" }}>
+          <div id="newsResult">
+            {filterGenreId.map((movie, index) => {
+              return (
+                <div key={index}>
+                  <section>
+                    <h2>{movie.title}</h2>
+                  </section>
+                  <section>
+                    {" "}
+                    <img
+                      id="posterCard"
+                      src={POSTER_URL + movie.poster_path}
+                      alt="poster"
+                      style={{ width: "20vw" }}
+                    />
+                  </section>
+                  <section
+                    id="newsBlurb"
+                    style={{ textAlign: "left", marginRight: "1vw" }}
+                  >
+                    {movie.overview}
+                  </section>
+                </div>
+              );
+            })}
+            {page > 1 && (
+              <div>
+                <button onClick={() => setPage(page - 1)}>Previous</button>
+                <button onClick={() => setPage(page + 1)}>Next</button>
               </div>
-            </section>
-        </div>
+            )}
+          </div>
+        </section>
       </div>
     </div>
   );
 };
 
-    export default News;
-    
+export default News;
