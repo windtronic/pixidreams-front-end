@@ -43,19 +43,34 @@ const MovieDetails = (props) => {
 
   function handleLikeClick(commentId) {
     setLikes((prevLikes) => {
-      const likesCopy = [...prevLikes];
-      const commentLikesIndex = likesCopy.findIndex(
-        (like) => like.commentId === commentId
+      const likesCopy = prevLikes.map((like) =>
+        like.commentId === commentId
+          ? { commentId, count: like.count + 1 }
+          : like
       );
-      if (commentLikesIndex === -1) {
+      if (!likesCopy.some((like) => like.commentId === commentId)) {
         likesCopy.push({ commentId, count: 1 });
-      } else {
-        likesCopy[commentLikesIndex].count++;
       }
       localStorage.setItem("likes", JSON.stringify(likesCopy));
       return likesCopy;
     });
   }
+
+  // function handleLikeClick(commentId) {
+  //   setLikes((prevLikes) => {
+  //     const likesCopy = [...prevLikes];
+  //     const commentLikesIndex = likesCopy.findIndex(
+  //       (like) => like.commentId === commentId
+  //     );
+  //     if (commentLikesIndex === -1) {
+  //       likesCopy.push({ commentId, count: 1 });
+  //     } else {
+  //       likesCopy[commentLikesIndex].count++;
+  //     }
+  //     localStorage.setItem("likes", JSON.stringify(likesCopy));
+  //     return likesCopy;
+  //   });
+  // }
 
   useEffect(() => {
     const storedLike = localStorage.getItem("reviewLike");
