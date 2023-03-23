@@ -6,8 +6,8 @@ const MovieDetails = (props) => {
   const [movie, setMovie] = useState([]);
   const [singleComment, setSingleComment] = useState([]);
   const [createComment, setCreateComment] = useState([]);
-  const [likes, setLikes] = useState(0);
-
+  const [likes, setLikes] = useState([]);
+  const [reviewLike, setReviewLike] = useState(0)
   const [formData, setFormData] = useState({
     comment: "",
     likes: 0,
@@ -30,9 +30,35 @@ const MovieDetails = (props) => {
     event.preventDefault();
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
-
-  function handleLikeClick() {
-    setLikes((prevLikes) => prevLikes + 1);
+  useEffect(() => {
+    const storedLikes = localStorage.getItem("likes");
+    if (storedLikes) {
+      setLikes(JSON.parse(storedLikes));
+    }
+  }, []);
+  function handleLikeClick(commentId) {
+    setLikes((prevLikes) => {
+      const likesCopy = [...prevLikes];
+      const commentLikesIndex = likesCopy.findIndex((like) => like.commentId === commentId);
+      if (commentLikesIndex === -1) {
+        likesCopy.push({ commentId, count: 1 });
+      } else {
+        likesCopy[commentLikesIndex].count++;
+      }
+      localStorage.setItem("likes", JSON.stringify(likesCopy));
+      return likesCopy;
+    });
+  }
+  useEffect(() => {
+    const storedLike = localStorage.getItem('reviewLike');
+    if (storedLike) {
+      setReviewLike(parseInt(storedLike));
+    }
+  }, []);
+  function handleReviewLike() {
+    let like = reviewLike + 1
+    setReviewLike(like)
+    localStorage.setItem('reviewLike', like);
   }
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -60,8 +86,8 @@ const MovieDetails = (props) => {
               <span>Review: {movie.review}</span><br></br>
             </div>
             <div>
-              <span>Likes: {movie.likes}</span><br></br>
-              <button onClick={() => handleLikeClick()}>Like</button>
+              <span>Likes: {reviewLike}</span>
+              <button onClick={() => handleReviewLike()}>Like</button>
             </div>
             <div>
               <form onSubmit={handleSubmit}>
@@ -106,3 +132,8 @@ const MovieDetails = (props) => {
   );
 };
 export default MovieDetails;
+
+
+
+
+
