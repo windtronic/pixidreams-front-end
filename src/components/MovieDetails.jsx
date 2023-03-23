@@ -61,13 +61,13 @@ const MovieDetails = (props) => {
     <div>
       <div className="pageContainer">
         <div className="body">
-          <span className="pageTitle">Movie Details</span>
+          <span className="pageTitle">{movie.title}</span> <br></br>
           <section id="contentContainer">
             <div>
-              <span>Review: {movie.review}</span>
+              <span>Review: {movie.review}</span><br></br>
             </div>
             <div>
-              <span>Likes: {movie.likes}</span>
+              <span>Likes: {movie.likes}</span><br></br>
               <button onClick={() => handleLikeClick()}>Like</button>
             </div>
             <div>
