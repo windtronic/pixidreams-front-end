@@ -3,6 +3,7 @@ import { BASE_URL, POSTER_URL } from "../globals";
 import Client from "../services/api";
 import LoginModal from "./LoginModal";
 
+
 const News = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
@@ -61,4 +62,5 @@ const News = () => {
   );
 };
 
-export default News;
+    export default News;
+    

@@ -1,4 +1,26 @@
-const Home = () => {
+import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import MovieDetails from "./MovieDetails";
+
+const Home = ({ movieContent }) => {
+  const [movies, setMovies] = useState([]);
+  const [count, setCount] = useState(0);
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    const getSelectedMovie = async () => {
+      if (movieContent) {
+        let selectedMovie = movieContent;
+        setMovies(selectedMovie);
+      }
+    };
+    getSelectedMovie();
+  }, [movieContent]);
+
+  const showDetails = (index) => {
+    navigate(`/Movies/${index}`);
+  };
   return (
       <div className="pageContainer">
         <div className="body">
@@ -21,15 +43,26 @@ const Home = () => {
 
           <div className='titleContainer'>
             <div className="homeTitle"><span>LATEST</span></div>
+
           </div>
 
-          <div id="latestContainer" style={{marginBottom: '50px'}}>         {/* ONCLICK FUNCTION NEEDED */}
-              <div id='posterCard'><img className="latestPoster" alt="poster"></img></div> 
-              <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
-              <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
-              <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
-              <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
-              <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
+          <div id="latestContainer" style={{ marginBottom: "50px" }}>
+            {" "}
+            {movies
+              .map((movie, index) => (
+                <div
+                  id="posterCard"
+                  key={index}
+                  onClick={() => showDetails(index)}
+                >
+                  <img
+                    src={movie.image}
+                    className="latestPoster"
+                    alt="poster"
+                  ></img>
+                </div>
+              ))
+              .slice(0, 6)}
           </div>
         </div>
       </div>
