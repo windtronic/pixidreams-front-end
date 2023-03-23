@@ -42,7 +42,7 @@ const Home = ({ movieContent }) => {
           </div>
 
           <div className='titleContainer'>
-            <div className="homeTitle"><span>LATEST</span></div>
+            <div className="homeTitle" style= {{marginBottom:'30px'}}><span>LATEST</span></div>
 
           </div>
 
@@ -51,11 +51,11 @@ const Home = ({ movieContent }) => {
             {movies
               .map((movie, index) => (
                 <div
-                  id="posterCard"
                   key={index}
                   onClick={() => showDetails(index)}
                 >
                   <img
+                    id="posterCard"
                     src={movie.image}
                     className="latestPoster"
                     alt="poster"

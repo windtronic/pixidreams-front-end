@@ -36,24 +36,32 @@ const Movies = () => {
                     />
                   </div>
 
-                  <div> 
-                    <div style={{backgroundColor:'#21997f'}}>
-                      <span style={{fontSize: '28px'}}>Title: {movie.title}</span>
+                  <div>
+                    <div style={{ backgroundColor: "#21997f" }}>
+                      <span style={{ fontSize: "28px" }}>
+                        Title: {movie.title}
+                      </span>
                     </div>
 
                     <div>
-                      <div style={{margin: '20px', fontSize:'20px'}}>
+                      <div style={{ margin: "20px", fontSize: "20px" }}>
                         <span>Synopsis: {movie.synopsis}</span>
                       </div>
                     </div>
 
                     <div>
-                      <button className='moreBtn' style={{justifyContent: 'right'}}>READ MORE!</button>
+                      <button
+                        className="moreBtn"
+                        style={{ justifyContent: "right" }}
+                        onClick={() => showMovie(movie)}
+                      >
+                        READ MORE!
+                      </button>
                     </div>
                   </div>
                 </div>
-                );
-              })}
+              );
+            })}
           </section>
         </div>
       </div>
