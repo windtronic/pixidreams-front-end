@@ -38,22 +38,28 @@ const MovieDetails = (props) => {
     setLikes((prevLikes) => prevLikes + 1);
   }
 
+
+
+
+
+
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await Client.post(`/api/comments/${id}`, formData);
     setSingleComment(response.data);
-
+    displayComments();
+    setFormData({...formData, comment: ""});
     console.log("Submitted comment:", singleComment);
   };
+  
 
-  //  const singleComment = Client.get(`/api/comments/`)
-  //  console.log(singleComment)
+ 
 
-  const displayComments = () => {
-    Client.get(`/api/comments/view/${id}`).then((response) => {
-      setSingleComment(response.data);
-      setCreateComment(response.data);
-    });
+  const displayComments = async () => {
+    const response = await Client.get(`/api/comments/view/${id}`);
+    setSingleComment(response.data);
+    setCreateComment(response.data);
   };
 
   useEffect(() => {
@@ -71,9 +77,7 @@ const MovieDetails = (props) => {
             </div>
             <div>
               <span>Likes: {movie.likes}</span>
-              <button onClick={handleLikeClick}>
-                {movie.likes === 1 ? "likes" : "like"}
-              </button>
+              <button onClick={() => handleLikeClick()}>Like</button>
             </div>
             <div>
               <form onSubmit={handleSubmit}>
@@ -89,18 +93,15 @@ const MovieDetails = (props) => {
               </form>
             </div>
             <div>
-              {singleComment.map((comment) => (
+            {singleComment && Array.isArray(singleComment) && singleComment.map((comment) => (
                 <div key={comment.id}>
                   <div>
                     <span>Comments: {comment.comment}</span>
                   </div>
                   <div>
-                    <button onClick={() => handleLikeClick(comment)}>
-                      {comment.likes === 1
-                        ? "1 like"
-                        : `${comment.likes} likes`}
-                    </button>
-                  </div>
+              <span>Likes: {movie.likes}</span>
+              <button onClick={() => handleLikeClick()}>Like</button>
+            </div>
                 </div>
               ))}
             </div>
