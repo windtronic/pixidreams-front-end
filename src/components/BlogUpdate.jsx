@@ -22,22 +22,16 @@ const BlogUpdate = (props) => {
   return (
     <div className="pageContainer">
       <div className="body">
-        <div className="titleContainer">
-          <div
-            className="homeTitle"
-            style={{ fontSize: "35px", marginBottom: "30px" }}
-          >
-            <span>EDIT BLOG</span>
-          </div>
+        <div className="pageTitle">
+          <span>EDIT BLOG</span>
         </div>
 
         <div className="blogCreate">
           <form onSubmit={(e) => props.handleSubmit(e, id)}>
-            <label htmlFor="title" className="formTitles">
+            <label htmlFor="title" className="homeTitle">
               TITLE
-            </label>{" "}
-            <br></br>
-            <br></br>
+            </label><br></br><br></br>
+
             <input
               type="text"
               id="title"
@@ -46,13 +40,12 @@ const BlogUpdate = (props) => {
               value={props.formData.title}
               onChange={props.handleChange}
               className="formInput"
-            />
-            <br></br>
-            <label htmlFor="synopsis" className="formTitles">
+            /><br></br><br></br>
+
+            <label htmlFor="synopsis" className="homeTitle">
               SYNOPSIS
-            </label>{" "}
-            <br></br>
-            <br></br>
+            </label><br></br><br></br>
+
             <textarea
               id="synopsis"
               name="synopsis"
@@ -60,13 +53,12 @@ const BlogUpdate = (props) => {
               value={props.formData.synopsis}
               onChange={props.handleChange}
               className="formTextArea"
-            />
-            <br></br>
-            <label htmlFor="review" className="formTitles">
+            /><br></br><br></br>
+
+            <label htmlFor="review" className="homeTitle">
               REVIEW
-            </label>{" "}
-            <br></br>
-            <br></br>
+            </label><br></br><br></br>
+
             <textarea
               id="review"
               name="review"
@@ -74,11 +66,12 @@ const BlogUpdate = (props) => {
               value={props.formData.review}
               onChange={props.handleChange}
               className="formTextArea"
-            />
-            <br></br>
+            /><br></br><br></br>
+
             <button type="submit" className="btn-login" id="btn-create">
               UPDATE
             </button>
+
           </form>
           <div>
             <h2>{props.updateBlog.title}</h2>

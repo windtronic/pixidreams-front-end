@@ -69,6 +69,8 @@
   width: 60vw;
   min-width: 400px;
   margin-top: 30px;
+  margin-bottom: 20px;
+
 }
 
 .contentContainer {
@@ -84,9 +86,9 @@ input,
 textarea {
   height: 2.3rem;
   width: 20rem;
-  font-family: "Boogaloo";
+  font-family: "Comfortaa";
   font-style: italic;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   text-align: center;
   background-color: #d9d9d9;
   border: none;
@@ -141,14 +143,22 @@ textarea {
 
 .formTextArea {
   margin-bottom: 10px;
-  width: 600px;
+  width: 40vw;
 }
 
 .formInput {
-  width: 600px;
+  width: 40vw;
 }
 
 .blogCreate {
+  border: 2px solid;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 40px;;
+  border-radius: 12px;
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.2);
+  width: 40vw;
+
 }
 /* MODAL  *****************************************************/
 .modal {
