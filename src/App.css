@@ -264,6 +264,22 @@ textarea {
   cursor: pointer;
 }
 
+/* NEWS PAGE **********************************************************/
+.newsTitle {
+  background-color: #21997f;
+  font-size: 30px;
+  margin-top: 50px;
+  padding: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#newsBlurb {
+  width: 47vw;
+  font-family: "Comfortaa";
+  font-size: clamp(12px, 1.2vw, 16px);
+}
+
 /* ABOUT PAGE *********************************************************/
 #memberImg {
   height: 240px;

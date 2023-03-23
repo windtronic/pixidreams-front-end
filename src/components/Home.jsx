@@ -32,7 +32,7 @@ const Home = ({ movieContent }) => {
         <div className="welcomeBlurbContainer">
           <div
             id="homeBlurb"
-            style={{ textAlign: "right", marginRight: "1vw" }}
+            style={{ textAlign: "center", marginRight: "1vw" }}
           >
             <br></br>
             <h3>
