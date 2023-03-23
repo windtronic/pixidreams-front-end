@@ -18,8 +18,6 @@ const Home = ({ movieContent }) => {
     getSelectedMovie();
   }, [movieContent]);
 
-  console.log(movies);
-
   const showDetails = (moviesId) => {
     navigate(`/Movies/${moviesId}`);
   };
