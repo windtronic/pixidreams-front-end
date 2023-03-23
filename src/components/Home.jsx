@@ -62,7 +62,7 @@ const Home = ({ movieContent }) => {
                   ></img>
                 </div>
               ))
-              .slice(0, 6)}
+              .slice(1, 7)}
           </div>
         </div>
       </div>
