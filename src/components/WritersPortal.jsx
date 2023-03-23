@@ -17,13 +17,9 @@ const WritersPortal = (props) => {
       </div> */}
       <div className="pageContainer">
         <div className="body">
-          <div className='pageTitle'>WELCOME!</div>
+          <div className='pageTitle'>WELCOME BLOGGER!</div>
           <section className="contentContainer">
-          <button className="bloggerBtns">
-            <Link to="/create" style={{ textDecoration: "none" }}>
-              CREATE
-            </Link>
-          </button>
+            <Link to="/create"><button className="btn-login" id='btn-create'>CREATE</button></Link><br></br>
             <div id="bloggerPostList">
               <div>
                 {props.movieContent.map((movie) => {

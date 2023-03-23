@@ -1,11 +1,7 @@
-import LoginModal from "./LoginModal";
-
 const Home = () => {
   return (
-    <div>
       <div className="pageContainer">
         <div className="body">
-          
         <div className='titleContainer'>
           <div className="homeTitle"><span>ABOUT</span></div>
         </div>
@@ -37,7 +33,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

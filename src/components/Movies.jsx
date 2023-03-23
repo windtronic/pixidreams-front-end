@@ -36,7 +36,7 @@ const Movies = () => {
                 return (
                   <div id="blogHistory">
 
-                    <div style={{marginRight:'20px'}}>
+                    <div style={{marginRight:'20px', marginBottom: '20px'}}>
                       <img src={movie.image} alt="poster" style={{width:'14vw', minWidth: '200px'}}/>
                     </div>
 
@@ -52,7 +52,7 @@ const Movies = () => {
                     </div>
 
                     <div>
-                      <button className='moreBtn' style={{justifyContent: 'right'}}>READ MORE!</button>
+                      <button className="btn-login" id='btn-create' style={{justifyContent: 'right'}}>READ MORE!</button>
                     </div>
                     
                   </div>
