@@ -1,25 +1,22 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Client from "../services/api";
-
 const MovieDetails = (props) => {
   const { id } = useParams();
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState([null]);
   const [singleComment, setSingleComment] = useState([]);
   const [createComment, setCreateComment] = useState([]);
   const [likes, setLikes] = useState([]);
   const [reviewLike, setReviewLike] = useState(0);
-
   const [formData, setFormData] = useState({
     comment: "",
     likes: 0,
     userId: props.movieContent.userId,
     contentId: id,
   });
-
   useEffect(() => {
     const getSelectedMovie = async () => {
-      if (props.movieContent && props.movieContent[id]) {
+      if (props.movieContent && props.movieContent.length > 0) {
         let selectedMovie = props.movieContent.find(
           (movie) => movie.id === parseInt(id)
         );
@@ -28,20 +25,17 @@ const MovieDetails = (props) => {
       }
     };
     getSelectedMovie();
-  }, [props.movieContent]);
-
+  }, [id, props.movieContent]);
   const handleChange = (event) => {
     event.preventDefault();
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
-
   useEffect(() => {
     const storedLikes = localStorage.getItem("likes");
     if (storedLikes) {
       setLikes(JSON.parse(storedLikes));
     }
   }, []);
-
   function handleLikeClick(commentId) {
     setLikes((prevLikes) => {
       const likesCopy = [...prevLikes];
@@ -57,20 +51,17 @@ const MovieDetails = (props) => {
       return likesCopy;
     });
   }
-
   useEffect(() => {
     const storedLike = localStorage.getItem("reviewLike");
     if (storedLike) {
       setReviewLike(parseInt(storedLike));
     }
   }, []);
-
   function handleReviewLike() {
     let like = reviewLike + 1;
     setReviewLike(like);
     localStorage.setItem("reviewLike", like);
   }
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await Client.post(`/api/comments/${id}`, formData);
@@ -79,17 +70,14 @@ const MovieDetails = (props) => {
     setFormData({ ...formData, comment: "" });
     console.log("Submitted comment:", singleComment);
   };
-
   const displayComments = async () => {
     const response = await Client.get(`/api/comments/view/${id}`);
     setSingleComment(response.data);
     setCreateComment(response.data);
   };
-
   useEffect(() => {
     displayComments();
   }, [id]);
-
   return (
     <div>
       <div className="pageContainer">
@@ -152,5 +140,4 @@ const MovieDetails = (props) => {
     </div>
   );
 };
-
 export default MovieDetails;
