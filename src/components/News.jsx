@@ -27,12 +27,12 @@ const News = () => {
   return (
     <div className="pageContainer">
       <div className="body">
-        <span className="newsTitle">
+        <span className="pageTitle">
           CHECK OUT THE LATEST IN ANIMATIONLAND!
         </span>
 
         <section id="latestContainer" style={{ marginBottom: "50px" }}>
-          <div id="newsResult">
+          <div id="resultsContainer">
             {filterGenreId.map((movie, index) => {
               return (
                 <div key={index}>
