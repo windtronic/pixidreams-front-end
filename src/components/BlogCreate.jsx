@@ -24,44 +24,55 @@ const BlogCreate = (props) => {
   };
 
   return (
-    
-    <div>
-      <div className="pageContainer">
+<div className="pageContainer">
         <div className="body">
+          
           <div className='titleContainer'>
-            <div className="pageTitle"><span>CREATE NEW BLOG</span>
-            <div className="BlogCreate">
-              <form onSubmit={handleSubmit}>
-                <label htmlFor="title">Title:</label>
-                <input
+            <div className="homeTitle" style={{fontSize: '35px', marginBottom:'30px'}}><span>CREATE NEW BLOG</span></div>
+          </div>
+
+
+          <div className="blogCreate">
+            
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="title" className='formTitles'>TITLE</label> <br></br><br></br>
+                <input 
                   type="text"
                   id="title"
                   name="title"
                   value={formData.title}
                   onChange={handleChange}
+                  className='formInput'
                 /><br></br>
-                <label htmlFor="synopsis">Synopsis:</label>
+
+                <label htmlFor="synopsis" className='formTitles'>SYNOPSIS</label> <br></br><br></br>
                 <textarea
                   id="synopsis"
                   name="synopsis"
                   value={formData.synopsis}
                   onChange={handleChange}
+                  className='formTextArea'
                 /><br></br>
-                <label htmlFor="review">Review:</label>
+
+                <label htmlFor="review" className='formTitles'>REVIEW</label> <br></br><br></br>
                 <textarea
                   id="review"
                   name="review"
                   value={formData.review}
                   onChange={handleChange}
+                  className='formTextArea'
                 /><br></br>
-                <label htmlFor="image">Image Address</label>
+
+                <label htmlFor="image" className='formTitles'>IMAGE URL</label> <br></br><br></br>
                 <textarea
                 id="image"
                 name="image"
                 value={formData.image}
-                onChange={handleChange} /><br></br>
-                {/* <img alt="preview image" src={image}/>  */}        
-                <button type="submit">PUBLISH</button>
+                onChange={handleChange}
+                className='formTextArea'
+                /><br></br>
+
+                <button className="btn-login" id='btn-create' type="submit">PUBLISH</button>
               </form>
               {createBlog && (
                 <div>
@@ -71,13 +82,9 @@ const BlogCreate = (props) => {
                   <p>{createBlog.image}</p>
                 </div>
               )}
-            </div>
           </div>
         </div>
       </div>
-    </div>
-    </div>
-
   );
 };
 

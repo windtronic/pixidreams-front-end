@@ -38,23 +38,14 @@ const MovieDetails = (props) => {
     setLikes((prevLikes) => prevLikes + 1);
   }
 
-
-
-
-
-
-  
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await Client.post(`/api/comments/${id}`, formData);
     setSingleComment(response.data);
     displayComments();
-    setFormData({...formData, comment: ""});
+    setFormData({ ...formData, comment: "" });
     console.log("Submitted comment:", singleComment);
   };
-  
-
- 
 
   const displayComments = async () => {
     const response = await Client.get(`/api/comments/view/${id}`);
@@ -93,17 +84,19 @@ const MovieDetails = (props) => {
               </form>
             </div>
             <div>
-            {singleComment && Array.isArray(singleComment) && singleComment.map((comment) => (
-                <div key={comment.id}>
-                  <div>
-                    <span>Comments: {comment.comment}</span>
+              {singleComment &&
+                Array.isArray(singleComment) &&
+                singleComment.map((comment) => (
+                  <div key={comment.id}>
+                    <div>
+                      <span>Comments: {comment.comment}</span>
+                    </div>
+                    <div>
+                      <span>Likes: {movie.likes}</span>
+                      <button onClick={() => handleLikeClick()}>Like</button>
+                    </div>
                   </div>
-                  <div>
-              <span>Likes: {movie.likes}</span>
-              <button onClick={() => handleLikeClick()}>Like</button>
-            </div>
-                </div>
-              ))}
+                ))}
             </div>
             {createComment && (
               <div>
