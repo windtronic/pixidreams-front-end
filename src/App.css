@@ -239,11 +239,17 @@ textarea {
   justify-content: center;
 }
 
-#posterCard {
+#latestPoster {
   background-color: #d9d9d9;
   height: 340px;
   width: 250px;
-  margin: 15px;
+  margin: 1.5vw;
+}
+
+#posterCard{
+  background-color: #d9d9d9;
+  height: 340px;
+  width: 250px;
 }
 
 /* MOVIES  ******************************************************/

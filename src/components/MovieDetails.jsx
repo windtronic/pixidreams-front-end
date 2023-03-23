@@ -98,18 +98,19 @@ const MovieDetails = (props) => {
               <span style={{ fontSize: "40px" }}>{movie.title}</span>
             </div>
 
-            <div className="contentContainer" id="movieInfo" style={{ marginRight: "20px" }}>
-              <div className="resultsContainer">
+            <div className="contentContainer" id="movieInfo">
+              <div id="resultsContainer">
                 <div>
                   <img
                     src={movie.image}
                     alt="poster"
                     // style={{ width: "14vw", minWidth: "200px" }}
                     className="blogPostImg"
+                    id="posterCard"
                     />
                 </div>
                 <div>
-                  <span>SYNOPSIS</span>
+                  <span>SYNOPSIS</span><br></br>
                   <span>{movie.synopsis}</span>
                 </div>
               </div>
@@ -132,19 +133,7 @@ const MovieDetails = (props) => {
           </div>
 
           <section>
-            <div>
-              <form onSubmit={handleSubmit}>
-                <label htmlFor="comment">Add Comment:</label>
-                <input
-                  type="text"
-                  id="comment"
-                  value={formData.comment}
-                  onChange={handleChange}
-                />
-                <br />
-                <button type="submit">Submit</button>
-              </form>
-            </div>
+            
             <div>
               {singleComment &&
                 Array.isArray(singleComment) &&
@@ -171,6 +160,19 @@ const MovieDetails = (props) => {
                     </div>
                   );
                 })}
+            </div>
+            <div>
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="comment"></label>
+                <input
+                  type="text"
+                  id="comment"
+                  value={formData.comment}
+                  onChange={handleChange}
+                />
+                <br />
+                <button type="submit">COMMENT</button>
+              </form>
             </div>
             {createComment && (
               <div>

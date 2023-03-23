@@ -7,30 +7,21 @@ PixiDreams is a movie blog that provides news & reviews of the latest in animate
 Our blog will also provide pportunities for interactivity where visitors can comment or like a blog post, possibly recommend updates for more content.
 
 ## User Stories
+ As a user (blogger) ...
+- [x] ... I want to create a blog
+- [x] ... I want to update a blog
+- [x] ... I want to delete a blog
+- [x] ... I want to upload an image
+- [ ] ... I want to be able to register
+- [ ] ... I want to be able to login
+- [ ] ... I want to be able to signout
 
-As a user (blogger) I want to be able to register
-
-As a user (blogger) I want to be able to login
-
-As a user (blogger) I want to be able to signout
-
-As a user (blogger) I want to create a blog
-
-As a user (blogger) I want to update a blog
-
-As a user (blogger) I want to delete a blog
-
-As a user (blogger) I want to upload an image
-
-As a user (visitor) I want to comment on the blog
-
-As a user (visitor) I want to be able to “like” a blog
-
-As a user (visitor) I want to like a comment
-
-As a user (visitor) I want to be able to see a history of blog posts
-
-As a user (visitor) I want to sign up for newsletters
+ As a user (visitor) ...
+- [x] ... I want to comment on the blog
+- [x] ... I want to be able to “like” a blog
+- [x] ... I want to like a comment
+- [x] ... I want to be able to see a history of blog posts
+- [ ] ... I want to sign up for newsletters
 
 ## Component Hierarchy
 
