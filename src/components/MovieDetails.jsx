@@ -9,12 +9,15 @@ const MovieDetails = (props) => {
   const [createComment, setCreateComment] = useState([]);
   const [likes, setLikes] = useState([]);
   const [reviewLike, setReviewLike] = useState(0);
+
   const [formData, setFormData] = useState({
     comment: "",
     likes: 0,
     userId: userId,
     contentId: id,
   });
+
+  console.log(formData);
 
   useEffect(() => {
     const getSelectedMovie = async () => {
@@ -27,7 +30,7 @@ const MovieDetails = (props) => {
       }
     };
     getSelectedMovie();
-  }, [props.movieContent]);
+  }, [id, props.movieContent]);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -72,15 +75,17 @@ const MovieDetails = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await Client.post(`/api/comments/${id}`, formData);
+    const response = await Client.post(`/api/comments/${userId}`, formData);
+
     setSingleComment(response.data);
     displayComments();
     setFormData({ ...formData, comment: "" });
+
     console.log("Submitted comment:", singleComment);
   };
 
   const displayComments = async () => {
-    const response = await Client.get(`/api/comments/view/${id}`);
+    const response = await Client.get(`/api/comments/view/${userId}`);
     setSingleComment(response.data);
     setCreateComment(response.data);
   };
