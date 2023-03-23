@@ -11,7 +11,7 @@ const MovieDetails = (props) => {
   const [formData, setFormData] = useState({
     comment: "",
     likes: 0,
-    userId: props.movieContent.userId,
+    userId: props.movieContent[id].userId,
     contentId: id,
   });
   useEffect(() => {
@@ -140,4 +140,5 @@ const MovieDetails = (props) => {
     </div>
   );
 };
+
 export default MovieDetails;
