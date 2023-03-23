@@ -17,8 +17,6 @@ const MovieDetails = (props) => {
     contentId: id,
   });
 
-  console.log(formData);
-
   useEffect(() => {
     const getSelectedMovie = async () => {
       if (props.movieContent && props.movieContent.length > 0) {
@@ -26,7 +24,6 @@ const MovieDetails = (props) => {
           (movie) => movie.id === parseInt(id)
         );
         setMovie(selectedMovie);
-        console.log(selectedMovie);
       }
     };
     getSelectedMovie();
@@ -95,30 +92,30 @@ const MovieDetails = (props) => {
   }, [id]);
 
   return (
-      <div className="pageContainer">
-        <div className="body">
+    <div className="pageContainer">
+      <div className="body">
+        <div className="blogWindow" id="blogPost">
+          <div className="pageTitle">
+            <span style={{ fontSize: "40px" }}>{movie.title}</span>
+          </div>
 
-          <div className="blogWindow" id="blogPost">
-            <div className="pageTitle">
-              <span style={{ fontSize: "40px" }}>{movie.title}</span>
-            </div>
-
-            <div className="contentContainer" id="movieInfo">
-              <div id="resultsContainer">
-                <div>
-                  <img
-                    src={movie.image}
-                    alt="poster"
-                    // style={{ width: "14vw", minWidth: "200px" }}
-                    className="blogPostImg"
-                    id="posterCard"
-                    />
-                </div>
-                <div>
-                  <span>SYNOPSIS</span><br></br>
-                  <span>{movie.synopsis}</span>
-                </div>
+          <div className="contentContainer" id="movieInfo">
+            <div id="resultsContainer">
+              <div>
+                <img
+                  src={movie.image}
+                  alt="poster"
+                  // style={{ width: "14vw", minWidth: "200px" }}
+                  className="blogPostImg"
+                  id="posterCard"
+                />
               </div>
+              <div>
+                <span>SYNOPSIS</span>
+                <br></br>
+                <span>{movie.synopsis}</span>
+              </div>
+            </div>
 
             <div className="contentContainer" id="movieReview">
               <span>REVIEW</span>
@@ -138,7 +135,6 @@ const MovieDetails = (props) => {
           </div>
 
           <section>
-            
             <div>
               {singleComment &&
                 Array.isArray(singleComment) &&
