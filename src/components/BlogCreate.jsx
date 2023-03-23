@@ -3,15 +3,18 @@ import { useState } from "react";
 import Client from "../services/api";
 
 const BlogCreate = (props) => {
+  let id = 5;
   const [createBlog, setCreateBlog] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     synopsis: "",
     review: "",
     image: "",
+    user_id: id,
+    contentId: props.movieContent.id
   });
 
-  let id = 5;
+ 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });

@@ -71,7 +71,7 @@ const App = () => {
         <Route path="/News" element={<News />}></Route>
         <Route path="/WritersPortal" element={<WritersPortal movieContent={movieContent} handleDelete={handleDelete}/>}></Route>
         <Route path="/WritersPortal/:id" element={<BlogUpdate movieContent={movieContent} updateBlog={updateBlog} handleSubmit={handleSubmit} handleChange={handleChange} formData={formData}/>}></Route>
-        <Route path="/Create" element={<BlogCreate />}></Route>
+        <Route path="/Create" element={<BlogCreate movieContent={movieContent}/>}></Route>
         <Route path="/LoginModal" element={<LoginModal />}></Route>
       </Routes>
       <Footer />

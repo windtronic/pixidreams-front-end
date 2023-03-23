@@ -8,7 +8,6 @@ const MovieDetails = (props) => {
   const [createComment, setCreateComment] = useState([]);
   const [likes, setLikes] = useState([]);
   const [reviewLike, setReviewLike] = useState(0);
-
   const [formData, setFormData] = useState({
     comment: "",
     likes: 0,
@@ -79,7 +78,6 @@ const MovieDetails = (props) => {
   useEffect(() => {
     displayComments();
   }, [id]);
-  
   return (
     <div>
       <div className="pageContainer">
@@ -142,9 +140,5 @@ const MovieDetails = (props) => {
     </div>
   );
 };
+
 export default MovieDetails;
-
-
-
-
-
