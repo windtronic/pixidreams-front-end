@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { BASE_URL, POSTER_URL } from "../globals";
 import Client from "../services/api";
+import LoginModal from "./LoginModal";
 
 const News = () => {
   const [movies, setMovies] = useState([]);
@@ -25,33 +26,35 @@ const News = () => {
 
   return (
     <div>
+      {/* <div>
+        <LoginModal/>
+      </div> */}
       <div className="pageContainer">
         <div className="body">
-          <span className="pageTitle">
-            CHECK OUT THE LATEST IN ANIMATIONLAND!
-          </span>
-          <section id="contentContainer">
-            <div id="newsFeed">
-              {filterGenreId.map((movie, index) => {
-                return (
-                  <div key={index}>
-                    <section>{movie.title}</section>
-                    <section>
-                      {" "}
-                      <img src={POSTER_URL + movie.poster_path} alt="poster" />
-                    </section>
-                    <section>{movie.overview}</section>
+          <span className="pageTitle">CHECK OUT THE LATEST IN ANIMATIONLAND!</span>
+          
+            <section id="contentContainer">
+              <div id="newsResult">
+                {filterGenreId.map((movie, index) => {
+                  return (
+                    <div key={index}>
+                      <section>{movie.title}</section>
+                      <section>
+                        {" "}
+                        <img src={POSTER_URL + movie.poster_path} alt="poster" style={{width: '15vw'}}/>
+                      </section>
+                      <section>{movie.overview}</section>
+                    </div>
+                  );
+                })}
+                {page > 1 && (
+                  <div>
+                    <button onClick={() => setPage(page - 1)}>Previous</button>
+                    <button onClick={() => setPage(page + 1)}>Next</button>
                   </div>
-                );
-              })}
-              {page > 1 && (
-                <div>
-                  <button onClick={() => setPage(page - 1)}>Previous</button>
-                  <button onClick={() => setPage(page + 1)}>Next</button>
-                </div>
-              )}
-            </div>
-          </section>
+                )}
+              </div>
+            </section>
         </div>
       </div>
     </div>

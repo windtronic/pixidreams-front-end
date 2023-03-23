@@ -1,9 +1,13 @@
 import { useEffect } from "react";
 import Client from "../services/api";
+import LoginModal from "./LoginModal";
 
 const About = () => {
   return (
     <div>
+      {/* <div>
+        <LoginModal/>
+      </div> */}
       <div className="pageContainer">
         <div className="body">
           <span className="pageTitle">MEET THE PIXIDREAMS TEAM!</span>
