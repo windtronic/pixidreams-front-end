@@ -22,15 +22,11 @@ const Home = ({ movieContent }) => {
     navigate(`/Movies/${index}`);
   };
   return (
-    <div>
       <div className="pageContainer">
         <div className="body">
-          <div className="titleContainer">
-            <div className="homeTitle">
-              <span>ABOUT</span>
-            </div>
-          </div>
-
+        <div className='titleContainer'>
+          <div className="homeTitle"><span>ABOUT</span></div>
+        </div>
           <div className="welcomeBlurbContainer">
             <div
               id="homeBlurb"
@@ -66,10 +62,8 @@ const Home = ({ movieContent }) => {
             </div>
           </div>
 
-          <div className="titleContainer">
-            <div className="homeTitle">
-              <span>LATEST</span>
-            </div>
+          <div className='titleContainer'>
+            <div className="homeTitle" style= {{marginBottom:'30px'}}><span>LATEST</span></div>
           </div>
 
           <div id="latestContainer" style={{ marginBottom: "50px" }}>
@@ -77,11 +71,11 @@ const Home = ({ movieContent }) => {
             {movies
               .map((movie, index) => (
                 <div
-                  id="posterCard"
                   key={index}
                   onClick={() => showDetails(index)}
                 >
                   <img
+                    id="posterCard"
                     src={movie.image}
                     className="latestPoster"
                     alt="poster"
@@ -92,7 +86,6 @@ const Home = ({ movieContent }) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
