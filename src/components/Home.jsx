@@ -1,29 +1,80 @@
-const Home = () => {
+import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import MovieDetails from "./MovieDetails";
+
+const Home = ({ movieContent }) => {
+  const [movies, setMovies] = useState([]);
+  const [count, setCount] = useState(0);
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    const getSelectedMovie = async () => {
+      if (movieContent) {
+        let selectedMovie = movieContent;
+        setMovies(selectedMovie);
+      }
+    };
+    getSelectedMovie();
+  }, [movieContent]);
+
+  const showDetails = (moviesId) => {
+    navigate(`/Movies/${moviesId}`);
+  };
   return (
-    <div>
-      <div className="pageContainer">
-        <div className="body">
-        <div className="homeTitle"><span>ABOUT</span></div>
-
-          <div className='contentContainer'>
-            <div>
-              <img></img>
-            </div>
-            <div id="homeBlurb">
-              <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum, dui nec elementum auctor, elit sem sodales tortor, at bibendum ante nunc a quam. Pellentesque pharetra turpis ac nibh molestie, id semper tellus suscipit. Praesent in accumsan mauris. Duis vel dignissim neque. Proin iaculis luctus commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent volutpat semper scelerisque. </h3>
-            </div>
+    <div className="pageContainer">
+      <div className="body">
+        <div className="titleContainer">
+          <div className="homeTitle">
+            <span>ABOUT</span>
           </div>
-
-          <div className="homeTitle"><span>LATEST</span></div>
-
-          <div id="latestContainer">         {/* ONCLICK FUNCTION NEEDED */}
-            <div id='posterCard'><img className="latestPoster" alt="poster"></img></div> 
-            <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
-            <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
-            <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
-            <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
-            <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
+        </div>
+        <div className="welcomeBlurbContainer">
+          <div
+            id="homeBlurb"
+            style={{ textAlign: "center", marginRight: "1vw" }}
+          >
+            <br></br>
+            <h3>
+              Welcome to PixiDreams, the go-to movie blog for all things animated!
+              <br></br>
+              <br></br>
+              From timeless classics to the latest box office hits, PixiDreams offers thoughtful and insightful reviews that delve into thestorytelling, animation techniques, and themes that make each movie unique.
+              <br></br>
+              <br></br>
+              We believe that animation is more than just entertainment - it's an art form that has the power to inspire and captivate audiences of all ages. That's why we're dedicated to sharing our passion for animated movies with our readers, and keeping them up-to-date on the latest news and trends in the world of animation.
+            </h3>
+            <br></br>
           </div>
+          <div>
+            <img
+              src="https://i.imgur.com/5gvUh78.jpg"
+              style={{ width: "50vw" }}
+              alt="home img"
+            ></img>
+          </div>
+        </div>
+
+        <div className="titleContainer">
+          <div className="homeTitle" style={{ marginBottom: "30px" }}>
+            <span>LATEST</span>
+          </div>
+        </div>
+
+        <div id="latestContainer" style={{ marginBottom: "50px" }}>
+          {" "}
+          {movies
+            .map((movie, index) => (
+              <div key={index} onClick={() => showDetails(movie.id)}>
+                <img
+                  id="posterCard"
+                  src={movie.image}
+                  className="latestPoster"
+                  alt="poster"
+                ></img>
+              </div>
+            ))
+            .slice(0, 6)}
         </div>
       </div>
     </div>

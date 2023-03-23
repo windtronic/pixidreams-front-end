@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import Client from "../services/api";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from "react-router-dom";
 
 const Movies = () => {
+  let navigate = useNavigate();
+
+  const showMovie = (movie) => {
+    navigate(`${movie.id}`);
+  };
   const [movieContent, setMovieContent] = useState([]);
 
   useEffect(() => {
@@ -14,40 +19,47 @@ const Movies = () => {
     getContent();
   }, []);
 
-  // useEffect(() => {
-  //   const createContent = async (req, res) => {
-  //     const content = await Client.post(`/api/posts/${req.id}`);
-  //     console.log(content);
-  //     setContent(content);
-  //   };
-  //   createContent();
-  // }, []);
-
   return (
     <div>
       <div className="pageContainer">
         <div className="body">
           <span className="pageTitle">BLOG HISTORY</span>
-          <section id="contentContainer">
-            <div>
-              {movieContent.map((movie) => {
-                return (
-                  <div id="blogHistory">
-                    <div>
-                      <span>
-                        <img src={movie.image} alt="poster" />
-                      </span>
+          <section className="contentContainer">
+            {movieContent.map((movie) => {
+              return (
+                <div id="blogHistory">
+                  <div style={{ marginRight: "20px" }}>
+                    <img
+                      src={movie.image}
+                      alt="poster"
+                      style={{ width: "14vw", minWidth: "200px" }}
+                    />
+                  </div>
+
+                  <div>                                               {/* CONTAINS TITLE, SYNOPSIS & READMORE */}
+                    <div style={{ backgroundColor: "#21997f", }}>
+                      <span style={{ fontSize: "28px" }}>{movie.title}</span>
                     </div>
+
                     <div>
-                      <span>Title: {movie.title}</span>
+                      <div style={{ margin: "12px", fontSize: "20px" }}>
+                        <span>{movie.synopsis}</span>
+                      </div>
                     </div>
+
                     <div>
-                      <span>Synopsis: {movie.synopsis}</span>
+                      <button
+                        className="moreBtn"
+                        style={{ justifyContent: "right" }}
+                        onClick={() => showMovie(movie)}
+                      >
+                        READ MORE!
+                      </button>
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
           </section>
         </div>
       </div>
@@ -56,3 +68,4 @@ const Movies = () => {
 };
 
 export default Movies;
+
