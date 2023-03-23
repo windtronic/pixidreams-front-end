@@ -179,6 +179,8 @@ input {
 /* HOME PAGE ********************************************************/
 .titleContainer{
   position: relative;
+  width: 50vw;
+  
 
 }
 
@@ -187,15 +189,25 @@ input {
   font-size: 30px;
   margin-top: 50px;
   
+  
 
 }
 
 #homeBlurb{
-  width: 37vw;
+  width: 47vw;
   font-family: 'Comfortaa';
-  justify-self: right;
+  font-size: clamp(12px, 1.2vw, 16px)
 }
 
+.welcomeBlurbContainer{
+  width: 50vw;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: right;  
+  /* margin-right: 4.7vw; */
+}
 
 #latestContainer{
   display: flex;
@@ -210,6 +222,38 @@ input {
   width: 250px;
   margin:15px;
 }
+
+
+/* MOVIES  ******************************************************/
+
+#blogHistory {
+  border-bottom: 2px solid;
+  margin: 18px;
+  display: flex;
+
+}
+
+
+
+.postDetails{
+  display: flex;
+  text-align: left;
+}
+
+.moreBtn {
+  background-color: rgb(0, 0, 0);
+  padding: 7px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: #982a0d;
+  border: none;
+  font-family: Boogaloo;
+  font-size: 20px;
+  color:#f5f5f5;
+  cursor: pointer;
+}
+
 
 
 /* ABOUT PAGE *********************************************************/
@@ -230,17 +274,6 @@ input {
 .memberBlurb{
   font-family: 'Comfortaa';
   font-weight: bold;
-}
-
-#blogHistory {
-  border: 2px solid;
-  margin: 5px;
-  cursor: pointer;
-}
-
-#blogHistory:hover {
-  /* transform: scale(1.008); */
-  box-shadow: 0px 0px 5px 2px;
 }
 
 

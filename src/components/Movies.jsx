@@ -21,28 +21,39 @@ const Movies = () => {
 
   return (
     <div>
+
       <div className="pageContainer">
         <div className="body">
-          <span className="pageTitle">BLOG HISTORY</span>
+          <span className="pageTitle">BLOG HISTORY</span>          
+          <section className="contentContainer">
+              {movieContent.map((movie) => {
 
-          <section id="contentContainer">
-            <div>
-              {movieContent.map((movie, index) => {
                 return (
-                  <div id="blogHistory" key={movie.id} onClick={() => showMovie(movie)}>
-                    <div>
-                        <img src={movie.image} alt="poster" />
+                  <div id="blogHistory">
+
+                    <div style={{marginRight:'20px'}}>
+                      <img src={movie.image} alt="poster" style={{width:'14vw', minWidth: '200px'}}/>
                     </div>
-                    <div>
-                      <span>Title: {movie.title}</span>
+
+                  <div> 
+                    <div style={{backgroundColor:'#21997f'}}>
+                      <span style={{fontSize: '28px'}}>Title: {movie.title}</span>
                     </div>
+                    
                     <div>
-                      <span>Synopsis: {movie.synopsis}</span>
+                      <div style={{margin: '20px', fontSize:'20px'}}>
+                        <span>Synopsis: {movie.synopsis}</span>
+                      </div>
                     </div>
+
+                    <div>
+                      <button className='moreBtn' style={{justifyContent: 'right'}}>READ MORE!</button>
+                    </div>
+                    
                   </div>
+                </div>
                 );
               })}
-            </div>
           </section>
         </div>
       </div>

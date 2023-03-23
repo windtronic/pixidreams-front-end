@@ -1,6 +1,7 @@
 import Client from "../services/api";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import LoginModal from "./LoginModal";
 
 const WritersPortal = (props) => {
   let navigate = useNavigate();
@@ -11,9 +12,12 @@ const WritersPortal = (props) => {
 
   return (
     <div>
+      {/* <div>
+        <LoginModal/>
+      </div> */}
       <div className="pageContainer">
         <div className="body">
-          <div className='pageTitle'>WELCOME, USERNAME</div>
+          <div className='pageTitle'>WELCOME!</div>
           <section className="contentContainer">
           <button className="bloggerBtns">
             <Link to="/create" style={{ textDecoration: "none" }}>

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Client from "../services/api";
 
 const BlogUpdate = (props) => {
+
   // const [updateBlog, setUpdateBlog] = useState([]);
   // const [formData, setFormData] = useState({ title: "", image: "", synopsis: "", review: "" });
   const [movie, setMovie] = useState("");
