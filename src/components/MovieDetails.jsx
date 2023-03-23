@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Client from "../services/api";
 const MovieDetails = (props) => {
   const { id } = useParams();
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState([null]);
   const [singleComment, setSingleComment] = useState([]);
   const [createComment, setCreateComment] = useState([]);
   const [likes, setLikes] = useState([]);
@@ -17,7 +17,7 @@ const MovieDetails = (props) => {
   });
   useEffect(() => {
     const getSelectedMovie = async () => {
-      if (props.movieContent && props.movieContent[id]) {
+      if (props.movieContent && props.movieContent.length > 0) {
         let selectedMovie = props.movieContent.find(
           (movie) => movie.id === parseInt(id)
         );
@@ -26,7 +26,8 @@ const MovieDetails = (props) => {
       }
     };
     getSelectedMovie();
-  }, [props.movieContent]);
+  }, [id, props.movieContent]);
+  
   const handleChange = (event) => {
     event.preventDefault();
     setFormData({ ...formData, [event.target.id]: event.target.value });
@@ -79,6 +80,7 @@ const MovieDetails = (props) => {
   useEffect(() => {
     displayComments();
   }, [id]);
+  
   return (
     <div>
       <div className="pageContainer">
