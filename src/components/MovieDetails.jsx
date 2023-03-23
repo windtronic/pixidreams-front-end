@@ -4,7 +4,7 @@ import Client from "../services/api";
 
 const MovieDetails = (props) => {
   const { id } = useParams();
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState([null]);
   const [singleComment, setSingleComment] = useState([]);
   const [createComment, setCreateComment] = useState([]);
   const [likes, setLikes] = useState([]);
@@ -13,13 +13,15 @@ const MovieDetails = (props) => {
   const [formData, setFormData] = useState({
     comment: "",
     likes: 0,
-    userId: props.movieContent.userId,
+    userId: props.movieContent[id].userId,
     contentId: id,
   });
 
+  console.log(formData);
+
   useEffect(() => {
     const getSelectedMovie = async () => {
-      if (props.movieContent && props.movieContent[id]) {
+      if (props.movieContent && props.movieContent.length > 0) {
         let selectedMovie = props.movieContent.find(
           (movie) => movie.id === parseInt(id)
         );
@@ -28,7 +30,7 @@ const MovieDetails = (props) => {
       }
     };
     getSelectedMovie();
-  }, [props.movieContent]);
+  }, [id, props.movieContent]);
 
   const handleChange = (event) => {
     event.preventDefault();
