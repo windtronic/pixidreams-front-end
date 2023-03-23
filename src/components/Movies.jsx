@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import Client from "../services/api";
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link } from "react-router-dom";
 
 const Movies = () => {
   let navigate = useNavigate();
 
   const showMovie = (movie) => {
-    navigate(`${movie.id}`)
-  }
+    navigate(`${movie.id}`);
+  };
   const [movieContent, setMovieContent] = useState([]);
 
   useEffect(() => {
@@ -21,39 +21,47 @@ const Movies = () => {
 
   return (
     <div>
-
       <div className="pageContainer">
         <div className="body">
-          <span className="pageTitle">BLOG HISTORY</span>          
+          <span className="pageTitle">BLOG HISTORY</span>
           <section className="contentContainer">
-              {movieContent.map((movie) => {
+            {movieContent.map((movie) => {
+              return (
+                <div id="blogHistory">
+                  <div style={{ marginRight: "20px" }}>
+                    <img
+                      src={movie.image}
+                      alt="poster"
+                      style={{ width: "14vw", minWidth: "200px" }}
+                    />
+                  </div>
 
-                return (
-                  <div id="blogHistory">
-
-                    <div style={{marginRight:'20px'}}>
-                      <img src={movie.image} alt="poster" style={{width:'14vw', minWidth: '200px'}}/>
+                  <div>
+                    <div style={{ backgroundColor: "#21997f" }}>
+                      <span style={{ fontSize: "28px" }}>
+                        Title: {movie.title}
+                      </span>
                     </div>
 
-                  <div> 
-                    <div style={{backgroundColor:'#21997f'}}>
-                      <span style={{fontSize: '28px'}}>Title: {movie.title}</span>
-                    </div>
-                    
                     <div>
-                      <div style={{margin: '20px', fontSize:'20px'}}>
+                      <div style={{ margin: "20px", fontSize: "20px" }}>
                         <span>Synopsis: {movie.synopsis}</span>
                       </div>
                     </div>
 
                     <div>
-                      <button className='moreBtn' style={{justifyContent: 'right'}}>READ MORE!</button>
+                      <button
+                        className="moreBtn"
+                        style={{ justifyContent: "right" }}
+                        onClick={() => showMovie(movie)}
+                      >
+                        READ MORE!
+                      </button>
                     </div>
-                    
                   </div>
                 </div>
-                );
-              })}
+              );
+            })}
           </section>
         </div>
       </div>
