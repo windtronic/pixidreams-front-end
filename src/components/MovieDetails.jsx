@@ -90,32 +90,29 @@ const MovieDetails = (props) => {
   }, [id]);
 
   return (
-    <div className="pageContainer">
-      <div className="body">
-        <div className="blogWindow" id="blogPost">
-          <div className="blogTitle">
-            <span style={{ fontSize: "40px" }}>{movie.title}</span>
-          </div>
+      <div className="pageContainer">
+        <div className="body">
 
-          <div
-            className="contentContainer"
-            id="movieInfo"
-            style={{ marginRight: "20px" }}
-          >
-            <div className="resultsContainer">
-              <div>
-                <img
-                  src={movie.image}
-                  alt="poster"
-                  // style={{ width: "14vw", minWidth: "200px" }}
-                  className="blogPostImg"
-                />
-              </div>
-              <div>
-                <span>SYNOPSIS</span>
-                <span>{movie.synopsis}</span>
-              </div>
+          <div className="blogWindow" id="blogPost">
+            <div className="pageTitle">
+              <span style={{ fontSize: "40px" }}>{movie.title}</span>
             </div>
+
+            <div className="contentContainer" id="movieInfo" style={{ marginRight: "20px" }}>
+              <div className="resultsContainer">
+                <div>
+                  <img
+                    src={movie.image}
+                    alt="poster"
+                    // style={{ width: "14vw", minWidth: "200px" }}
+                    className="blogPostImg"
+                    />
+                </div>
+                <div>
+                  <span>SYNOPSIS</span>
+                  <span>{movie.synopsis}</span>
+                </div>
+              </div>
 
             <div className="contentContainer" id="movieReview">
               <span>REVIEW</span>
