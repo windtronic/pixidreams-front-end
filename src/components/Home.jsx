@@ -18,8 +18,8 @@ const Home = ({ movieContent }) => {
     getSelectedMovie();
   }, [movieContent]);
 
-  const showDetails = (moviesId) => {
-    navigate(`/Movies/${moviesId}`);
+  const showDetails = (userId, moviesId) => {
+    navigate(`/Movies/${userId}/${moviesId}`);
   };
   return (
     <div className="pageContainer">
