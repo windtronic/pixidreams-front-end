@@ -9,6 +9,7 @@ const MovieDetails = (props) => {
   const [createComment, setCreateComment] = useState([]);
   const [likes, setLikes] = useState([]);
   const [reviewLike, setReviewLike] = useState(0);
+
   const [formData, setFormData] = useState({
     comment: "",
     likes: 0,
@@ -23,11 +24,10 @@ const MovieDetails = (props) => {
           (movie) => movie.id === parseInt(id)
         );
         setMovie(selectedMovie);
-        console.log(selectedMovie);
       }
     };
     getSelectedMovie();
-  }, [props.movieContent]);
+  }, [id, props.movieContent]);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -43,19 +43,34 @@ const MovieDetails = (props) => {
 
   function handleLikeClick(commentId) {
     setLikes((prevLikes) => {
-      const likesCopy = [...prevLikes];
-      const commentLikesIndex = likesCopy.findIndex(
-        (like) => like.commentId === commentId
+      const likesCopy = prevLikes.map((like) =>
+        like.commentId === commentId
+          ? { commentId, count: like.count + 1 }
+          : like
       );
-      if (commentLikesIndex === -1) {
+      if (!likesCopy.some((like) => like.commentId === commentId)) {
         likesCopy.push({ commentId, count: 1 });
-      } else {
-        likesCopy[commentLikesIndex].count++;
       }
       localStorage.setItem("likes", JSON.stringify(likesCopy));
       return likesCopy;
     });
   }
+
+  // function handleLikeClick(commentId) {
+  //   setLikes((prevLikes) => {
+  //     const likesCopy = [...prevLikes];
+  //     const commentLikesIndex = likesCopy.findIndex(
+  //       (like) => like.commentId === commentId
+  //     );
+  //     if (commentLikesIndex === -1) {
+  //       likesCopy.push({ commentId, count: 1 });
+  //     } else {
+  //       likesCopy[commentLikesIndex].count++;
+  //     }
+  //     localStorage.setItem("likes", JSON.stringify(likesCopy));
+  //     return likesCopy;
+  //   });
+  // }
 
   useEffect(() => {
     const storedLike = localStorage.getItem("reviewLike");
@@ -72,15 +87,17 @@ const MovieDetails = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await Client.post(`/api/comments/${id}`, formData);
+    const response = await Client.post(`/api/comments/${userId}`, formData);
+
     setSingleComment(response.data);
     displayComments();
     setFormData({ ...formData, comment: "" });
+
     console.log("Submitted comment:", singleComment);
   };
 
   const displayComments = async () => {
-    const response = await Client.get(`/api/comments/view/${id}`);
+    const response = await Client.get(`/api/comments/view/${userId}`);
     setSingleComment(response.data);
     setCreateComment(response.data);
   };
@@ -112,7 +129,12 @@ const MovieDetails = (props) => {
                     <span className="blurbText" style={{textAlign:'left', alignContent:'top'}}>{movie.synopsis}</span>
                 </div>
               </div>
-
+              <div>
+                <span>SYNOPSIS</span>
+                <br></br>
+                <span>{movie.synopsis}</span>
+              </div>
+            </div>
               <div className="contentContainer" id="movieReview">
                 <span className="sectionTitle" style={{marginTop:'10px', marginBottom:'10px', borderTop:'none'}}>REVIEW</span> 
                 <span className="blurbText" style={{textAlign:'left', paddingLeft:'1px'}}>{movie.review}</span> 
