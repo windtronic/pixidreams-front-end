@@ -33,18 +33,10 @@ const WritersPortal = (props) => {
                       />
                     </div>
                     <div style={{display: 'flex', flexDirection:'column'}}>
-                      <div className="sectionTitle" style={{marginTop: ".8vw"}}>
+                      <div className="sectionTitle" style={{width: '200px'}}>
                         <span>{movie.title}</span>
                       </div>
                       <div>
-                        <span>SYNOPSIS</span>
-                        <br></br>
-                        <span>{movie.synopsis}</span>
-                      </div>
-
-                      <div>
-                        <span>REVIEW</span>
-                        <br></br>
                         <span>{movie.review}</span>
                       </div>
 

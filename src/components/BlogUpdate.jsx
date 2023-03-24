@@ -26,7 +26,7 @@ const BlogUpdate = (props) => {
           <span>EDIT BLOG</span>
         </div>
 
-        <div className="blogWindow">
+        <div className="blogWindow" style={{paddingTop:'30px'}}>
           <form onSubmit={(e) => props.handleSubmit(e, id)}>
             <label htmlFor="title" className="homeTitle">
               TITLE

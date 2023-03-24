@@ -14,7 +14,7 @@ import LoginModal from "./components/LoginModal";
 import Footer from "./components/Footer";
 import BlogUpdate from "./components/BlogUpdate";
 import BlogCreate from "./components/BlogCreate";
-import RegistrationModal from "./components/RegistrationModal";
+import Registration from "./components/Registration";
 
 const App = () => {
   const [movieContent, setMovieContent] = useState([]);
