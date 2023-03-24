@@ -44,7 +44,7 @@ const Movies = () => {
                       <span>{movie.synopsis}</span>
                     </div>
                     <div>
-                      <button className="moreBtn" onClick={() => showMovie(movie)}>READ MORE!</button>
+                      <button className="smallBtn" onClick={() => showMovie(movie)}>READ MORE!</button>
                     </div>
                   </div>
                 </div>

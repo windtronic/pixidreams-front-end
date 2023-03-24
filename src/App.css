@@ -149,7 +149,7 @@
 
 }
 
-.moreBtn {
+.smallBtn {
   background-color: rgb(0, 0, 0);
   padding: 7px;
   border-radius: 10px;
@@ -165,11 +165,11 @@
   margin-top: 10px;
 }
 
-.moreBtn:hover {
+.button:hover {
   background-color: #75250f;
 }
 
-.moreBtn:active {
+.button:active {
   transform: translateY(2px);
 }
 
@@ -309,7 +309,7 @@ textarea {
 
 }
 
-.selectBtn {
+.btnLarge {
   margin: 15px;
   border-radius: 10px;
   background-color: #982a0d;
@@ -323,17 +323,33 @@ textarea {
   padding-right: 15px;
 
 }
-.selectBtn:hover {
+.btnLarge:hover {
   background-color: #75250f;
 
 }
 
-.selectBtn:active {
+.btnLarge:active {
   transform: translateY(2px);
 
 }
 
 
+
+.bloggerBtn{
+  background-color: rgb(0, 0, 0);
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #982a0d;
+  border: none;
+  font-family: Boogaloo;
+  font-size: 15px;
+  color: #f5f5f5;
+  cursor: pointer;
+  width:70px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+}
 #footer {
   background-color: #982a0d;
   min-height: 25px;

@@ -172,7 +172,7 @@ const MovieDetails = (props) => {
                   style={{  width: '35vw'}}
                 />
                 <br />
-                <button type="submit" className="moreBtn">COMMENT</button>
+                <button type="submit" className="smallBtn">COMMENT</button>
               </form>
             </div>
             {createComment && (

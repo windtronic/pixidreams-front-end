@@ -95,7 +95,7 @@ const BlogCreate = (props) => {
               className="formTextArea"
             />
             <br></br>
-            <button className="selectBtn" id="btn-create" type="submit">
+            <button className="btnLarge" id="btn-create" type="submit">
               PUBLISH
             </button>
           </form>
