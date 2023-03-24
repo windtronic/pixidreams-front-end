@@ -107,103 +107,136 @@ const MovieDetails = (props) => {
   }, [id]);
 
   return (
-      <div className="pageContainer">
-        <div className="body">
+    <div className="pageContainer">
+      <div className="body">
+        <div id="blogPost" className="blogWindow">
+          <div className="pageTitle">
+            <span style={{ fontSize: "40px" }}>{movie.title}</span>
+          </div>
 
-          <div id="blogPost" className="blogWindow">
-            <div className="pageTitle">
-              <span style={{ fontSize: "40px" }}>{movie.title}</span>
-            </div>
-
-            <div id="movieInfo">
-              <div id="resultsContainer" style={{borderBottom:'none'}}>
-                <img
-                  id="blogPostImg"
-                  src={movie.image}
-                  alt="poster"
-                  />
-                <div className="contentContainer" id="movieReview">
-                  <div>
-                    <span className="sectionTitle" style={{marginLeft:'10px', borderBottom:'none'}}>SYNOPSIS</span>
-                  </div>
-                    <span className="blurbText" style={{textAlign:'left', alignContent:'top'}}>{movie.synopsis}</span>
+          <div id="movieInfo">
+            <div id="resultsContainer" style={{ borderBottom: "none" }}>
+              <img id="blogPostImg" src={movie.image} alt="poster" />
+              <div className="contentContainer" id="movieReview">
+                <div>
+                  <span
+                    className="sectionTitle"
+                    style={{ marginLeft: "10px", borderBottom: "none" }}
+                  >
+                    SYNOPSIS
+                  </span>
                 </div>
-              </div>
-              <div>
-                <span>SYNOPSIS</span>
-                <br></br>
-                <span>{movie.synopsis}</span>
+                <span
+                  className="blurbText"
+                  style={{ textAlign: "left", alignContent: "top" }}
+                >
+                  {movie.synopsis}
+                </span>
               </div>
             </div>
-              <div className="contentContainer" id="movieReview">
-                <span className="sectionTitle" style={{marginTop:'10px', marginBottom:'10px', borderTop:'none'}}>REVIEW</span> 
-                <span className="blurbText" style={{textAlign:'left', paddingLeft:'1px'}}>{movie.review}</span> 
-              </div>
-              <div style={{ borderBottom: '2px solid', paddingTop:'10px', paddingBottom:'10px'}}>
-                <span style={{ marginRight: "8px" }}>{reviewLike}</span>
-                <button className="likeBtn" onClick={() => handleReviewLike()}>
-                  🖤
-                </button>
-              </div>
-              <div className="contentContainer" id="movieReview">
-                <span style={{marginTop:'20px', marginBottom:'10px', fontSize:'25px'}}>COMMENTS</span> 
-              </div>
-            <div className='commentContainer'>
-              {singleComment &&
-                Array.isArray(singleComment) &&
-                singleComment.map((comment) => {
-                  const commentLikes = likes.find(
-                    (like) => like.commentId === comment.id
-                  );
-                  return (
-                    <div key={comment.id}>
-                      <div>
-                        <span>{comment.comment}</span>
-                      </div>
-                      <div>
-                        <span style={{ marginRight: "8px" }}>
-                          {commentLikes ? commentLikes.count : 0}
-                        </span>
-                        <button
-                          className="likeBtn"
-                          onClick={() => handleLikeClick(comment.id)}
-                        >
-                          🖤
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-            </div>
-          </div>
-
-          <div>
-            <br></br>
-          </div>
-
-          <section>
-            
             <div>
-              <form onSubmit={handleSubmit}>
-                <label htmlFor="comment"></label>
-                <input
-                  type="text"
-                  id="comment"
-                  value={formData.comment}
-                  onChange={handleChange}
-                  style={{  width: '35vw'}}
-                />
-                <br />
-                <button type="submit" className="smallBtn">COMMENT</button>
-              </form>
+              <span>SYNOPSIS</span>
+              <br></br>
+              <span>{movie.synopsis}</span>
             </div>
-            {createComment && (
-              <div>
-                <p>{createComment.comment}</p>
-              </div>
-            )}
-          </section>
+          </div>
+          <div className="contentContainer" id="movieReview">
+            <span
+              className="sectionTitle"
+              style={{
+                marginTop: "10px",
+                marginBottom: "10px",
+                borderTop: "none",
+              }}
+            >
+              REVIEW
+            </span>
+            <span
+              className="blurbText"
+              style={{ textAlign: "left", paddingLeft: "1px" }}
+            >
+              {movie.review}
+            </span>
+          </div>
+          <div
+            style={{
+              borderBottom: "2px solid",
+              paddingTop: "10px",
+              paddingBottom: "10px",
+            }}
+          >
+            <span style={{ marginRight: "8px" }}>{reviewLike}</span>
+            <button className="likeBtn" onClick={() => handleReviewLike()}>
+              🖤
+            </button>
+          </div>
+          <div className="contentContainer" id="movieReview">
+            <span
+              style={{
+                marginTop: "20px",
+                marginBottom: "10px",
+                fontSize: "25px",
+              }}
+            >
+              COMMENTS
+            </span>
+          </div>
+          <div className="commentContainer">
+            {singleComment &&
+              Array.isArray(singleComment) &&
+              singleComment.map((comment) => {
+                const commentLikes = likes.find(
+                  (like) => like.commentId === comment.id
+                );
+                return (
+                  <div key={comment.id}>
+                    <div>
+                      <span>{comment.comment}</span>
+                    </div>
+                    <div>
+                      <span style={{ marginRight: "8px" }}>
+                        {commentLikes ? commentLikes.count : 0}
+                      </span>
+                      <button
+                        className="likeBtn"
+                        onClick={() => handleLikeClick(comment.id)}
+                      >
+                        🖤
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
         </div>
+
+        <div>
+          <br></br>
+        </div>
+
+        <section>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="comment"></label>
+              <input
+                type="text"
+                id="comment"
+                value={formData.comment}
+                onChange={handleChange}
+                style={{ width: "35vw" }}
+              />
+              <br />
+              <button type="submit" className="smallBtn">
+                COMMENT
+              </button>
+            </form>
+          </div>
+          {createComment && (
+            <div>
+              <p>{createComment.comment}</p>
+            </div>
+          )}
+        </section>
       </div>
     </div>
   );
