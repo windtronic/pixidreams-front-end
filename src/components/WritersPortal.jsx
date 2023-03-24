@@ -12,36 +12,30 @@ const WritersPortal = (props) => {
 
   return (
     <div>
-      {/* <div>
-        <LoginModal/>
-      </div> */}
       <div className="pageContainer">
         <div className="body">
           <div className="pageTitle">WELCOME BLOGGER!</div>
-          <div className="contentContainer">
+          <div className="contentContainer" style={{justifyContent:'center'}}>
             <Link to="/create">
-              <button className="btn-login" id="btn-create">
-                CREATE
-              </button>
+              <button id="btn-create" className="btnLarge">CREATE</button>
             </Link>
             <br></br>
 
             <section id="bloggerPostList">
               {props.movieContent.map((movie) => {
                 return (
-                  <div id="resultsContainer" key={movie.id}>
+                  <div id="resultsContainer" key={movie.id} style={{  borderBottom: 'none', borderTop: '2px solid'}}>
                     <div style={{ marginRight: "20px", marginBottom: "20px" }}>
                       <img
                         src={movie.image}
                         alt="poster"
-                        style={{ width: "14vw", minWidth: "200px" }}
+                        className='poster'
                       />
                     </div>
-                    <div>
-                      <div>
+                    <div style={{display: 'flex', flexDirection:'column'}}>
+                      <div className="sectionTitle" style={{marginTop: ".8vw"}}>
                         <span>{movie.title}</span>
                       </div>
-
                       <div>
                         <span>SYNOPSIS</span>
                         <br></br>
@@ -56,16 +50,16 @@ const WritersPortal = (props) => {
 
                       <div>
                         <button
-                          className="btn-login"
-                          id="btn-create"
+                          className="bloggerBtn"
+                          id="btn-edit"
                           key={movie.id}
                           onClick={() => showMovie(movie)}
                         >
                           EDIT
                         </button>
                         <button
-                          className="btn-login"
-                          id="btn-create"
+                          className="bloggerBtn"
+                          id="btn-delete"
                           onClick={() => props.handleDelete(movie.id)}
                         >
                           DELETE

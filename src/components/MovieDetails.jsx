@@ -107,23 +107,27 @@ const MovieDetails = (props) => {
   }, [id]);
 
   return (
-    <div className="pageContainer">
-      <div className="body">
-        <div className="blogWindow" id="blogPost">
-          <div className="pageTitle">
-            <span style={{ fontSize: "40px" }}>{movie.title}</span>
-          </div>
+      <div className="pageContainer">
+        <div className="body">
 
-          <div className="contentContainer" id="movieInfo">
-            <div id="resultsContainer">
-              <div>
+          <div id="blogPost" className="blogWindow">
+            <div className="pageTitle">
+              <span style={{ fontSize: "40px" }}>{movie.title}</span>
+            </div>
+
+            <div id="movieInfo">
+              <div id="resultsContainer" style={{borderBottom:'none'}}>
                 <img
+                  id="blogPostImg"
                   src={movie.image}
                   alt="poster"
-                  // style={{ width: "14vw", minWidth: "200px" }}
-                  className="blogPostImg"
-                  id="posterCard"
-                />
+                  />
+                <div className="contentContainer" id="movieReview">
+                  <div>
+                    <span className="sectionTitle" style={{marginLeft:'10px', borderBottom:'none'}}>SYNOPSIS</span>
+                  </div>
+                    <span className="blurbText" style={{textAlign:'left', alignContent:'top'}}>{movie.synopsis}</span>
+                </div>
               </div>
               <div>
                 <span>SYNOPSIS</span>
@@ -131,26 +135,20 @@ const MovieDetails = (props) => {
                 <span>{movie.synopsis}</span>
               </div>
             </div>
-
-            <div className="contentContainer" id="movieReview">
-              <span>REVIEW</span>
-              <br></br>
-              <span>{movie.review}</span>
-              <br></br>
-            </div>
-          </div>
-
-          <div>
-            <span>LIKES</span>
-            <br></br>
-            <span style={{ marginRight: "8px" }}>{reviewLike}</span>
-            <button className="likeBtn" onClick={() => handleReviewLike()}>
-              🖤
-            </button>
-          </div>
-
-          <section>
-            <div>
+              <div className="contentContainer" id="movieReview">
+                <span className="sectionTitle" style={{marginTop:'10px', marginBottom:'10px', borderTop:'none'}}>REVIEW</span> 
+                <span className="blurbText" style={{textAlign:'left', paddingLeft:'1px'}}>{movie.review}</span> 
+              </div>
+              <div style={{ borderBottom: '2px solid', paddingTop:'10px', paddingBottom:'10px'}}>
+                <span style={{ marginRight: "8px" }}>{reviewLike}</span>
+                <button className="likeBtn" onClick={() => handleReviewLike()}>
+                  🖤
+                </button>
+              </div>
+              <div className="contentContainer" id="movieReview">
+                <span style={{marginTop:'20px', marginBottom:'10px', fontSize:'25px'}}>COMMENTS</span> 
+              </div>
+            <div className='commentContainer'>
               {singleComment &&
                 Array.isArray(singleComment) &&
                 singleComment.map((comment) => {
@@ -177,6 +175,14 @@ const MovieDetails = (props) => {
                   );
                 })}
             </div>
+          </div>
+
+          <div>
+            <br></br>
+          </div>
+
+          <section>
+            
             <div>
               <form onSubmit={handleSubmit}>
                 <label htmlFor="comment"></label>
@@ -185,9 +191,10 @@ const MovieDetails = (props) => {
                   id="comment"
                   value={formData.comment}
                   onChange={handleChange}
+                  style={{  width: '35vw'}}
                 />
                 <br />
-                <button type="submit">COMMENT</button>
+                <button type="submit" className="smallBtn">COMMENT</button>
               </form>
             </div>
             {createComment && (

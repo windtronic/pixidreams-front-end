@@ -8,8 +8,10 @@ const Login = () => {
     <div>
       <div className="pageContainer">
         <div className="body">
-        <div className='titleContainer'>
-          <div className="sectionTitle"><span>ABOUT</span></div></div>
+          <div className="sectionTitle">
+            <span>ABOUT</span>
+            </div>
+          </div>
 
           <div className='contentContainer'>
             <div id="homeBlurb" style={{textAlign: 'right'}}><br></br>
@@ -27,14 +29,13 @@ const Login = () => {
           <div className="sectionTitle"><span>LATEST</span></div>
 
           <div id="latestContainer" style={{marginBottom: '50px'}}>         {/* ONCLICK FUNCTION NEEDED */}
-              <div id='posterCard'><img className="latestPoster" alt="poster"></img></div> 
-              <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
-              <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
-              <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
-              <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
-              <div id='posterCard'><img className="latestPoster" alt="poster"></img></div>
+              <div id='posterCard'><img className="poster" alt="poster"></img></div> 
+              <div id='posterCard'><img className="poster" alt="poster"></img></div>
+              <div id='posterCard'><img className="poster" alt="poster"></img></div>
+              <div id='posterCard'><img className="poster" alt="poster"></img></div>
+              <div id='posterCard'><img className="poster" alt="poster"></img></div>
+              <div id='posterCard'><img className="poster" alt="poster"></img></div>
           </div>
-        </div>
       </div>
     </div>
   )
