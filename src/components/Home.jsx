@@ -51,10 +51,10 @@ const Home = ({ movieContent }) => {
             .map((movie, index) => (
               <div key={index} onClick={() => showDetails(movie.id)}>
                 <img
+                  id="latestPoster"
                   className="poster"
                   src={movie.image}
-                  alt="poster"
-                  id="latestPoster"
+                  alt="latestPoster"
                 ></img>
               </div>
             ))

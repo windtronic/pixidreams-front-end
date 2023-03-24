@@ -30,24 +30,23 @@ const Movies = () => {
           {movieContent.map((movie) => {
             return (
               <div className='contentContainer'>
-                <div className="sectionTitle">
+                <div className="sectionTitle" style={{marginTop: ".8vw"}}>
                   <span>{movie.title}</span>
                 </div>
                 <div id="resultsContainer">
                   <div>
                     <img src={movie.image} alt="poster" className="poster"/>
                   </div>
-                  
-                    <div className="movieSection">
-                      <div>
-                        <span style={{fontFamily:'comfortaa', fontSize:'14px', padding:'20px'}}>{movie.synopsis}</span>
-                      </div>
-                      <div>
-                        <button className="moreBtn" onClick={() => showMovie(movie)}>READ MORE!</button>
-                      </div>
+                  <div id="movieSection">
+                    <div className='blurbText'>
+                      <span>{movie.synopsis}</span>
+                    </div>
+                    <div>
+                      <button className="moreBtn" onClick={() => showMovie(movie)}>READ MORE!</button>
                     </div>
                   </div>
                 </div>
+              </div>
             );
           })}
         </section>

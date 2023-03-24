@@ -73,7 +73,7 @@
   /* justify-content: center; */
 }
 
-/* HOME PAGE ********************************************************/
+/****************************************** HOME PAGE ********************************************************/
 
 #homeBody{
   display: grid;
@@ -114,27 +114,18 @@
   margin-top: 2vh;
 }
 
-/* #posterCard{
-  background-color: #d9d9d9;
-  height: 340px;
-  width: 250px;
-  padding: 10px;
-} */
-
 .poster {
   background-color: #d9d9d9;
   width:100px;
-
 }
 
 #latestPoster{
   width:14vw;
   height: 17vw;
-
 }
 
 
-/* MOVIES  ******************************************************/
+/****************************************** MOVIES  ******************************************************/
 .pageTitle {
   font-size: 40px;
   padding-top: 20px;
@@ -146,23 +137,17 @@
   display: flex;
   padding-top: 1vw;
   border-bottom: 2px solid;
-
 }
 
-.movieSection{
-
-
-
-}
 .sectionTitle {
   background-color: #21997f;
   font-size: 24px;
   padding: 2px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 18px;
+  padding-right: 18px;
   display: flex;
-  justify-content: left;
-  margin-top: .8vw;
+  font-size: clamp(16px, 2vw, 26px);
+
 }
 
 .moreBtn {
@@ -187,9 +172,34 @@
 
 .moreBtn:active {
   transform: translateY(2px);
-
 }
 
+
+/****************************************** MOVIE DETAILS  ******************************************************/
+.blogWindow {
+  border: 2px solid;
+  padding-left: 70px;
+  padding-right: 70px;
+  border-radius: 12px;
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.2);
+  max-width: 750px;
+  margin-top: 50px;
+}
+.blurbText{
+  font-family: 'comfortaa';
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.sectionTitle{
+  margin-bottom: '10px';
+}
+
+.commentContainer{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
 
 
 /* NEWS PAGE **********************************************************/
@@ -334,9 +344,9 @@ textarea {
   padding:15px;
 }
 
-.blogPostImg{
-  width:20vw;
-  min-width: 300px;
+#blogPostImg{
+  width:15vw;
+  /* min-width: 200px; */
   /* height:55vh; */
 }
 
@@ -369,17 +379,7 @@ textarea {
   cursor: pointer;
 
 }
-.blogWindow {
-  border: 2px solid;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-top: 40px;
-  border-radius: 12px;
-  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.2);
-  width: 40vw;
-  max-width: 750px;
 
-}
 
 
 /* COLOR PALETTE
