@@ -17,8 +17,6 @@ const MovieDetails = (props) => {
     contentId: id,
   });
 
-  console.log(formData);
-
   useEffect(() => {
     const getSelectedMovie = async () => {
       if (props.movieContent && props.movieContent.length > 0) {
@@ -57,8 +55,11 @@ const MovieDetails = (props) => {
       }
       localStorage.setItem("likes", JSON.stringify(likesCopy));
       return likesCopy;
+      
     });
   }
+
+  console.log(likes)
 
   useEffect(() => {
     const storedLike = localStorage.getItem("reviewLike");
