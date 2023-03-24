@@ -26,41 +26,28 @@ const Movies = () => {
           <span>BLOG HISTORY</span>
         </div>
 
-        <section className="contentContainer" id="blogPostList">
+        <section id="blogPostList">
           {movieContent.map((movie) => {
             return (
-              <div id="resultsContainer">
-                <div>
-                  <img
-                    src={movie.image}
-                    alt="poster"
-                    style={{ width: "14vw", minWidth: "200px" }}
-                    id="posterCard"
-                  />
+              <div className='contentContainer'>
+                <div className="sectionTitle">
+                  <span>{movie.title}</span>
                 </div>
-
-                <div>
-                  {" "}
-                  {/* CONTAINS TITLE, SYNOPSIS & READMORE */}
-                  <div style={{ backgroundColor: "#21997f" }}>
-                    <span style={{ fontSize: "28px" }}>{movie.title}</span>
-                  </div>
+                <div id="resultsContainer">
                   <div>
-                    <div style={{ margin: "12px", fontSize: "20px" }}>
-                      <span>{movie.synopsis}</span>
+                    <img src={movie.image} alt="poster" className="poster"/>
+                  </div>
+                  
+                    <div className="movieSection">
+                      <div>
+                        <span style={{fontFamily:'comfortaa', fontSize:'14px', padding:'20px'}}>{movie.synopsis}</span>
+                      </div>
+                      <div>
+                        <button className="moreBtn" onClick={() => showMovie(movie)}>READ MORE!</button>
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <button
-                      className="moreBtn"
-                      style={{ justifyContent: "right" }}
-                      onClick={() => showMovie(movie)}
-                    >
-                      READ MORE!
-                    </button>
-                  </div>
                 </div>
-              </div>
             );
           })}
         </section>

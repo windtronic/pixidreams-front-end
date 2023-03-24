@@ -23,8 +23,8 @@ const Home = ({ movieContent }) => {
   };
   return (
     <div className="pageContainer">
-      <div className="body" id="homeBody">
-        <div className="welcomeContainer" style={{justifyContent:"right", marginTop: '40px'}}>
+      <div id="homeBody" className="body">
+        <div className="homeContainer" style={{justifyContent:"right", marginTop: '3vw'}}>
           <span className="homeTitle">ABOUT</span>
           <div>
             <img
@@ -35,12 +35,12 @@ const Home = ({ movieContent }) => {
           </div>
           <div id="homeBlurb">
             <h2>Welcome to PixiDreams, the go-to movie blog for all things animated!</h2>
-            <h3 style={{ marginBottom: "3vw", paddingLeft:"3vw" }}>
+            <h3 style={{ paddingLeft:"3vw" }}>
               From timeless classics to the latest box office hits, PixiDreams offers thoughtful and insightful reviews that delve into the storytelling, animation techniques, and themes that make each movie unique. <br></br><br></br>
               We believe that animation is more than just entertainment - it's an art form that has the power to inspire and captivate audiences of all ages. That's why we're dedicated to sharing our passion for animated movies with our readers, and keeping them up-to-date on the latest news and trends in the world of animation.
             </h3>
           </div>
-          <div className="welcomeContainer" style={{justifySelf: "center", justifyContent:"left"}}>
+          <div className="homeContainer" style={{ justifyContent:"left" }}>
             <span className="homeTitle">LATEST</span>
           </div>
         </div>
@@ -51,9 +51,10 @@ const Home = ({ movieContent }) => {
             .map((movie, index) => (
               <div key={index} onClick={() => showDetails(movie.id)}>
                 <img
-                  id="latestPoster"
+                  className="poster"
                   src={movie.image}
                   alt="poster"
+                  id="latestPoster"
                 ></img>
               </div>
             ))

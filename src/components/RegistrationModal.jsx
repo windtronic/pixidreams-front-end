@@ -44,7 +44,7 @@
 
 //       <div className="pageContainer">
 //         <div className="body">
-//           <div className='titleContainer'>
+//           <div>
 //             <div className="pageTitle"><span>SIGN UP</span>
 
 //             <div className="registrationContainer">

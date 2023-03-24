@@ -12,19 +12,19 @@ const About = () => {
 
             <div className="memberCard">
               <h2 className="sectionTitle"><span>TONI</span></h2>
-              <img id="memberImg" alt="toni-img" src="https://disneynews.us/wp-content/uploads/2019/11/Heihei-the-Rooster-moana-300x297.jpg"></img>
+              <img id="memberImg" alt="toni-img" src="https://i.imgur.com/dOCPrjt.jpg"></img>
               <h3 className="memberBlurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum, dui nec elementum auctor, elit sem sodales tortor, at bibendum ante nunc a quam. Pellentesque pharetraturpis ac nibh molestie, id semper tellus suscipit. Praesent in accumsan mauris. Duis vel dignissim neque. Proin iaculis luctus commodo. </h3>
             </div>
 
             <div className="memberCard">
               <h2 className="sectionTitle"><span>JASON</span></h2>
-              <img id="memberImg" alt="jason-img" src="https://disneynews.us/wp-content/uploads/2019/11/Heihei-the-Rooster-moana-300x297.jpg"></img>
+              <img id="memberImg" alt="jason-img" src="https://i.imgur.com/zI56yYp.jpg"></img>
               <h3 className="memberBlurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum, dui nec elementum auctor, elit sem sodales tortor, at bibendum ante nunc a quam. Pellentesque pharetraturpis ac nibh molestie, id semper tellus suscipit. Praesent in accumsan mauris. Duis vel dignissim neque. Proin iaculis luctus commodo. </h3>
             </div>
 
             <div className="memberCard">
               <h2 className="sectionTitle"><span>BEN</span></h2>
-              <img id="memberImg" alt="ben-img" src="https://disneynews.us/wp-content/uploads/2019/11/Heihei-the-Rooster-moana-300x297.jpg"></img>
+              <img id="memberImg" alt="ben-img" src="https://i.imgur.com/2bR8HmC.jpg"></img>
               <h3 className="memberBlurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum, dui nec elementum auctor, elit sem sodales tortor, at bibendum ante nunc a quam. Pellentesque pharetraturpis ac nibh molestie, id semper tellus suscipit. Praesent in accumsan mauris. Duis vel dignissim neque. Proin iaculis luctus commodo. </h3>
             </div>
 
