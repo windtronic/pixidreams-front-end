@@ -25,19 +25,21 @@ const Movies = () => {
         <div className="pageTitle">
           <span>BLOG HISTORY</span>
         </div>
-
         <section id="blogPostList">
+
           {movieContent.map((movie) => {
             return (
               <div className='contentContainer'>
                 <div className="sectionTitle" style={{marginTop: ".8vw"}}>
                   <span>{movie.title}</span>
                 </div>
+
                 <div id="resultsContainer">
                   <div>
                     <img src={movie.image} alt="poster" className="poster"/>
                   </div>
                   <div id="movieSection">
+                    
                     <div className='blurbText'>
                       <span>{movie.synopsis}</span>
                     </div>

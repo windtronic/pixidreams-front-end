@@ -93,7 +93,7 @@ const MovieDetails = (props) => {
       <div className="pageContainer">
         <div className="body">
 
-          <div className="blogWindow" id="blogPost">
+          <div id="blogPost" className="blogWindow">
             <div className="pageTitle">
               <span style={{ fontSize: "40px" }}>{movie.title}</span>
             </div>
@@ -104,8 +104,6 @@ const MovieDetails = (props) => {
                   id="blogPostImg"
                   src={movie.image}
                   alt="poster"
-                  // style={{ marginBottom:'10px'}}
-                  // className="poster"
                   />
                 <div className="contentContainer" id="movieReview">
                   <div>
@@ -115,19 +113,19 @@ const MovieDetails = (props) => {
                 </div>
               </div>
 
-            <div className="contentContainer" id="movieReview">
-              <span className="sectionTitle" style={{marginTop:'10px', marginBottom:'10px', borderTop:'none'}}>REVIEW</span> 
-              <span className="blurbText" style={{textAlign:'left', paddingLeft:'1px'}}>{movie.review}</span> 
-            </div>
-            <div style={{ borderBottom: '2px solid', paddingTop:'10px', paddingBottom:'10px'}}>
-              <span style={{ marginRight: "8px" }}>{reviewLike}</span>
-              <button className="likeBtn" onClick={() => handleReviewLike()}>
-                🖤
-              </button>
-            </div>
-            <div className="contentContainer" id="movieReview">
-              <span style={{marginTop:'20px', marginBottom:'10px', fontSize:'25px'}}>COMMENTS</span> 
-            </div>
+              <div className="contentContainer" id="movieReview">
+                <span className="sectionTitle" style={{marginTop:'10px', marginBottom:'10px', borderTop:'none'}}>REVIEW</span> 
+                <span className="blurbText" style={{textAlign:'left', paddingLeft:'1px'}}>{movie.review}</span> 
+              </div>
+              <div style={{ borderBottom: '2px solid', paddingTop:'10px', paddingBottom:'10px'}}>
+                <span style={{ marginRight: "8px" }}>{reviewLike}</span>
+                <button className="likeBtn" onClick={() => handleReviewLike()}>
+                  🖤
+                </button>
+              </div>
+              <div className="contentContainer" id="movieReview">
+                <span style={{marginTop:'20px', marginBottom:'10px', fontSize:'25px'}}>COMMENTS</span> 
+              </div>
             <div className='commentContainer'>
               {singleComment &&
                 Array.isArray(singleComment) &&
