@@ -68,7 +68,7 @@ const BlogUpdate = (props) => {
               className="formTextArea"
             /><br></br><br></br>
 
-            <button type="submit" className="btn-login" id="btn-create">
+            <button type="submit" className="selectBtn" id="btn-create">
               UPDATE
             </button>
 

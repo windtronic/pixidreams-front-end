@@ -24,7 +24,7 @@ const Home = ({ movieContent }) => {
   return (
     <div className="pageContainer">
       <div className="body" id="homeBody">
-        <div className="welcomeContainer" style={{justifySelf: "center", justifyContent:"right", marginTop: '40px'}}>
+        <div className="welcomeContainer" style={{justifyContent:"right", marginTop: '40px'}}>
           <span className="homeTitle">ABOUT</span>
           <div>
             <img
@@ -36,7 +36,7 @@ const Home = ({ movieContent }) => {
           <div id="homeBlurb">
             <h2>Welcome to PixiDreams, the go-to movie blog for all things animated!</h2>
             <h3 style={{ marginBottom: "3vw", paddingLeft:"3vw" }}>
-              From timeless classics to the latest box office hits, PixiDreams offers thoughtful and insightful reviews that delve into thestorytelling, animation techniques, and themes that make each movie unique. <br></br><br></br>
+              From timeless classics to the latest box office hits, PixiDreams offers thoughtful and insightful reviews that delve into the storytelling, animation techniques, and themes that make each movie unique. <br></br><br></br>
               We believe that animation is more than just entertainment - it's an art form that has the power to inspire and captivate audiences of all ages. That's why we're dedicated to sharing our passion for animated movies with our readers, and keeping them up-to-date on the latest news and trends in the world of animation.
             </h3>
           </div>

@@ -20,7 +20,7 @@ const WritersPortal = (props) => {
           <div className="pageTitle">WELCOME BLOGGER!</div>
           <div className="contentContainer">
             <Link to="/create">
-              <button className="btn-login" id="btn-create">
+              <button className="selectBtn" id="btn-create">
                 CREATE
               </button>
             </Link>
@@ -56,7 +56,7 @@ const WritersPortal = (props) => {
 
                       <div>
                         <button
-                          className="btn-login"
+                          className="selectBtn"
                           id="btn-create"
                           key={movie.id}
                           onClick={() => showMovie(movie)}
@@ -64,7 +64,7 @@ const WritersPortal = (props) => {
                           EDIT
                         </button>
                         <button
-                          className="btn-login"
+                          className="selectBtn"
                           id="btn-create"
                           onClick={() => props.handleDelete(movie.id)}
                         >

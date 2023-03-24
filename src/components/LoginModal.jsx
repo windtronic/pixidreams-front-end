@@ -60,7 +60,7 @@ export default function LoginModal() {
               // value={password}
               required
             />
-            <Link to="/WritersPortal"><button type="submit" className="btn-login">LOGIN</button></Link><br></br>
+            <Link to="/WritersPortal"><button type="submit" className="selectBtn">LOGIN</button></Link><br></br>
             <span id='toRegister'>Don't have an account? Sign up<button className="btn-register" ><Link to='/RegistrationModal'>here!</Link></button></span>
           </form>
         </div>
