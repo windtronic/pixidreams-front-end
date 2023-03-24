@@ -27,33 +27,33 @@ const News = () => {
   return (
     <div className="pageContainer">
       <div className="body">
-        <span className="pageTitle">
-          CHECK OUT THE LATEST IN ANIMATIONLAND!
-        </span>
+        <div className="pageTitle">
+          <span>CHECK OUT THE LATEST IN ANIMATIONLAND!</span>
+        </div>
+        <section id="newsFeed">
 
-        <section id="latestContainer" style={{ marginBottom: "50px" }}>
-          <div id="resultsContainer">
             {filterGenreId.map((movie, index) => {
               return (
-                <div key={index}>
-                  <section>
-                    <h2>{movie.title}</h2>
-                  </section>
-                  <section>
-                    {" "}
-                    <img
-                      id="posterCard"
-                      src={POSTER_URL + movie.poster_path}
-                      alt="poster"
-                      style={{ width: "20vw" }}
-                    />
-                  </section>
-                  <section
-                    id="newsBlurb"
-                    style={{ textAlign: "left", marginRight: "1vw" }}
-                  >
-                    {movie.overview}
-                  </section>
+                <div key={index} className='contentContainer'>
+                  <div className="sectionTitle" style={{marginTop: "1vw" }}>
+                    <span>{movie.title}</span>
+                  </div>
+
+                  <div id="resultsContainer" style={{ marginTop: ".2vw"}}>
+                    <div>
+                      <img
+                        className="poster"
+                        src={POSTER_URL + movie.poster_path}
+                        alt="newsPoster"
+                        style={{ width: "20vw" }}
+                      />
+                    </div>
+                    <div id="movieSection" style={{ textAlign: "left", marginRight: "1vw" }}>
+                      <div className='blurbText'>
+                        {movie.overview}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               );
             })}
@@ -63,7 +63,6 @@ const News = () => {
                 <button onClick={() => setPage(page + 1)}>Next</button>
               </div>
             )}
-          </div>
         </section>
       </div>
     </div>
