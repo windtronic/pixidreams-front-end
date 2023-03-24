@@ -225,6 +225,7 @@ const MovieDetails = (props) => {
           )}
         </section>
       </div>
+    </div>
   );
 };
 
