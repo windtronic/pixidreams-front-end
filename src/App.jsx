@@ -14,8 +14,7 @@ import LoginModal from "./components/LoginModal";
 import Footer from "./components/Footer";
 import BlogUpdate from "./components/BlogUpdate";
 import BlogCreate from "./components/BlogCreate";
-import RegistrationModal from "./components/RegistrationModal"
-
+import RegistrationModal from "./components/RegistrationModal";
 
 const App = () => {
   const [movieContent, setMovieContent] = useState([]);
@@ -67,11 +66,36 @@ const App = () => {
         <Route path="/" element={<Home movieContent={movieContent} />}></Route>
         <Route path="/About" element={<About />}></Route>
         <Route path="/Movies" element={<Movies />}></Route>
-        <Route path="/Movies/:id" element={<MovieDetails movieContent={movieContent} />} />
+        <Route
+          path="/Movies/:userId/:id"
+          element={<MovieDetails movieContent={movieContent} />}
+        />
         <Route path="/News" element={<News />}></Route>
-        <Route path="/WritersPortal" element={<WritersPortal movieContent={movieContent} handleDelete={handleDelete}/>}></Route>
-        <Route path="/WritersPortal/:id" element={<BlogUpdate movieContent={movieContent} updateBlog={updateBlog} handleSubmit={handleSubmit} handleChange={handleChange} formData={formData}/>}></Route>
-        <Route path="/Create" element={<BlogCreate />}></Route>
+        <Route
+          path="/WritersPortal"
+          element={
+            <WritersPortal
+              movieContent={movieContent}
+              handleDelete={handleDelete}
+            />
+          }
+        ></Route>
+        <Route
+          path="/WritersPortal/:id"
+          element={
+            <BlogUpdate
+              movieContent={movieContent}
+              updateBlog={updateBlog}
+              handleSubmit={handleSubmit}
+              handleChange={handleChange}
+              formData={formData}
+            />
+          }
+        ></Route>
+        <Route
+          path="/Create"
+          element={<BlogCreate movieContent={movieContent} />}
+        ></Route>
         <Route path="/LoginModal" element={<LoginModal />}></Route>
       </Routes>
       <Footer />
@@ -80,4 +104,3 @@ const App = () => {
 };
 
 export default App;
-

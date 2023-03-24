@@ -6,7 +6,7 @@ const Movies = () => {
   let navigate = useNavigate();
 
   const showMovie = (movie) => {
-    navigate(`${movie.id}`);
+    navigate(`${movie.userId}/${movie.id}`);
   };
   const [movieContent, setMovieContent] = useState([]);
 
@@ -20,52 +20,53 @@ const Movies = () => {
   }, []);
 
   return (
-    <div>
-      <div className="pageContainer">
-        <div className="body">
-          <span className="pageTitle">BLOG HISTORY</span>
-          <section className="contentContainer">
-            {movieContent.map((movie) => {
-              return (
-                <div id="blogHistory">
-                  <div style={{ marginRight: "20px" }}>
-                    <img
-                      src={movie.image}
-                      alt="poster"
-                      style={{ width: "14vw", minWidth: "200px" }}
-                    />
+    <div className="pageContainer">
+      <div className="body">
+        <div className="pageTitle">
+          <span>BLOG HISTORY</span>
+        </div>
+
+        <section className="contentContainer" id="blogPostList">
+          {movieContent.map((movie) => {
+            return (
+              <div id="resultsContainer">
+                <div>
+                  <img
+                    src={movie.image}
+                    alt="poster"
+                    style={{ width: "14vw", minWidth: "200px" }}
+                    id="posterCard"
+                  />
+                </div>
+
+                <div>
+                  {" "}
+                  {/* CONTAINS TITLE, SYNOPSIS & READMORE */}
+                  <div style={{ backgroundColor: "#21997f" }}>
+                    <span style={{ fontSize: "28px" }}>{movie.title}</span>
                   </div>
-
-                  <div>                                               {/* CONTAINS TITLE, SYNOPSIS & READMORE */}
-                    <div style={{ backgroundColor: "#21997f", }}>
-                      <span style={{ fontSize: "28px" }}>{movie.title}</span>
+                  <div>
+                    <div style={{ margin: "12px", fontSize: "20px" }}>
+                      <span>{movie.synopsis}</span>
                     </div>
-
-                    <div>
-                      <div style={{ margin: "12px", fontSize: "20px" }}>
-                        <span>{movie.synopsis}</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <button
-                        className="moreBtn"
-                        style={{ justifyContent: "right" }}
-                        onClick={() => showMovie(movie)}
-                      >
-                        READ MORE!
-                      </button>
-                    </div>
+                  </div>
+                  <div>
+                    <button
+                      className="moreBtn"
+                      style={{ justifyContent: "right" }}
+                      onClick={() => showMovie(movie)}
+                    >
+                      READ MORE!
+                    </button>
                   </div>
                 </div>
-              );
-            })}
-          </section>
-        </div>
+              </div>
+            );
+          })}
+        </section>
       </div>
     </div>
   );
 };
 
 export default Movies;
-

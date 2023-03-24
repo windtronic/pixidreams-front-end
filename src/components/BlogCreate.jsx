@@ -1,16 +1,20 @@
+
 import { useState } from "react";
 import Client from "../services/api";
 
 const BlogCreate = (props) => {
+  let id = 5;
   const [createBlog, setCreateBlog] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     synopsis: "",
     review: "",
     image: "",
+    user_id: id,
+    contentId: props.movieContent.id
   });
 
-  let id = 5;
+ 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -27,61 +31,73 @@ const BlogCreate = (props) => {
     <div className="pageContainer">
       <div className="body">
         <div className="pageTitle">
-            <span>CREATE NEW BLOG</span>
+          <span>CREATE NEW BLOG</span>
         </div>
 
-        <div className="blogCreate">
+        <div className="blogWindow">
           <form onSubmit={handleSubmit}>
-            <label htmlFor="title" className="homeTitle">TITLE</label> <br></br> <br></br>
+            <label htmlFor="title" className="homeTitle">
+              TITLE
+            </label>{" "}
+            <br></br> <br></br>
             <input
+              required
               type="text"
               id="title"
               name="title"
               value={formData.title}
               onChange={handleChange}
               className="formInput"
-            /><br></br><br></br>
-
+            />
+            <br></br>
+            <br></br>
             <label htmlFor="synopsis" className="homeTitle">
               SYNOPSIS
-            </label><br></br><br></br>
-
+            </label>
+            <br></br>
+            <br></br>
             <textarea
+              required
               id="synopsis"
               name="synopsis"
               value={formData.synopsis}
               onChange={handleChange}
               className="formTextArea"
-            /><br></br><br></br>
-
+            />
+            <br></br>
+            <br></br>
             <label htmlFor="review" className="homeTitle">
               REVIEW
-            </label><br></br><br></br>
-
+            </label>
+            <br></br>
+            <br></br>
             <textarea
+              required
               id="review"
               name="review"
               value={formData.review}
               onChange={handleChange}
               className="formTextArea"
-            /><br></br><br></br>
-
+            />
+            <br></br>
+            <br></br>
             <label htmlFor="image" className="homeTitle">
               IMAGE URL
-            </label><br></br><br></br>
-
+            </label>
+            <br></br>
+            <br></br>
             <textarea
+              required
               id="image"
               name="image"
               value={formData.image}
               onChange={handleChange}
               className="formTextArea"
-            /><br></br>
-
+            />
+            <br></br>
             <button className="btn-login" id="btn-create" type="submit">
               PUBLISH
             </button>
-
           </form>
           {createBlog && (
             <div>

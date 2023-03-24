@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import Client from "../services/api";
 
 const MovieDetails = (props) => {
-  const { id } = useParams();
-  const [movie, setMovie] = useState([]);
+  const { userId, id } = useParams();
+  const [movie, setMovie] = useState([null]);
   const [singleComment, setSingleComment] = useState([]);
   const [createComment, setCreateComment] = useState([]);
   const [likes, setLikes] = useState([]);
@@ -13,22 +13,21 @@ const MovieDetails = (props) => {
   const [formData, setFormData] = useState({
     comment: "",
     likes: 0,
-    userId: props.movieContent.userId,
+    userId: userId,
     contentId: id,
   });
 
   useEffect(() => {
     const getSelectedMovie = async () => {
-      if (props.movieContent && props.movieContent[id]) {
+      if (props.movieContent && props.movieContent.length > 0) {
         let selectedMovie = props.movieContent.find(
           (movie) => movie.id === parseInt(id)
         );
         setMovie(selectedMovie);
-        console.log(selectedMovie);
       }
     };
     getSelectedMovie();
-  }, [props.movieContent]);
+  }, [id, props.movieContent]);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -44,19 +43,34 @@ const MovieDetails = (props) => {
 
   function handleLikeClick(commentId) {
     setLikes((prevLikes) => {
-      const likesCopy = [...prevLikes];
-      const commentLikesIndex = likesCopy.findIndex(
-        (like) => like.commentId === commentId
+      const likesCopy = prevLikes.map((like) =>
+        like.commentId === commentId
+          ? { commentId, count: like.count + 1 }
+          : like
       );
-      if (commentLikesIndex === -1) {
+      if (!likesCopy.some((like) => like.commentId === commentId)) {
         likesCopy.push({ commentId, count: 1 });
-      } else {
-        likesCopy[commentLikesIndex].count++;
       }
       localStorage.setItem("likes", JSON.stringify(likesCopy));
       return likesCopy;
     });
   }
+
+  // function handleLikeClick(commentId) {
+  //   setLikes((prevLikes) => {
+  //     const likesCopy = [...prevLikes];
+  //     const commentLikesIndex = likesCopy.findIndex(
+  //       (like) => like.commentId === commentId
+  //     );
+  //     if (commentLikesIndex === -1) {
+  //       likesCopy.push({ commentId, count: 1 });
+  //     } else {
+  //       likesCopy[commentLikesIndex].count++;
+  //     }
+  //     localStorage.setItem("likes", JSON.stringify(likesCopy));
+  //     return likesCopy;
+  //   });
+  // }
 
   useEffect(() => {
     const storedLike = localStorage.getItem("reviewLike");
@@ -73,15 +87,17 @@ const MovieDetails = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await Client.post(`/api/comments/${id}`, formData);
+    const response = await Client.post(`/api/comments/${userId}`, formData);
+
     setSingleComment(response.data);
     displayComments();
     setFormData({ ...formData, comment: "" });
+
     console.log("Submitted comment:", singleComment);
   };
 
   const displayComments = async () => {
-    const response = await Client.get(`/api/comments/view/${id}`);
+    const response = await Client.get(`/api/comments/view/${userId}`);
     setSingleComment(response.data);
     setCreateComment(response.data);
   };
@@ -91,32 +107,49 @@ const MovieDetails = (props) => {
   }, [id]);
 
   return (
-    <div>
-      <div className="pageContainer">
-        <div className="body">
-          <span className="pageTitle">{movie.title}</span> <br></br>
-          <section id="contentContainer">
-            <div>
-              <span>Review: {movie.review}</span>
+    <div className="pageContainer">
+      <div className="body">
+        <div className="blogWindow" id="blogPost">
+          <div className="pageTitle">
+            <span style={{ fontSize: "40px" }}>{movie.title}</span>
+          </div>
+
+          <div className="contentContainer" id="movieInfo">
+            <div id="resultsContainer">
+              <div>
+                <img
+                  src={movie.image}
+                  alt="poster"
+                  // style={{ width: "14vw", minWidth: "200px" }}
+                  className="blogPostImg"
+                  id="posterCard"
+                />
+              </div>
+              <div>
+                <span>SYNOPSIS</span>
+                <br></br>
+                <span>{movie.synopsis}</span>
+              </div>
+            </div>
+
+            <div className="contentContainer" id="movieReview">
+              <span>REVIEW</span>
+              <br></br>
+              <span>{movie.review}</span>
               <br></br>
             </div>
-            <div>
-              <span>Likes: {reviewLike}</span>
-              <button onClick={() => handleReviewLike()}>Like</button>
-            </div>
-            <div>
-              <form onSubmit={handleSubmit}>
-                <label htmlFor="comment">Add Comment:</label>
-                <input
-                  type="text"
-                  id="comment"
-                  value={formData.comment}
-                  onChange={handleChange}
-                />
-                <br />
-                <button type="submit">Submit</button>
-              </form>
-            </div>
+          </div>
+
+          <div>
+            <span>LIKES</span>
+            <br></br>
+            <span style={{ marginRight: "8px" }}>{reviewLike}</span>
+            <button className="likeBtn" onClick={() => handleReviewLike()}>
+              🖤
+            </button>
+          </div>
+
+          <section>
             <div>
               {singleComment &&
                 Array.isArray(singleComment) &&
@@ -127,19 +160,35 @@ const MovieDetails = (props) => {
                   return (
                     <div key={comment.id}>
                       <div>
-                        <span>Comments: {comment.comment}</span>
+                        <span>{comment.comment}</span>
                       </div>
                       <div>
-                        <span>
-                          Likes: {commentLikes ? commentLikes.count : 0}
+                        <span style={{ marginRight: "8px" }}>
+                          {commentLikes ? commentLikes.count : 0}
                         </span>
-                        <button onClick={() => handleLikeClick(comment.id)}>
-                          Like
+                        <button
+                          className="likeBtn"
+                          onClick={() => handleLikeClick(comment.id)}
+                        >
+                          🖤
                         </button>
                       </div>
                     </div>
                   );
                 })}
+            </div>
+            <div>
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="comment"></label>
+                <input
+                  type="text"
+                  id="comment"
+                  value={formData.comment}
+                  onChange={handleChange}
+                />
+                <br />
+                <button type="submit">COMMENT</button>
+              </form>
             </div>
             {createComment && (
               <div>
