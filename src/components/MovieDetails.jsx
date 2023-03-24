@@ -24,7 +24,6 @@ const MovieDetails = (props) => {
           (movie) => movie.id === parseInt(id)
         );
         setMovie(selectedMovie);
-        console.log(selectedMovie);
       }
     };
     getSelectedMovie();
@@ -44,14 +43,13 @@ const MovieDetails = (props) => {
 
   function handleLikeClick(commentId) {
     setLikes((prevLikes) => {
-      const likesCopy = [...prevLikes];
-      const commentLikesIndex = likesCopy.findIndex(
-        (like) => like.commentId === commentId
+      const likesCopy = prevLikes.map((like) =>
+        like.commentId === commentId
+          ? { commentId, count: like.count + 1 }
+          : like
       );
-      if (commentLikesIndex === -1) {
+      if (!likesCopy.some((like) => like.commentId === commentId)) {
         likesCopy.push({ commentId, count: 1 });
-      } else {
-        likesCopy[commentLikesIndex].count++;
       }
       localStorage.setItem("likes", JSON.stringify(likesCopy));
       return likesCopy;
@@ -99,26 +97,24 @@ const MovieDetails = (props) => {
     <div className="pageContainer">
       <div className="body">
         <div className="blogWindow" id="blogPost">
-          <div className="blogTitle">
+          <div className="pageTitle">
             <span style={{ fontSize: "40px" }}>{movie.title}</span>
           </div>
 
-          <div
-            className="contentContainer"
-            id="movieInfo"
-            style={{ marginRight: "20px" }}
-          >
-            <div className="resultsContainer">
+          <div className="contentContainer" id="movieInfo">
+            <div id="resultsContainer">
               <div>
                 <img
                   src={movie.image}
                   alt="poster"
                   // style={{ width: "14vw", minWidth: "200px" }}
                   className="blogPostImg"
+                  id="posterCard"
                 />
               </div>
               <div>
                 <span>SYNOPSIS</span>
+                <br></br>
                 <span>{movie.synopsis}</span>
               </div>
             </div>
@@ -141,19 +137,6 @@ const MovieDetails = (props) => {
           </div>
 
           <section>
-            <div>
-              <form onSubmit={handleSubmit}>
-                <label htmlFor="comment">Add Comment:</label>
-                <input
-                  type="text"
-                  id="comment"
-                  value={formData.comment}
-                  onChange={handleChange}
-                />
-                <br />
-                <button type="submit">Submit</button>
-              </form>
-            </div>
             <div>
               {singleComment &&
                 Array.isArray(singleComment) &&
@@ -180,6 +163,19 @@ const MovieDetails = (props) => {
                     </div>
                   );
                 })}
+            </div>
+            <div>
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="comment"></label>
+                <input
+                  type="text"
+                  id="comment"
+                  value={formData.comment}
+                  onChange={handleChange}
+                />
+                <br />
+                <button type="submit">COMMENT</button>
+              </form>
             </div>
             {createComment && (
               <div>

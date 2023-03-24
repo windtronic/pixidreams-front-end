@@ -30,11 +30,12 @@ const Movies = () => {
           {movieContent.map((movie) => {
             return (
               <div id="resultsContainer">
-                <div style={{ marginRight: "20px" }}>
+                <div>
                   <img
                     src={movie.image}
                     alt="poster"
                     style={{ width: "14vw", minWidth: "200px" }}
+                    id="posterCard"
                   />
                 </div>
 
