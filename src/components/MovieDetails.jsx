@@ -53,24 +53,11 @@ const MovieDetails = (props) => {
       }
       localStorage.setItem("likes", JSON.stringify(likesCopy));
       return likesCopy;
+      
     });
   }
 
-  // function handleLikeClick(commentId) {
-  //   setLikes((prevLikes) => {
-  //     const likesCopy = [...prevLikes];
-  //     const commentLikesIndex = likesCopy.findIndex(
-  //       (like) => like.commentId === commentId
-  //     );
-  //     if (commentLikesIndex === -1) {
-  //       likesCopy.push({ commentId, count: 1 });
-  //     } else {
-  //       likesCopy[commentLikesIndex].count++;
-  //     }
-  //     localStorage.setItem("likes", JSON.stringify(likesCopy));
-  //     return likesCopy;
-  //   });
-  // }
+  console.log(likes)
 
   useEffect(() => {
     const storedLike = localStorage.getItem("reviewLike");
