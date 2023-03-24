@@ -1,30 +1,30 @@
 // import { useState } from "react";
 // import Client from "../services/api";
 
-// const RegistrationModal = () => {
+// const Registration = () => {
     
-//       const [modalState, setModalState] = useState("block")
-//       const hideModal = () => { setModalState('none')}
+// //       const [modalState, setModalState] = useState("block")
+// //       const hideModal = () => { setModalState('none')}
     
-//   const [newUser, setNewUser] = useState([]);
-//   const [formValues, setFormValues] = useState({
-//     username: "",
-//     email: "",
-//     password: "",
-//     confirmPassword: "",
-//   });
+// //   const [newUser, setNewUser] = useState([]);
+// //   const [formValues, setFormValues] = useState({
+// //     username: "",
+// //     email: "",
+// //     password: "",
+// //     confirmPassword: "",
+// //   });
 
 
-//   const handleChange = (e) => {
-//     setFormValues({ ...formValues, [e.target.name]: e.target.value });
-//   };
+// //   const handleChange = (e) => {
+// //     setFormValues({ ...formValues, [e.target.name]: e.target.value });
+// //   };
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     const response = await Client.post(`/api/*******/`, formValues);
-//     console.log(response.data.username);
-//     setNewUser(response.data);
-//   };
+// //   const handleSubmit = async (e) => {
+// //     e.preventDefault();
+// //     const response = await Client.post(`/api/*******/`, formValues);
+// //     console.log(response.data.username);
+// //     setNewUser(response.data);
+// //   };
 
 
 
@@ -55,7 +55,7 @@
 //                   id="username"
 //                   name="username"
 //                   value={formValues.username}
-//                   onChange={handleChange}
+//                 //   onChange={handleChange}
 //                 /><br></br>
 
 //                 <label htmlFor="email">EMAIL:</label>
@@ -63,7 +63,7 @@
 //                   id="email"
 //                   name="email"
 //                   value={formValues.email}
-//                   onChange={handleChange}
+//                 //   onChange={handleChange}
 //                 /><br></br>
 
 //                 <label htmlFor="password">PASSWORD:</label>
@@ -71,7 +71,7 @@
 //                   id="password"
 //                   name="password"
 //                   value={formValues.review}
-//                   onChange={handleChange}
+//                 //   onChange={handleChange}
 //                 /><br></br>
 
 //                 <label htmlFor="confPassword">CONFIRM PASSWORD:</label>
@@ -79,7 +79,8 @@
 //                 id="password"
 //                 name="confirmPassword"
 //                 value={formValues.confirmPassword}
-//                 onChange={handleChange} /><br></br>
+//                 // onChange={handleChange} 
+//                 /><br></br>
 
 //                 <button type="submit">REGISTER</button>
 //               </form>
@@ -101,4 +102,4 @@
 //   );
 // };
 
-// export default RegistrationModal;
+// export default Registration;

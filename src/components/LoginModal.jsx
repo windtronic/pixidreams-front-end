@@ -61,7 +61,10 @@ export default function LoginModal() {
               required
             />
             <Link to="/WritersPortal"><button type="submit" className="btnLarge">LOGIN</button></Link><br></br>
-            <span id='toRegister'>Don't have an account? Sign up<button className="btn-register" ><Link to='/RegistrationModal'>here!</Link></button></span>
+            
+            <span id='toRegister'>Don't have an account? Sign up
+              <button className="btn-register" >
+                <Link to='/Registration'>here!</Link></button></span>
           </form>
         </div>
       </div>

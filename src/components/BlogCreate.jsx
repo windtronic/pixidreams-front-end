@@ -34,11 +34,11 @@ const BlogCreate = (props) => {
           <span>CREATE NEW BLOG</span>
         </div>
 
-        <div className="blogWindow">
+        <div className="blogWindow" style={{paddingTop:'30px'}}>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="title" className="homeTitle">
+            <label htmlFor="title" className="homeTitle" style={{}}>
               TITLE
-            </label>{" "}
+            </label>
             <br></br> <br></br>
             <input
               required
@@ -51,9 +51,11 @@ const BlogCreate = (props) => {
             />
             <br></br>
             <br></br>
+            <div style={{justifyContent:'left'}}>
             <label htmlFor="synopsis" className="homeTitle">
               SYNOPSIS
             </label>
+            </div>
             <br></br>
             <br></br>
             <textarea
