@@ -53,11 +53,10 @@ const MovieDetails = (props) => {
       }
       localStorage.setItem("likes", JSON.stringify(likesCopy));
       return likesCopy;
-      
     });
   }
 
-  console.log(likes)
+  console.log(likes);
 
   useEffect(() => {
     const storedLike = localStorage.getItem("reviewLike");
@@ -225,7 +224,7 @@ const MovieDetails = (props) => {
           )}
         </section>
       </div>
-    // </div>
+    </div>
   );
 };
 
