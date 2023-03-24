@@ -205,7 +205,7 @@ const MovieDetails = (props) => {
           </section>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
