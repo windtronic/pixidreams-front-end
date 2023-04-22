@@ -23,6 +23,9 @@ Our blog will also provide pportunities for interactivity where visitors can com
 - [x] ... I want to be able to see a history of blog posts
 - [ ] ... I want to sign up for newsletters
 
+## Links
+- [Backend Repo Link](https://github.com/suntripper6/pixidreams-back-end)
+
 ## Component Hierarchy
 
 [<img src="https://i.imgur.com/OqLnR4m.jpg" />](https://www.figma.com/file/lnlyAWGKbSV793NsWlKu2O/PixiDreams-Component-Hierarchy-Diagram?node-id=0-1&t=Held0osazqkXi0xM-0)
